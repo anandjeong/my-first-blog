@@ -1,0 +1,514 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+
+	<title></title>
+	<meta charset="euc-kr" /> 	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    <script type="text/javascript" src="/m/js/common-sub_v1.03.js"></script>
+    <script type="text/javascript" src="/m/js/jquery-1.4.2.js"></script>  
+	<link rel="stylesheet"  href="/m/css/common.css" type="text/css" />
+	<script type="text/javascript">
+	<!--
+		$(function(){
+			$('#nStep').click(function(){
+				if(!$('#chk').is(':checked')){
+					$('#join_clause_txt').show(); return false;
+				}
+			});
+		});
+	//-->
+	</script>
+</head> 
+
+<body >
+
+<div id="wrap">
+
+<div id="side_wrap"> 
+    <!-- 로그인하면 /m/include/side_menu_login.asp 보여짐 -->
+    
+<script type="text/javascript">
+<!--
+	$(function(){
+		$('#logoutBtn').click(function(){
+			location.href="/m/mypage/logout.asp";
+		});
+	});
+//-->
+</script>
+<div class="both_left" id="tabmenusub" style="display:none">
+<div class="side_close">
+    <p><a href="javascript:toggleTabMenu('tabmenusub')"><img src="/m/images/sidemenu/side_close_btn.png" width="5%" alt="닫기"></a></p>
+</div>
+
+<div class="side_top">
+    <table>
+        <tr>
+            <td class="s_top_txt">보고타고에 오신걸 환영합니다!</td>
+        </tr>
+    </table>
+</div>
+
+<div class="m_login">
+    <table width="100%">
+        <tr>
+            <td width="50%"><a href="/m/mypage/login.asp"><img src="/m/images/sidemenu/side_login.gif" width="100%" alt="로그인"/></a></td>
+            <td width="50%"><a href="/m/mypage/join_step_01.asp"><img src="/m/images/sidemenu/side_join.gif" width="100%" alt="회원가입"/></a></td>
+        </tr>
+    </table>
+</div>
+
+<div class="s_menu_list">
+    <ul>
+        <li><a href="/m/mypage/my_com_deal_buy.asp"><img src="/m/images/sidemenu/side_menu_01.gif" width="100%" alt="내거래보기"></a></li> <!-- 기업회원일 경우 'my_com_deal.asp' 로 이동 -->
+        <li><a href="/m/carproduct/car_product_regi.asp"><img src="/m/images/sidemenu/side_menu_02.gif" width="100%" alt="자동차용품"></a></li>
+        <li><a href="/m/newcar/new_car_regi.asp"><img src="/m/images/sidemenu/side_menu_03.gif" width="100%" alt="신차"></a></li>
+        <li><a href="/m/carcenter/carcenter_regi.asp"><img src="/m/images/sidemenu/side_menu_04.gif" width="100%" alt="경정비"></a></li>
+        <li><a href="/m/oldcar/old_car_regi.asp"><img src="/m/images/sidemenu/side_menu_05.gif" width="100%" alt="중고차"></a></li>
+        <li><a href="/m/carinsu/car_insu_regi.asp"><img src="/m/images/sidemenu/side_menu_06.gif" width="100%" alt="자동차보험"></a></li>
+        <li><a href="/m/junkcar/junk_car_regi.asp"><img src="/m/images/sidemenu/side_menu_07.gif" width="100%" alt="폐차"></a></li>
+        <li><a href="/m/pickup/pickup_regi.asp"><img src="/m/images/sidemenu/side_menu_08.gif" width="100%" alt="픽업"></a></li>
+        <li><a href="/m/store/store_list.asp"><img src="/m/images/sidemenu/side_menu_10.gif" width="100%" alt="가까운업체보기"></a></li>
+    </ul>
+</div>
+
+</div>
+
+
+
+    
+</div>
+        
+<div id="header">
+    
+<div id="logo">
+    <span><a href="/m/main.asp"><img src="/m/images/top/logo.png" width="40%" alt="보고타고로고"></a></span>
+</div>
+<div id="side_m">
+    <a href="javascript:toggleTabMenu('tabmenusub')"><img src="/m/images/top/side_menu_btn.png" width='45%'/></a> 
+</div>
+
+
+
+
+</div>
+
+<div id="sub_title">
+    <p>회원가입(개인정보제공동의)</p>
+</div>
+
+<div id="mp_contents">
+    
+    <!-- 서비스이용약관 -->
+    <div id="join_s_clause">
+        <h1>◎ 서비스이용약관</h1>
+        <table>
+            <tr>
+                <td class="td_line_center">
+                   <textarea name="textarea" cols="100" rows="18" readonly="readonly" class="clause_frame">
+[기업회원] 이용약관 동의
+
+제1조(목적)
+본 약관은 보고타고 주식회사(이하 "회사")가 운영하는 "서비스"를 이용함에 있어 "회사"와 회원간의 이용조건 및 제반절차, 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 한다. 
+
+제2조(용어의 정의)
+이 약관에서 사용하는 용어의 정의는 아래와 같다.
+① "사이트"라 함은 회사가 서비스를 "회원"에게 제공하기 위하여 컴퓨터 등 정보통신설비를 이용하여 설정한 가상의 영업장 또는 회사가 운영하는 웹사이트 등의 서비스를 통칭하며, 통합된 회원 계정(아이디 및 비밀번호)을 이용하여 서비스를 제공받을 수 있는 아래의 사이트를 말한다.
+www.bogotago.co.kr
+② "서비스"라 함은 회사가 운영하는 사이트를 통해 기업(단체, 사업자)이 물품구매(유형, 무형)를 목적으로 등록하는 자료를 DB화하여 각각의 목적에 맞게 분류 가공, 집계하여 정보를 제공하는 서비스와 사이트에서 제공하는 모든 부대 서비스를 말한다. 
+③ "회원"이라 함은 자사의 서비스를 제공하는 목적으로 기업이 본 서비스를 이용하여 동 약관에 동의하고 "회사"와 이용계약을 체결하여 아이디를 부여 받은 "기업회원"을 말한다.
+④ "아이디"라 함은 회원의 식별과 회원의 서비스 이용을 위하여 회원이 선정하고 "회사"가 부여하는 문자와 숫자의 조합을 말한다. 
+⑤ "비밀번호"라 함은 "회사"의 서비스를 이용하려는 사람이 아이디를 부여 받은 자와 동일임을 확인하고 "회원"의 권익을 보호하기 위하여 "회원"이 선정한 문자와 숫자의 조합을 말한다. 
+
+제3조(약관의 명시와 개정)
+① "회사"는 이 약관의 내용과 상호, 영업소 소재지, 대표자의 성명, 사업자등록번호, 연락처 등을 이용자가 알 수 있도록 초기 화면에 게시하거나 기타의 방법으로 이용자에게 공지해야 한다. 
+② "회사"는 약관의 규제에 관한 법률, 전기통신 기본법, 전기통신 사업법, 정보통신망 이용촉진 및 정보보호 등에 관한 법률 등 관련법을 위배하지 않는 범위에서 이 약관을 개정할 수 있다. 
+③ "회사"가 약관을 개정할 경우 적용일자 및 개정사유를 명시하여 현행약관과 함께 그 개정약관의 적용일자 7일 전부터 적용일자 전일까지 공지한다. 단, "회원"의 권리, 의무에 중대한 영향을 주는 변경의 경우에는 적용일 30일 전부터 공지하도록 한다. 
+④ "회원"은 변경된 약관에 대해 거부할 권리가 있다. "회원"은 변경된 약관이 공지된 지 15일 이내에 거부의사를 표명할 수 있다. "회원"이 거부하는 경우 본 서비스 제공자인 "회사"는 15일의 기간을 정하여 "회원"에게 사전통지 후 당해 "회원"과의 계약을 해지할 수 있다. 만약, "회원"이 거부의사를 표시하지 않거나, 전항에 따라 시행일 이후에 "서비스"를 이용하는 경우에는 동의한 것으로 간주한다. 
+
+제4조(약관의 해석)
+① 이 약관에서 규정하지 않은 사항에 관해서는 약관의 규제에 관한 법률, 전기통신 기본법, 전기통신 사업법, 정보통신망 이용촉진 및 정보보호 등에 관한 법률 등의 관계법령에 따른다.
+② 각 사이트 및 서비스 이용약관이 있는 경우에는 서비스 이용약관이 우선한다.
+③ "회원"이 "회사"와 개별 계약을 체결하여 서비스를 이용 할 경우에는 개별 계약이 우선한다.
+
+제5조(이용계약의 성립)
+① "회사"의 서비스 이용계약(이하 "이용계약)은 서비스를 이용하고자 하는 자가 본 약관과 개인정보취급방침을 읽고 "동의" 또는 "확인" 버튼을 누른 경우 본 약관에 동의한 것으로 간주한다. 
+② 제1항 신청에 있어 "회사"는 "회원"의 종류에 따라 전문기관을 통한 실명확인 및 본인인증을 요청할 수 있다. "회원"은 본인인증에 필요한 이름. 생년월일. 연락처 등을 제공하여야 한다. 또한 서비스이용을 위해 회사명과 사업자등록번호를 제공하여야 하며 "회사"는 기업인증을 위해 사업자정보를 확인할 수 있는 증명서(사업자등록증)를 별도로 요구할 수 있다. 회사명과 사업자등록번호를 허위로 등록한 경우, 휴·폐업 사업자등록번호로 등록한 경우에 "회원"은 일체의 권리를 주장할 수 없다.
+③ 이용신청자가 이용신청(회원가입 신청)작성 후에 "회사"가 웹 상의 안내 및 문자전송으로 "회원"에게 통지함으로써 이용계약이 성립된다. 
+④ 사업자등록번호가 없는 기관이나 단체 또는 개인영업자는 "회사"가 정한 별도의 절차에 따라 이용계약을 할 수 있다. 
+
+제6조(이용신청의 승낙과 제한)
+1  "회사"는 전조의 규정에 의한 이용신청 고객에 대하여 업무수행상 기술상 지장이 없는 경우에는 원칙적으로 접수순서에 따라 서비스 이용을 승낙한다. 
+2 "회사"는 아래 사항에 해당하는 경우에 대해서는 이용신청을 승낙하지 아니한다. 
+1) 실제 회사명과 사업자등록번호가 아니거나 타사의 정보를 이용하여 신청한 경우
+2) 이용계약 신청서의 내용을 허위로 기재하거나 "회사"가 제시하는 내용을 기재하지 않은 경우
+3) 이용자의 귀책사유로 인하여 승인이 불가능하거나 기타 규정한 제반 사항을 위반하며 신청하는 경우
+3  "회사"는 아래 사항에 해당하는 경우에는 그 신청에 대한 승낙제한 사유가 해소될 때까지 승낙을 유보할 수 있다.
+1) "회사"가 설비의 여유가 없는 경우
+2) "회사"의 기술상 지장이 있는 경우
+3) 기타 "회사"의 귀책사유로 이용승낙이 곤란한 경우
+
+제7조(서비스의 내용)
+① "회사"는 제2조 2항의 서비스를 제공할 수 있으며 그 내용은 다음 각 호와 같다.
+1) 중고차 물품 등록 서비스(중고차 매물 올리는 게시판 이용)
+2) "회원"제공의 서비스내용등록 및 서비스단가등록 
+3) "일반회원" 등록의 서비스요청 내용 열람 
+4) 이용자간의 교류와 소통과 관련된 서비스
+5) 자료 및 거래에 관련된 내용 확인 및 수정 
+② "회사"는 필요한 경우 서비스 내용을 추가 또는 변경할 수 있다. 단, 이 경우 "회사"는 추가 또는 변경내용을 "회원"에게 공지해야 한다. 
+
+제8조("회원"정보, 서비스 내용등록, 서비스 요청사항 검색)
+①  "회원"은 서비스를 원하는 개인회원의 서비스요청 내용을 열람한 후 해당 기업에 대한 판단을 돕기 위해 기업정보를 정확하게 기재해야 한다. 
+② "회원"은 거짓광고 및 허위광고를 하지 않도록 서비스에 대한 내용에 대해 명확히 기재 및 등록해야 하며, 그 내용은 다음과 같다. 
+1) 서비스 제공을 가장한 물품판매, 개인고객의 정보 수집 등의 행위
+2) 개인고객의 정보 수집만을 위하여 "회원"의 업체명 또는 성명을 표기하지 아니하는 행위
+3) 개인고객에게 제시한 서비스내용과 실제 서비스내용이 현저히 다르게 제공하는 행위
+4) 기타 중요내용이 사실과 다른 서비스내용 게시
+3  "회원"은 관련법률에 의거하여 서비스를 요청하는 개인고객의 모집에 있어서 남녀, 연령을 차별하여서는 아니 되며 19세 미만에 대한 서비스 시행제공을 할 수 없다.
+4 제2항, 제3항을 위반한 경우 이에 대한 책임은 전적으로 "회원"에게 있다.
+5 "회사"는 "회원"이 등록한 기업정보 및 서비스내용 개시를 "회사"가 정한 방법에 의해 노출할 수 있다. 
+6 "회원"은 서비스제공 목적으로 유·무료로 개인회원이 등록한 서비스 요청내용을 검색할 수 있으며 "회원"은 "회사"가 제시하는 별도의 커뮤니케이션을 통하여 개인회원에게 연락을 취할 수 있다. 단, 서비스 요청자의 연락처 및 열람 및 연락의 목적은 서비스제공 활동에 국한되어야 하며, 기업의 영업·마케팅·제3자 제공 시에는 개인정보보호법, 정보통신망이용촉진 및 정보보호 등에 관한 법률에 의거하여 법적 책임을 질 수 있다. 
+7 "회원"이 제2조 제3항에 따라 자사의 서비스 제공목적으로 하지 않는 기타 내용의 목적으로 서비스 제공 내용을 등록할 경우 "회사"는 해당 서비스 내용 게시 글을 삭제할 수 있으며 "기업회원"의 자격을 제한할 수 있다. 
+
+제9조(서비스의 요금)
+1  "회원"가입과 서비스제공내용 등록비용은 무료이다. 다만 개인회원 또는 사이트에 방문한 회원에게 자신의 정보를 보다 효과적으로 노출시키기 위한 유료옵션과 즉시등록 서비스 (중고차 매물등록 등), 유료 이력서 검색 및 기타 서비스를 이용하기 위한 별도의 서비스는 유료로 제공될 수 있다.
+2 "회사"는 유료서비스를 제공할 경우 사이트 내에 요금에 대해서 공지를 하여야 한다.
+3 "회사"는 유료서비스 이용금액을 서비스의 종류 및 기간에 따라 "회사"가 예고 없이 변경할 수 있다. 다만, 변경 이전에 적용 또는 계약한 금액은 소급하여 적용하지 아니한다.
+4 유료 서비스 신청 후 "회원" 사정에 의해 서비스가 취소될 경우, 정부가 고시하는 ‘콘텐츠 이용자 보호지침’에 따라 "회사"는 본 지침이 제시하는 범위 내에서 환불 수수료를 부과할 수 있다. 
+
+제11조(포인트 규정)
+① 포인트는 "회사"가 정한 결제수단을 이용하여 미리 입금해 둔 금액으로 "일반회원"의 승인으로인한 연락처 공개시 사용된다. "회원"은 이러한 사항을 인지하고 영업활동을 위한 서비스 제공을 "일반고객"에게 제시할 때는 미리 포인트를 적립하여야 한다.
+② 포인트는 "회사"에서 영업실적 또는 "회원"의 실적에 따라서 무상으로 지급되는 그린포인트와 실제 현금 또는 신용카드를 통하여 입금 처리하는 골드포인트로 나누어 처리한다. 
+③ 일반고객의 승인으로 인하여 포인트가 차감되는 경우, 우선적으로 그린포인트가 차감되고, 그린포인트가 부족한 경우 골드포인트가 차감된다.
+④ 그린포인트는 환불이 불가능하며, 해당 포인트로는 서비스 제공 게시 및 일반회원의 승인 하에 차감되는 서비스이용요금으로만 활용이 가능하다. 단, 골드포인트는 환불이 가능하다. 골드포인트로 차감된 후 일반회원의 변심 또는 서비스 불만으로 취소 된 경우에는 그린포인트로 환불되어 영업활동(서비스 및 가격제시)으로만 사용 사용할 수 있다.
+⑤ "회원"의 서비스가 중지된 경우(허위등록 및 제 3자의 "회원"에게 피해를 입히는 경우 등을 말함) 포인트 금액은 전액 자동 소멸되어 복구되지 않는다.
+⑥ "회원"인 개인사업자와 법인사업자는 휴·폐업 여부가 회사가 정한 별도의 절차에 따라 확인된 경우 적립된 포인트 금액은 제11조 4항에 따라 처리한다. 
+⑦ "회원" 최초 가입시에 지급하는 그린포인트는, 탈퇴 후 재가입할 경우 같은 사업자라고 판단되는 경우, 중복하여 지급하지 아니한다.
+8  서비스 운영정책에 따라 포인트 규정은 달라질 수 있으며, 이에 대한 사항은 서비스 화면에 게시하거나 공지한다. 
+9 "회원"은 "회사"에 잔여 포인트의 환불을 요청할 수 있으며, "회사"는 "회원"에게 환불에 필요한 서류를 요청할 수 있다. 환불 시 환불수수료를 공제하고 환불 할 수 있으며, 포인트 충전방법에 따라 금융비용이 환불수수료를 초과하여 발생할 경우 이는 "회원"의 부담으로 한다.
+10 잔여 포인트 중 충전일로부터 5년이 초과할 때까지 이용하지 않은 금액은 상사소멸시효에 따라 소멸된다. 
+11 회원탈퇴 시 보유중인 충전금은 환불을 요청할 수 있으며, 이와 같은 절차 없이 회원 탈퇴한 경우 충전금은 전액 자동 소멸되어 복구되지 않는다. 
+
+제11조(서비스 이용시간)
+① "회사"는 특별한 사유가 없는 한 연중무휴, 1일 24시간 서비스를 제공한다. 다만 "회사"는 서비스의 종류나 성질에 따라 제공하는 서비스 중 일부에 대해서는 별도로 이용시간을 정할 수 있으며, 이 경우 "회사"는 그 이용시간을 사전에 "회원"에게 공지 또는 통지하여야 한다. 
+② "회사"는 자료의 가공과 갱신을 위한 시스템 작업시간, 장애해결을 위한 보수작업 시간, 정기 PM작업, 시스템 교체작업, 회선 장애 등이 발생한 경우 일시적으로 서비스를 중단할 수 있으며 계획된 작업의 경우 공지란에 서비스 중단 시간과 작업 내용을 알려야 한다. 다만, "회사"가 사전에 통지할 수 없는 부득이한 사유가 있는 경우 사후에 통지할 수 있다. 
+
+제12조(서비스 제공의 중지)
+1) "회사"는 다음 각 호에 해당하는 경우 서비스의 제공을 중지할 수 있다. 
+① 설비의 보수 등 "회사"의 필요에 의해 사전에 "회원"들에게 통지한 경우
+2  기간 통신사업자가 전기통신서비스 제공을 중지하는 경우
+3 기타 불가항력적인 사유에 의해 서비스 제공이 객관적으로 불가능한 경우
+2) 전항의 경우, "회사"는 기간의 정함이 이 있는 유료서비스 이용자들에게는 그 이용기간을 연장하거나, 그린포인트로의 환불 등의 방법으로 손실을 보상하여야 한다. 
+3) "회원"인 개인사업자와 법인사업자의 휴·폐업 여부가 회사가 정한 별도의 절차에 따라 확인된 경우 유료 서비스 이용(중고차 매물등록)의 경우 등록된 건수는 모두 소멸(삭제)된다.
+
+제13조(정보의 제공 및 광고의 게재)
+① "회사"는 "회원"에게 서비스 이용에 필요가 있다고 인정되거나 서비스 개선 및 회원대상의 서비스 소개 등의 목적으로 하는 각종 정보에 대해서 전자우편이나 서신우편을 이용한 방법으로 제공할 수 있다. 
+② "회사"는 제공하는 서비스와 관련되는 정보 또는 광고를 서비스 화면, 홈페이지, 전자우편 등에 게재할 수 있으며, 광고가 게재된 전자우편을 수신한 "회원"은 수신거절을 "회원"에게 할 수 있다. 
+③ "회사"는 서비스상에 게재되어 있거나 본 서비스를 통한 광고주의 판촉활동에 "회원"이 참여하거나 교신 또는 거래를 함으로써 발생하는 모든 손실과 손해에 대해 책임을 지지 않는다. 
+④ 본 서비스의 "회원"은 서비스 이용 시 노출되는 광고게재에 대해 동의 하는 것으로 간주한다. 
+
+제14조(자료내용의 책임과 "회사"의 정보 수정권한)
+1  자료내용은 "회원"이 등록한 서비스 제공내용 및 서비스 제안금액을 사이트에 게시한 게시물을 말한다. 
+2 "회원"은 자료 내용 및 게시물을 사실에 근거하여 성실하게 작성해야 하며, 만일 자료의 내용이 사실이 아니거나 부정확하게 작성되어 발생하는 모든 책임은 "회원"에게 있다.
+3 모든 자료내용의 관리와 작성은 "회원" 본인이 하는 것이 원칙이나 사정상 위탁 또는 대행관리를 하더라도 자료내용의 책임은 "회원"에게 있으며 "회원"은 주기적으로 자신의 자료를 확인하여 항상 정확하게 관리가 되도록 노력해야 한다.  
+4 "회사"는 "회원"이 등록한 자료 내용에 오자, 탈자 또는 사회적 통념에 어긋나는 문구와 내용이 있을 경우 이를 언제든지 수정할 수 있다. 
+
+제15조(자료 내용의 활용 및 취급)
+1) "회원"이 입력한 정보는 서비스제공 내용은 동향의 통계 자료로 활용될 수 있으며 그 자료는 매체를 통해 언론에 배포 될 수 있다. 
+2) "사이트"에서 정당한 절차를 거쳐 열람한 개인회원의 개인정보는 해당 "회원"의 보유자료가 되며 이에 대한 관리 권한은 해당 "회원"의 정책에 의한다. 
+3) "회사"는 "사이트"의 서비스 이용 요청을 통해 등록되는 개인회원의 요청사항 내용의 열람 및 "회원"이 제공하는 서비스의 구체적인 내용들에 대해 각종 통계데이터를 개인회원에게 제공할 수 있다.
+
+제16조("회사"의 의무)
+1) "회사"는 본 약관에서 정한 바에 따라 계속적, 안정적으로 서비스를 제공할 수 있도록 최선의 노력을 다해야 한다. 
+2) "회사"는 서비스와 관련한 "회원"의 불만사항이 접수되는 경우 이를 즉시 처리하여야 하며, 즉시 처리가 곤란한 경우에는 그 사유와 처리일정을 서비스 화면 또는 기타 방법을 통해 동 "회원"에게 통지하여야 한다. 
+3) 천재지변 등 예측하지 못한 일이 발생하거나 시스템 장애가 발생하여 서비스가 중단될 경우 이에 대한 손해에 대해서는 "회사"가 책임을 지지 않는다. 다만 자료의 복구나 정상적인 서비스 지원이 되도록 최선을 다할 의무를 진다. 
+4) "회원"의 자료를 본 서비스 이외의 목적으로 제3자에게 제공하거나 열람시킬 경우 반드시 "회원"의 동의를 얻어야 한다. 
+5) "회원"이 "사이트"에 등록한 기업정보, 서비스 내용 등은 사이트를 방문하는 일반 대중에게 공개함을 원칙으로 한다. 
+
+제17조("회원"의 의무)
+1) "회원"은 관계법령과 본 약관의 규정 및 기타 "회사"가 통지하는 사항을 준수하여야 하며, 기타 "회사"의 업무에 방해되는 행위를 해서는 안 된다. 
+2) "회원"이 결제한 수단으로 신용카드를 사용할 경우 비밀번호 등 정보 유실 방지는 "회원" 스스로 관리해야 한다. 단, "사이트"의 결함에 다른 정보유실의 발생에 대한 책임은 회원의 의무에 해당하지 아니한다. 
+3) "회원"은 서비스를 이용하여 얻은 정보를 "회사"의 사전동의 없이 복사, 복제, 번역, 출판, 방송 기타의 방법으로 사용하거나 이를 타인에게 제공할 수 없다. 
+4) "회원"은 본 서비스를 건전한 서비스 제공 이외의 목적으로 사용해서는 안되며 이용 중 다음 각 호의 행위를 해서는 안 된다.
+ ① 다른 회원이 아이디를 부정 사용하는 행위
+ ② 범죄행위를 목적으로 하거나 기타 범죄행위와 관련된 행위
+ ③ 타인의 명예를 훼손하거나 모욕하는 행위
+ ④ 타인의 지적재산권 등의 권리를 침해하는 행위
+ ⑤ 해킹행위 또는 바이러스의 유포 행위
+ ⑥ 타인의 의사에 반하는 광고성 정보 등 일정한 내용을 계속적으로 전송하는 행위
+ ⑦ 서비스의 안정적인 운영에 지장을 주거나 줄 우려가 있다고 판단되는 행위
+ ⑧ 사이트의 정보 및 서비스를 이용한 영리 행위
+ ⑨ 그 밖에 선량한 풍속, 기타 사회질서를 해하거나 관계법령에 위반하는 행위
+5) "회원"은 "사이트"를 통해 열람한 서비스요청 사항의 정보를 "회사" 및 당사자의 허락 없이 재 배포할 수 없으며 정보에 대한 출력 및 복사 등의 관리 책임은 전적으로 "회원"에게 있다.
+
+제18조("회원"의 가입해지/서비스중지/자료삭제)
+1) "회원"은 언제든지 회원탈퇴 또는 서비스내용 등록을 해지하기 위해 고객센터 또는 회원탈퇴 메뉴 등을 통하여 이용계약 해지 신청을 할 수 있으며, "회사"는 관련법 등이 정하는 바에 따라 이를 처리한다. 
+2) 다음의 사항에 해당하는 경우 "회사"는 사전 동의 없이 가입해지나 서비스 중지, 서비스 내용 등록 글에 대한 삭제 조치를 취할 수 있다. 
+1. 회원의 의무를 성실하게 이행하지 않았을 때
+2. 규정한 유료서비스 이용요금을 납부하지 않았을 때
+3. 불순한 의도로 유료서비스를 반복적으로 결제/취소할 때
+4. 본 서비스 목적에 맞지 않는 분야에 정보를 활용하여 사회적 물의가 발생한 때
+5. 회원이 등록한 정보의 내용이 사실과 다르거나 조작되었을 때
+6. 사업자등록증에 나타난 정보와 기업회원 가입시의 정보가 일치하지 않을 때
+7. 타 기업의 사업자등록번호나 상호를 도용하여 허위로 기업정보를 등록하거나 휴·폐업 사업자등록번호로 기업정보를 등록했을 때
+8. 지사, 지점, 영업소 등의 경우 구체적인 지사, 지점, 영업소 명칭을 사용하지 않고 기업명을 등록했거나 지사, 지점, 영업소의 사업자등록번호가 별도 있음에도 불구하고 본사의 사업자등록번호로 기업정보를 등록했을 때
+9. 회사명, 담당자 성명, 사무실 연락처 등 기업의 중요 정보를 정확하게 가입하지 않았을 때
+10. 기업회원 가입 또는 서비스 내용 등록 시 본 서비스에 안내하는 방법으로 가입하지 않았거나 등록하지 않았을 때
+11. 동일 회원 ID로 마감일이 지나지 않은 사실상의 동일 내용의 서비스 내용을 중복으로 등록했을 때
+12. 동일 사업자가 마감일이 지나지 않은 사실상의 동일내용의 서비스 내용을 다수 ID를 사용하여 중복등록 했을 때
+13. 허위 서비스 내용을 등록했을 때
+14. 작성자가 제시한 서비스 내용, 서비스 단가, 품목 등이 실제와 현저히 다를 때
+15. 기재한 서비스내용이 불명확하고 일반회원이 충분히 다른 서비스내용으로 충분히 오해하도록 작성했을 때
+16. 제2조 제3항의 예외 기준에 따라 가입된 "기업회원"이 아닌 "회원"이 자사의 직접 서비스 제공의 목적으로 하지 않는 아웃소싱 또는 중개를 주 목적으로 사업을 수행하는 업체인 경우
+17. 다단계, 피라미드 등의 목적으로 개인정보를 취득하고자 할 때
+18. 서비스 제공을 가장하여 자금모금 및 요청서비스와 다른 물품판매 등의 행위의 내용을 등록했을 때
+19. 회원모집 형태의 광고 또는 카드회원 모집내용을 등록했을 때
+20. 일반고객의 서비스 내용과 전혀 무관한 서비스 내용을 등록 또는 광고 및 홍보를 할 때
+21. 불건전한 내용의 서비스 내용을 등록했을 때
+22. 일반회원의 피해사례가 발생 되도록 만든 "회원"임이 확인 된 때 ("기업회원"이 관계법령을 위반하여 피해가 발생한 경우 등)
+23. 서비스 불량 등의 내용으로 진정서가 접수되거나, 관계 당국에 고소·고발되어 잇는 기업이 확인 될 때
+24. 본 서비스 명예를 훼손하였을 때
+25. 기타 관계법규에 위배되는 내용이거나 사이트의 원활한 운영을 위하여 운영자가 필요하다고 판단될 때
+3) "회원"이 유로서비스를 이용하는 중 "회사"의 책임에 의해 정상적인 서비스가 제공되지 않을 경우 "회원"은 본 서비스의 해지를 요청할 수 있으며, 미 사용분의 포인트금액은 환불을 요청할 수 있다. (단, 그린포인트는 환불되지 않으며 소멸된다)
+4) "회원"인 개인사업자가 법인사업자의 휴·폐업 여부가 회사가 정한 별도의 절차에 따라 확인된 경우 서비스 등록 내용은 모두 소멸될 수 있다.
+5) "회사"는 회원 가입이 해지된 경우 해당 회원 정보를 모두 삭제하여야 하며, 상법, 전자상거래 등에서의 소비자보호에 관한 법률 등 관계법령의 규정에 의하여 보존할 필요가 있는 경우 관계법령에서 정한 일정한 기간 동안 회원정보를 보관한다. 
+6) 개인정보보호를 위하여 "회원"이 1년 동안 "사이트"를 이용하지 않는 경우, "아이디"를 "휴면계정"로 분리하여 해당 계정의 이용을 중지할 수 있다. 이 경우 "회사"는 "휴면계정 처리 예정일"로부터 30일 이전에 해당사실을 전자메일, 서면, SMS중 하나의 방법으로 사전통지하며 "회원"이 직접 본인확인을 거쳐, 다시 "사이트" 이용 의사표시를 한 경우에는 "사이트" 이용이 가능하다. 
+
+제19조(허위 서비스제공 경고)
+허위 서비스 내용으로 인해 발생된 문제에 따른 법적인 책임은 모두 작성자에게 있으며, 서비스 제공 게재시에 지불된 포인트 금액은 일체 반환되지 않는다. 허위 서비스 내용 게시 또는 허위 서비스 금액을 제시한 자는 해당 법령에 다른 벌금 도는 징역에 처할 수 있다. 
+
+제20조(손해배상)
+1) "회사"가 이 약관의 제7조, 제16조, 제18조 등의 규정에 위반한 행위로 "회원"에게 손해를 입히거나 기타 "회사"가 제공하는 모든 서비스와 관련하여 "회사"의 책임 있는 사유로 인해 "회원"에게 손해가 발생한 경우 "회사"는 그 손해를 배상하여야 한다.
+2) "회사"는 책임 있는 사유로 제공한 정보가 사실과 달라 "회원"이 손해를 입었을 경우에 "회사"는 그 손해를 배상하여야 한다. 
+3) "회원"이 이 약관의 제5조, 제17조, 제18조, 제19조 등의 규정에 위반한 행위로 "회사" 및 제 3자에게 손해를 입히거나 "회원"의 책임 있는 사유에 의해 "회사" 및 제 3자에게 손해를 입힌 경우에는 "회원"은 그 손해를 배상하여야 한다. 
+4) 타 회원(개인회원, 기업회원)의 귀책사유로 "회원"의 손해가 발생한 경우 "회사"는 이에 대한 배상책임이 없다. 
+
+제21조(이용요금 오류의 조정)
+"회사"는 이용요금과 관련하여 오류가 있는 경우에 "회원"의 요청, 또는 "회사"의 사전 통지에 의하여 다음에 해당하는 조치를 취한다. 
+1) 과다 납입한 요금에 대하여는 그 금액을 반환한다. 다만, "회원"이 동의할 경우 다음 달에 청구할 요금에서 해당 금액만큼을 감하여 청구한다. 
+2) 요금을 반환 받아야 할 "회원"이 요금체납이 있는 경우에는 반환해야 할 요금에서 이를 우선 공제하고 반환한다. 
+3) "회사"는 과소청구액에 대해서는 익월에 합산 청구한다. 
+
+제22조("회원"의 개인정보보호)
+"회사"는 "회원"의 개인정보보호를 위하여 노력해야 한다. "회원"의 개인정보보호에 관해서는 정보통신망 이용촉진 및 정보보호 등에 관한 법률, 개인정보보호법에 따르고, "사이트"에 "개인정보취급방침"을 고지한다. 
+
+제23조(신용정보의 제공활동 동의)
+1) "회사"가 회원가입과 관련하여 취득한 "회원"의 신용정보를 타인에게 제공하거나 활용하고자 할 때에는 신용정보의 이용 및 보호에 관한 법률 제23조 규정에 따라 사전에 그 사유 및 해당 기관 또는 업체명 등을 밝히고 해당 "회원"의 동의를 얻어야 한다. 
+2) 본 서비스와 관련하여 "회사"가 "회원"으로부터 신용정보의 이용 및 보호에 관한 법률에 따라 타인에게 제공 활용에 동의를 얻은 경우 "회원"은 "회사"가 신용정보 사업자 또는 신용정보 집중기관에 정보를 제공하여 "회원"의 신용을 판단하기 위한 자료로 활용하거나, 공공기관에서 정책자료로 활동되도록 정보를 제공하는 데 동의한 것으로 간주한다. 
+
+제24조(분쟁의 해결)
+1) "회사"와 "회원"은 서비스와 관련하여 발생한 분쟁을 원만하게 해결하기 위하여 필요한 모든 노력을 하여야 한다. 
+2) 전항의 노력에도 불구하고, 동 분쟁에 관한 소송은 "회사"의 주소지 관할법원으로 한다. 
+
+부칙
+이 약관은 2016년 5월 1일부터 시행한다. 
+
+			    </textarea>   
+                </td>            
+            </tr>
+        </table>
+    </div> 
+   
+    
+    <!-- 개인정보취급방침 -->
+    <div id="join_p_clause">
+        <h1>◎ 개인정보취급방침</h1>
+        <table>
+            <tr>
+                <td class="td_line_center">
+                   <textarea name="textarea" cols="100" rows="18" readonly="readonly" class="clause_frame">
+[기업회원 : 개인정보의 수집 및 이용목적]
+
+1. 개인정보의 수집 및 이용목적
+회원의 서비스 제공 활동을 매개하는 온라인 DATA BASE 제공업체 사이트인 보고타고는 효과적이며 적합한 서비스를 제공받기 원하는 개인회원 및 기업회원들의 개인정보를 수집하고 있으며, 수집된 정보는 아래와 같이 이용하고 있습니다. 이용자가 제공한 모든 정보는 하기 목적에 필요한 용도 이외로는 사용되지 않으며 이용 목적이 변경될 시에는 사전동의를 구할 것입니다.
+1) 회원관리
+회원제 서비스 이용에 따른 본인확인, 본인의 의사확인, 고객문의에 대한 응답, 새로운 정보의 소개 및 고지사항 전달
+2) 서비스 제공에 관한 이행 및 서비스 제공에 따른 포인트 정산
+본인인증, 서비스이용에 대한 승인 에 따른 개인식별, 회원간의 상호연락, 포인트 충전 및 사용에 대한 증빙발송, 부정 이용방지와 비인가 사용방지
+3) 서비스 개발 및 마케팅·광고에의 활용
+4) 자동차보험료 설계제공을 위한 기초DATA 활용
+5) 서비스이용 요청 및 서비스 제공 내용에 대한 통계학적 분석
+
+2. 수집하는 개인정보 항목 및 수집방법
+"사이트"에서는 회원가입 절차를 통하여 컨텐츠에 자유롭게 접근할 수 있으면, 주요업종에 따라 서비스 이용제한을 둘 수 있습니다.
+가. 수집하는 개인정보 항목
+1) 회원가입시 수집하는 항목
+* 필수항목: 가입자명 또는 사업자명, 본인인증에 따른 휴대폰번호, 중복확인정보(DI), 아이디, 비밀번호, 회사명, 기업형태, 사업자등록번호, 주소, 사업장 이미지, 자동차보험 시작일, 소유차량 제조사, 소유차량차종, 소유차량차명, 소유차량연식, 차량명, 운전자범위, 이전가입보험사, 거주지역, 보험가입경력, 할인할증항목
+* 선택항목: 이메일 및 수신설정, 회원 본인의 사진 이미지
+2) 서비스 등록시 수집하는 항목 담당자의 정보는 서비스 제공내용 이외의 용도로 이용할 수 없으며, 신청하신 서비스의 원활한 이용과 정보도용 및 허위정보 게재로 인한 피해를 방지하기 위해 "기업회원"의 개인정보를 확인하고 있습니다. 
+* 서비스 이용 등록: 담당자 이름, 연락처(전화번호/휴대폰번호), 경력 및 이력, 사업장의 이미지 및 주소 
+3) 서비스 내용등록 시 수집하는 항목 담당자의 정보는 서비스 제공내용 노출 이외의 용도로 이용할 수 없으며, 신청하신 서비스의 원활한 이용과 정보도용 및 허위정보 게재로 인한 피해를 방지하기 위해 서비스제공 등록 담당자의 개인정보를 확인하고 있습니다.
+* 담당자명, 연락처, 상호명, 사업장 이미지, 사업장 이용에 대한 후기 작성 내용, 사업장 주소 및 약도
+4) 유료 정보 이용시 수집하는 항목
+유료 서비스 이용 과정에서 아래와 같은 결제 정보들이 수집될 수 있습니다.
+* 신용카드 결제: 카드사명, 카드번호 등
+* 은행계좌 이체: 은행명, 계좌번호 등
+* 휴대전화 결제: 가입자명, 이동전화번호, 결제승인번호 등
+5) 서비스 이용과정이나 사업처리 과정에서 아래와 같은 정보들이 자동으로 생성되어 수집될 수 있습니다. -IP Address, 쿠키, 방문일시, 서비스 이용 기록, 불량 이용기록
+6) 모바일 서비스 이용 시 수집되는 항목 - 모바일 서비스의 특성상 단말기 모델 정보가 수집될 수 있으나, 이는 개인을 식별할 수 없는 형태 입니다.
+나. 개인정보 수집방법
+- 홈페이지 회원가입 시 등록
+- 개인 서비스를 요청하기 위해 등록되는 생년월일, 성별, 직업, 거주지역 등록
+
+3. 개인정보의 보유 및 이용기간
+"사이트"는 회원가입일로부터 서비스를 제공하는 기간 동안에 한하여 이용자의 개인정보를 보유 및 이용하게 됩니다. 회원탈퇴를 요청하거나 개인정보의 수집 및 이용에 대한 동의를 철회하는 경우, 수집 및 이용목적이 달성되거나 이용기간이 종료한 경우 개인정보를 지체 없이 파기합니다.
+단, 다음의 경우에 대해서는 각각 명시한 이유와 기간 동안 보존합니다.
+1) 상법 등 관계법령의 규정에 의하여 보존할 필요가 있는 경우 법령에서 규정한 보존기간 동안 거래내역과 최소한의 기본정보를 보유합니다. 
+ㄱ. 계약 또는 승인 철회에 관한 기록: 5년
+ㄴ. 대금결제 및 재화 등의 공급에 관한 기록: 5년
+ㄷ. 소비자의 불만 또는 분쟁처리에 관한 기록: 3년
+ㄹ. 부정이용 등에 관한 기록: 5년
+ㅁ. 웹사이트 방문기록(로그인 기록, 접속기록): 3개월
+2) 보유기간을 미리 공지하고 그 보유기간이 경과하지 아니한 경우와 개별적으로 동의를 받은 경우에는 약정한 기간 동안 보유합니다.
+3) 개인정보보호를 위하여 이용자가 1년동안 "사이트"에 로그인하지 않은 경우, "아이디"를 "휴면계정"로 분리하여 해당 계정의 이용을 중지할 수 있습니다. 이 경우 "회사"는 "휴면계정 처리 예정일"로부터 30일 이전에 해당사실을 전자메일, 서면, SMS 중 하나의 방법으로 사전통지하며 이용자가 직접 본인확인을 거쳐, 다시 "사이트" 이용 의사표시를 한 경우에는 "사이트" 이용이 가능합니다.
+4. 개인정보 보호를 위한 기술 및 관리적 대책
+1) 기술적 대책
+- 보고타고는 귀하의 개인정보를 취급함에 있어 개인정보가 분실, 도난, 누출, 변조 또는 훼손되디 않도록 안정성 확보를 위하여 다음과 같은 기술적 대책을 강구하고 있습니다.
+- 귀하의 개인정보는 비밀번호에 의해 보호되며, 파일 및 전송 데이터를 암호화하거나 파일 잠금기능(Lock)을 사용하여 중요한 데이터는 별도의 보안기능을 통해 보호되고 있습니다.
+- 보고타고는 암호 알고리즘을 이용하여 네트워크 상의 개인정보를 안전하게 전송할 수 있는 보안장치를 채택하고 있습니다. 
+- 해킹 등 외부 침입에 대비하여 각 서버마다 침입 차단시스템 및 취약점 분석 시스템 등을 이용하여 보안에 만전을 기하고 있습니다.
+
+2) 관리적 대책
+보고타고는 귀하의 개인정보에 대한 접근 권한을 최소한의 인원으로 제한하고 있습니다. 그 최소한의 인원에 해당하는 자는 다음과 같습니다.
+* 이용자를 직접 상대로 하여 마케팅 업무를 수행하는 자
+* 개인정보관리 책임자 및 담당자 등 개인정보관리 업무를 수행하는 자
+* 기타 업무상 개인정보의 취급이 불가피한 자
+* 개인정보를 취급하는 직원을 대상으로 새로운 보안 기술 습득 및 개인정보 보호의무 등에 관해 정기적인 사내 교육 및 외부 위탁교육을 실시하고 있습니다.
+* 입사 시 전 직원의 준법서약서를 통하여 사람에 의한 정보유출을 사전에 방지하고 개인정보취급방침에 대한 이행사항 및 직원의 준수여부를 감사하기 위한 내부절차를 마련하고 있습니다.
+* 개인정보관련 취급자의 업무 인수인계는 보안이 유지된 상태에서 철저하게 이뤄지고 있으며 입사 및 퇴사 후 개인정보 사고에 대한 책임을 명확화하고 있습니다.
+* 전산실 및 자료 보관실을 특별보호구역으로 설정하여 출입을 통제하고 있습니다.
+* 보고타고는 이용자 개인의 실수나 기본적인 인터넷 위험성 때문에 일어나는 일들에 대해 책임을 지지 않습니다. 회원 개개인이 본인의 개인정보를 보호하기 위해서 자신의 주민등록번호와 비밀번호를 적절하게 관리하고 여기에 대한 책임을 져야 합니다. 
+* 그 외 내부 관리자의 실수나 기술관리 상의 사고로 인해 개인정보의 상실, 유출, 변조, 훼손이 유발될 경우 보고타고는 즉각 귀하께 사실을 알리고 적절한 대책과 보상을 강구할 것입니다.
+5. 게시물
+1) 보고타고는 귀하의 게시물을 소중하게 생각하며 변조, 훼손, 삭제되지 않도록 최선을 다하여 보호합니다. 그러나 다음의 경우는 그렇지 아니합니다. 
+- 스팸(spam)성 게시물 (예: 행운의 편지, 8억 메일, 특정사이트 광고 등)
+- 타인을 비방할 목적으로 허위 사실을 유포하여 타인의 명예를 훼손하는 글
+- 동의 없는 타인의 신상공개, 제 3자의 저작권 등 권리를 침해하는 내용, 기타 게시판 주제와 다른 내용의 게시물
+- 보고타고는 바람직한 게시판 문화를 활성화하기 위하여 동의 없는 타인의 신상 공개 시 특정부분을 삭제하거나 기호 등으로 수정하여 게시할 수 있습니다. 
+- 다른 주제의 게시판으로 이동 가능한 내용일 경우 해당 게시물에 이동 경로를 밝혀 오해가 없도록 하고 있습니다. 
+- 그 외의 경우 명시적 또는 개별적인 경고 후 삭제 조치할 수 있습니다.
+2) 근본적으로 게시물에 관련된 제반 권리와 책임은 작성자 개인에게 있습니다. 또 게시물을 통해 자발적으로 공개된 정보는 보호받기 어려우므로 정보 공개 전에 심사숙고 하시기 바랍니다. 
+6. 개인정보의 위탁처리
+회사는 원칙적으로 이용자의 동의 없이 해당 개인정보의 처리를 타인에게 위탁하지 않습니다. 다만, 이용자의 동의를 받아 회사가 현재 개인정보 처리를 위탁하는 수탁자와 업무는 다음과 같습니다.
+- 슈어엠 1588-4640: SMS문자 메시지 발송 연락처 1544-4600
+- (주)위홀딩스 02-2631-1414 보험상품설계 및 상담
+7. 이용자의 권리와 의무
+1) 귀하의 개인정보를 최신의 상태로 정확하게 입력하여 불의의 사고를 예방해 주시기 바랍니다. 이용자가 입력한 부정확한 정보로 인해 발생하는 사고의 책임은 이용자 자신에게 있으며 타인 정보의 도용 등 허위정보를 입력할 경우 회원자격이 상실될 수 잇습니다. 
+2) 귀하는 개인정보를 보호받을 권리와 함께 스스로를 보호하고 타인의 정보를 침해하지 않을 의무도 가지고 잇습니다. 비밀번호를 포함한 귀하의 개인정보가 유출되지 않도록 조심하시고 게시물을 포함한 타인의 개인정보를 훼손하지 않도록 유의해 주십시오. 만약 이 같은 책임을 다하지 못하고 타인의 정보 및 존엄성을 훼손할 시에는 『정보통신이용 및 정보보호 등에 관한 법률』등에 의해 처벌받을 수 있습니다.
+8. 의견수렴 및 불만처리
+1) 당사는 귀하의 의견을 소중하게 생각하며, 귀하는 의문사항으로부터 언제나 성실한 답변을 받을 권리가 있습니다. 
+2) 당사는 귀하와의 원활한 의사소통을 위해 고객센터를 운영하고 있습니다. 고객센터의 연락처는 다음과 같습니다. 
+[민원 처리센터] 
+전자우편:bogotagotalk@bogotago.co.kr
+전화번호: 02-6022-1113
+팩스번호: 02-6944-8032
+주소: 서울특별시 영등포로 254, A동 지층 102호 (영등포동 3가, 우성타워)
+3) 전화상담은 평일 오전9시~오후6시에만 가능합니다. 
+4) 전자우편이나 팩스 및 우편을 이용한 상담은 접수 후 12시간 내에 성실하게 답변 드리겠습니다. 다만, 근무시간 이후 또는 주말 및 공휴일에는 익일 처리하는 것을 원칙으로 합니다. 
+5) 기타 개인정보에 관한 상담이 필요한 경우에는 개인정보침해 신고센터, 정보보호마크 인증위원회, 대검찰청 인터넷범죄 수사센터, 경찰청 사이버범죄 수사대 등으로 문의실 수 있습니다. 
+- 개인정보침해신고센터: 전화 02-1366  http://www.cyberprivacy.or.kr
+- 대검찰청 인터넷범죄 수사센터: 전화 02-3480-3600 http://icic.sppo.go.kr
+- 경찰청 사이버범죄수사대: http://www.police.go.kr
+9. 인터넷회원 개인정보 관리 책임자 및 담당자
+보고타고는 홈페이지에서 귀하가 좋은 정보를 안전하게 이용할 수 있도록 최선을 다하고 있습니다. 인터넷회원의 개인정보를 보호하는데 있어 귀하께 고지한 사항들에 반하는 사고가 발생할 시에 인터넷회원 개인정보관리 책임자가 모든 책임을 집니다. 그러나 기술적인 보와 조치를 했음에도 불구하고, 해킹 등 기본적인 네트워크상의 위험성에 의해 발생하는 예기치 못한 사고로 인한 정보의 훼손 및 방문자가 작성한 게시물에 의한 각종 분쟁에 관해서는 책임이 없습니다. 귀하의 개인정보를 취급하는 책임자 및 담당자는 다음과 같으며 개인정보 관련 문의사항에 신속하고 성실하게 답변해 드리고 있습니다.
+- [개인정보관리 책임자]
+성명 : 원기희
+소속부서 : 정보보호실
+직위 : 이사
+전화: 1644-1414(대표전화)
+이메일 : bogotagotalk@bogotago.co.kr
+10. 아동의 개인정보보호
+보고타고는 개인정보 보호를 위하여 만14세 미만 어린이들은 사이트의 회원으로 가입을 불허하고, 당사 상품계약에 대한 계약자로서의 자격을 부여하지 않습니다. 또한 만14세 미만 아동에 대한 개인정보를 부모의 동의 없이 수집하거나 제3자와 공유 혹은 매매·대여하지 않습니다.
+11. 광고의 정보전송
+1) 보고타고는 귀하의 명시적인 수신거부의사에 반하여 영리목적의 광고성 정보를 전송하지 않습니다. 
+2) 보고타고는 귀하가 뉴스레터 등 전자우편 전송에 대한 동의를 한 경우 전자우편의 제목란 및 본문란에 다음 사항과 같이 귀하가 쉽게 알아볼 수 있도록 조치합니다. 
+- 전자우편의 제목란: (광고)라는 문구를 제목란에 표시하지 않을 수 있으며 전자우편 본문란의 주요내용을 표시합니다. 
+- 전자우편의 본문란: 귀하가 수신거부의 의사표시를 할 수 있는 전송자의 명칭, 전자우편 주소, 전화번호 및 주소를 명시합니다. 귀하가 수신거부의 의사를 쉽게 표시할 수 있는 방법을 명시하겠습니다. 
+3) 보고타고는 상품정보 안내 등 온라인 마케팅을 위해 고아고성 정보를 전자우편 등으로 전송하는 경우 전자우편의 제목란 및 본문란에 다음 사항과 같이 귀하가 쉽게 알아 볼 수 있도록 조치합니다. 
+- 전자우편의 제목란: (광고) 또는 (성인광고)라는 문구를 제목란의 처음에 빈칸 없이 한글로 표시하고 이어서 전자우편 본문란의 주요 내용을 표시합니다. 
+- 전자우편의 본문란: 귀하가 수신거부의 의사표시를 할 수 있는 전송자의 명칭, 전자우편 주소, 전화번호 및 주소를 명시합니다. 귀하가 수신거부의 의사를 쉽게 표시할 수 있는 방법을 명시하겠습니다.
+4) 팩스, 휴대폰 문자전송 등 전자우편 이외의 문자전송을 통해 영리목적의 광고성 정보를 전송하는 경우에는 전송내용 처음에 "(광고)"라는 문구를 표기하고 전송내용 중에 전송자의 연락처를 명시하도록 조치합니다.
+12. 고지의 의무
+정부의 정책 또는 보안기술의 변경에 따라 내용의 추가·삭제 및 수정이 있을 시에는 개정 최소 7일전부터 홈페이지의 '공지'란을 통해 고지할 것입니다. 
+- 개인정보 취급방침 번호: V2.0
+- 개인정보 취급방침 시행일자 : 2016.05.01
+- 개인정보취급방침 현재버젼 시행일 : 2016.07.27
+
+                   </textarea>
+                </td>            
+            </tr>
+        </table>
+    </div> 
+    
+    
+     <!-- 서비스및개인정보취급방침 동의 -->
+    <div class="custom_checkbox">
+        <input name="clause_agree "value="check3" id="chk" type="checkbox">
+        <label for="chk"><span style="font-size:3vw; vertical-align:top; color:#0c56af; padding-top:20px; font-weight:700;">서비스이용약관 및 개인정보취급방침 동의</span></label>
+    </div>
+
+    
+   
+
+    <!-- 다음단계 버튼 -->
+    <div id="join_next">
+        <span><a href="join_step_02.asp" id="nStep"><img src="/m/images/sub/join_next_btn.png" width="60%" alt="다음단계"></a></span>
+    </div>
+
+     <!-- 알림문구 (동의 체크 하지 않았을 경우 문구가 뜸) -->
+    <div id="join_clause_txt" style="display:none;">
+        <span>*서비스이용약관 및 개인정보취급방침에 동의해주세요.</span>
+    </div>
+
+      
+</div>
+
+
+
+<div id="footer">
+    <div id="footer_menu">
+    <a href="/m/include/personal_info.asp" target="_blank"><span class="footer_txt">개인정보취급방침</span></a> <span class="footer_txt_line">|</span> 
+    <a href="/m/include/clause_info.asp" target="_blank"><span class="footer_txt">이용약관</span></a> <span class="footer_txt_line">|</span>
+	
+    <a href="/m/mypage/login.asp"><span class="footer_txt">로그인</span></a> <span class="footer_txt_line">|</span>
+	
+    <a href="tel:0260221112"><span class="footer_txt">고객센터</span> <span class="footer_bold_txt">02-6022-1112</span></a>
+</div>
+
+<div id="footer_logo_copy">
+    <img src="/m/images/footer/footer_logo.png" width="30%"/><br /><br />
+    <span style="font-size:2.5vw;">(주)보고타고 | 서울특별시 영등포로 254, A동 지층 102호(영등포동3가,우성타워)</span><br />
+    <span style="font-size:2.5vw;">대표자명:원기희 | 대표전화 02-6022-1112 | Fax 02-6944-8032</span><br />
+    <span style="font-size:2.5vw;">E-mail : bogotagotalk@bogotago.co.kr</span><br />
+    <span style="font-size:2.5vw;">ⓒ 2016 bogotago all rights reserved.</span>
+</div>
+
+
+<script type="text/javascript" src="http://wcs.naver.net/wcslog.js"></script> 
+<script type="text/javascript"> 
+if(!wcs_add) var wcs_add = {}; 
+wcs_add["wa"] = "15207538897c198"; 
+wcs_do(); 
+</script>
+
+
+
+</div>
+    
+</div>
+  
+</body>
+</html>
+ 
+ 
+
+��S滴      WなWな<�'�       0    :http://bogotago.co.kr/m/mypage/join_step_01.asp necko:classified 1 request-method GET response-head HTTP/1.1 200 OK
+Cache-Control: private
+Content-Length: 38688
+Content-Type: text/html
+Server: Microsoft-IIS/7.5
+X-Powered-By: ASP.NET
+X-UA-Compatible: IE=Edge
+Date: Wed, 10 Aug 2016 06:30:45 GMT
+ charset UTF-8 uncompressed-len 0 predictor::resource-count 7 predictor::http://bogotago.co.kr/m/js/common-sub_v1.03.js 1,1,1470810643,0 predictor::http://bogotago.co.kr/m/js/jquery-1.4.2.js 1,1,1470810643,0 predictor::http://bogotago.co.kr/m/css/common.css 1,1,1470810643,0 predictor::http://bogotago.co.kr/m/images/sub/join_next_btn.png 1,1,1470810643,0 predictor::http://wcs.naver.net/wcslog.js 1,1,1470810643,0 predictor::http://bogotago.co.kr/m/images/sub/agree_chk.gif 1,1,1470810643,0 predictor::http://wcs.naver.com/m?u=http%3A%2F%2Fbogotago.co.kr%2Fm%2Fmypage%2Fjoin_step_01.asp&e=http%3A%2F%2Fbogotago.co.kr%2Fm%2Fmypage%2Flogin.asp&wa=15207538897c198&bt=1470810642&os=Linux%20x86_64&ln=en-US&sr=1280x959&bw=410&bh=680&c=24&j=N&jv=1.8&k=Y&ct=&cs=EUC-KR&tl=&vs=0.4.30&nt=1470810643680&EOU 1,1,1470810643,0   � 

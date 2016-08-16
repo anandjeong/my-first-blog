@@ -1,0 +1,4339 @@
+
+<!DOCTYPE html> 
+<html> 
+<head>
+
+	<title></title>
+	<meta charset="euc-kr" /> 	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    <script type="text/javascript" src="/m/js/common-sub_v1.03.js"></script>
+    <script type="text/javascript" src="/m/js/jquery-1.4.2.js"></script>  
+	<link rel="stylesheet"  href="/m/css/common.css" type="text/css" />
+	<script type="text/javascript" src="/m/js/common.js"></script>  
+	<script type="text/javascript">
+		var DealView = function(idx){
+			location.href="newcar_mall_deal.asp?idx="+idx;
+		}
+		var viewMore = function(){
+			var viewCnt = Number($('#viewCnt').val());
+			viewCnt = viewCnt + 5;
+			$('#viewCnt').val(viewCnt);
+			for (var i = 0; i <= viewCnt-1; i++){
+				$('#viewDiv_'+i).show();
+			}
+		}
+
+		var searchBtn = function(){
+			var sido = $('#addr1').val();
+			var stat = $('#regiStatus').val();
+			location.href="mall_list_newcar.asp?search1="+sido+"&search2="+stat;
+		}
+	</script>
+</head> 
+
+<body >
+
+<div id="wrap">
+
+<div id="side_wrap"> 
+    <!-- 로그인하면 /m/include/side_menu_login.asp 보여짐 -->
+    
+<script type="text/javascript">
+<!--
+	$(function(){
+		$('#logoutBtn').click(function(){
+			location.href="/m/mypage/logout.asp";
+		});
+	});
+//-->
+</script>
+<div class="both_left" id="tabmenusub" style="display:none">
+<div class="side_close">
+    <p><a href="javascript:toggleTabMenu('tabmenusub')"><img src="/m/images/sidemenu/side_close_btn.png" width="5%" alt="닫기"></a></p>
+</div>
+
+<div class="side_top">
+    <table>
+        <tr>
+            <td class="s_top_txt">보고타고에 오신걸 환영합니다!</td>
+        </tr>
+    </table>
+</div>
+
+<div class="m_login">
+    <table width="100%">
+        <tr>
+            <td width="50%"><a href="/m/mypage/login.asp"><img src="/m/images/sidemenu/side_login.gif" width="100%" alt="로그인"/></a></td>
+            <td width="50%"><a href="/m/mypage/join_step_01.asp"><img src="/m/images/sidemenu/side_join.gif" width="100%" alt="회원가입"/></a></td>
+        </tr>
+    </table>
+</div>
+
+<div class="s_menu_list">
+    <ul>
+        <li><a href="/m/mypage/my_com_deal_buy.asp"><img src="/m/images/sidemenu/side_menu_01.gif" width="100%" alt="내거래보기"></a></li> <!-- 기업회원일 경우 'my_com_deal.asp' 로 이동 -->
+        <li><a href="/m/carproduct/car_product_regi.asp"><img src="/m/images/sidemenu/side_menu_02.gif" width="100%" alt="자동차용품"></a></li>
+        <li><a href="/m/newcar/new_car_regi.asp"><img src="/m/images/sidemenu/side_menu_03.gif" width="100%" alt="신차"></a></li>
+        <li><a href="/m/carcenter/carcenter_regi.asp"><img src="/m/images/sidemenu/side_menu_04.gif" width="100%" alt="경정비"></a></li>
+        <li><a href="/m/oldcar/old_car_regi.asp"><img src="/m/images/sidemenu/side_menu_05.gif" width="100%" alt="중고차"></a></li>
+        <li><a href="/m/carinsu/car_insu_regi.asp"><img src="/m/images/sidemenu/side_menu_06.gif" width="100%" alt="자동차보험"></a></li>
+        <li><a href="/m/junkcar/junk_car_regi.asp"><img src="/m/images/sidemenu/side_menu_07.gif" width="100%" alt="폐차"></a></li>
+        <li><a href="/m/pickup/pickup_regi.asp"><img src="/m/images/sidemenu/side_menu_08.gif" width="100%" alt="픽업"></a></li>
+        <li><a href="/m/store/store_list.asp"><img src="/m/images/sidemenu/side_menu_10.gif" width="100%" alt="가까운업체보기"></a></li>
+    </ul>
+</div>
+
+</div>
+
+
+
+    
+</div>
+        
+<div id="header">
+    
+<div id="logo">
+    <span><a href="/m/main.asp"><img src="/m/images/top/logo.png" width="40%" alt="보고타고로고"></a></span>
+</div>
+<div id="side_m">
+    <a href="javascript:toggleTabMenu('tabmenusub')"><img src="/m/images/top/side_menu_btn.png" width='45%'/></a> 
+</div>
+
+
+
+
+</div>
+
+<div id="sub_title">
+    <p>신차</p>
+</div>
+
+<!-- 카테고리 탭메뉴 -->
+<!-- include virtual = "/m/include/mall_cate_menu.asp" -->
+<!-- <div id="sub_tab_menu">
+    
+	<table width="100%" style="background-color:#575757; text-align:center;">
+    <tr>
+        <td width="20%" ><a href="mall_list_carproduct.asp"><span class="sub_tab_menu_txt">자동차용품</span></a></td>
+        <td width="10%"><a href="mall_list_newcar.asp"><span class="sub_tab_menu_sel_txt">신차</span></a></td>
+        <td width="15%"><a href="mall_list_oldcar.asp"><span class="sub_tab_menu_txt">중고차</span></a></td>
+        <td width="10%"><a href="mall_list_pickup.asp"><span class="sub_tab_menu_txt">픽업</span></a></td>
+        <td width="15%"><a href="mall_list_carcenter.asp"><span class="sub_tab_menu_txt">경정비</span></a></td>
+        <td width="20%"><a href="mall_list_carinsu.asp"><span class="sub_tab_menu_txt">자동차보험</span></a></td>
+        <td width="10%"><a href="mall_list_junkcar.asp"><span class="sub_tab_menu_txt">폐차</span></a></td>
+    </tr>
+</table>
+</div> -->
+
+
+
+<!--카테고리 배너 -->
+<div id="cate_banner">
+
+	<a href="javascript:alert('서비스 준비중입니다.');"><img src="/m/images/sub/newcar_banner.jpg" width="100%"></a>
+
+</div>
+
+
+
+<!-- 실시간현황-->
+<!--실시간현황 -->
+
+<script type="text/javascript" src="/js/jquery.vticker-min.js"></script>
+<script>
+$(function(){
+	$('.rt_list_roll').vTicker({
+		speed: 500,
+		pause: 3000,
+		animation: 'fade',
+		mousePause: false,
+		showItems: 1,
+		height: 40,
+		direction: 'up'
+	});
+});
+
+</script>
+<div id="real_time_list">
+    <div id="rt_box">
+        <h1>실시간 의뢰현황</h1>
+        <div class="rt_list_roll">
+            <ul>
+
+	<li class="rt_li" style="height:40px;line-height:40px;">&nbsp;&nbsp; 오후 4:59:15 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mc5****&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;광주광역시 남구</li>
+
+	<li class="rt_li" style="height:40px;line-height:40px;">&nbsp;&nbsp; 오전 8:15:41 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gks****&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;경기도 안양시 동안구</li>
+
+	<li class="rt_li" style="height:40px;line-height:40px;">&nbsp;&nbsp; 오후 10:46:27 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gop****&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;경상남도 김해시</li>
+
+	<li class="rt_li" style="height:40px;line-height:40px;">&nbsp;&nbsp; 오후 6:04:15 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jsj****&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;경상북도 포항시 북구</li>
+
+	<li class="rt_li" style="height:40px;line-height:40px;">&nbsp;&nbsp; 오후 4:00:04 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sae****&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;전라북도 전주시 덕진구</li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<!-- 분류 검색 -->
+<div id="myp_com_search">
+    <table width="95%">        
+        		
+    </table>
+</div>
+
+
+<div id="mall_contents">
+    <!-- 리스트박스1 시작 -->
+
+<script type="text/javascript">
+	var du = '176144';
+	var vi = 121;
+	
+	function dailyMissionTimer(duration,aidx) {
+				
+				var timer = duration;
+				var hours, minutes, seconds;
+				var interval = setInterval(function(){
+					hours	= parseInt(timer / 3600, 10);
+					minutes = parseInt(timer / 60 % 60, 10);
+					seconds = parseInt(timer % 60, 10);
+					hours 	= hours < 10 ? "0" + hours : hours;
+					minutes = minutes < 10 ? "0" + minutes : minutes;
+					seconds = seconds < 10 ? "0" + seconds : seconds;
+					if (duration.indexOf('-') != -1){
+						hours = "00";
+						minutes = "00";
+						seconds = "00";
+					}
+					$('#spanHour_'+aidx).text(hours);
+					$('#spanMinute_'+aidx).text(minutes);
+					$('#spanSecond_'+aidx).text(seconds);
+					if (--timer < 0) {
+						timer = 0;
+						clearInterval(interval);
+						//alert("aaa");
+					}
+				}, 1000);
+			}
+
+			dailyMissionTimer(du,vi);
+</script>
+<div id="viewDiv_0" class="list_box" > 
+	<table width="100%" style="margin-top:2%; margin-bottom:2%;"> 
+		<tr> 
+			<td width="20%"><span><img src="/m/images/sub/my_deal_cate_newcar.png" width="98%" alt="카테고리_신차"></span></td>
+			<td width="20%" style="text-align:right;"><span><img src='/m/images/sub/mall_list_progress_01.png' width='98%' alt='제안가능'></span></td>
+			<td width="60%" style="text-align:right;"><span style="font-size:2.3vw;font-weight:700;color:#e86300;">&nbsp;</span>&nbsp;&nbsp;<span class="mall_list_id_txt">mc5****</span><span class="mall_list_txt_bold"> 님</span></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="3" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="80%"><span class="list_product_name_txt">르노삼성&nbsp;SM6(black)</span></td>
+			<td width="20%" class="list_txt">수량<span class="list_ea_txt">1</span>개</td>
+		</tr>
+		<tr>
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">모델 :</td>
+			<td width="75%" class="list_txt_bold">2016. 2.0 GDe) PE</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">면세/할인 :</td>
+			<td width="75%" class="list_txt_bold">면세대상</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">세부사항:</td>
+			<td width="75%" class="list_txt_bold">장애인(시각4급)</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">추가할인:</td>
+			<td width="75%" class="list_txt_bold">동일브랜드재구매</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법:</td>
+			<td width="75%" class="list_txt_bold">렌트카</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법상세:</td>
+			<td width="75%" class="list_txt_bold">
+				대여시작:2016-08-22 <br>대여종료:2016-08-31
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매지역 :</td>
+			<td width="75%" class="list_txt_bold">광주광역시&nbsp;남구</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="100%" class="memo_txt">test</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="1" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">거래시간 :</td>
+			<td width="75%"> 
+				<span class="list_time_txt" id="spanHour_121"></span><span class="list_txt_bold">시간</span>
+				<span class="list_time_txt" id="spanMinute_121"></span><span class="list_txt_bold">분</span>
+				<span class="list_time_txt" id="spanSecond_121"></span><span class="list_txt_bold">초</span>
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt" style="padding-top:3%;">업체제안금액 :</td>
+			<td width="40%" style="padding-top:3%;"><span class="list_money_deal_txt">미입찰</span></td>
+			<td width="5%"></td>
+			<td width="30%" style="text-align:right; vertical-align:middle; padding-top:3%;">
+			
+			</td>
+		</tr>
+	</table> 
+</div>
+
+<script type="text/javascript">
+	var du = '-632869';
+	var vi = 113;
+	
+	function dailyMissionTimer(duration,aidx) {
+				
+				var timer = duration;
+				var hours, minutes, seconds;
+				var interval = setInterval(function(){
+					hours	= parseInt(timer / 3600, 10);
+					minutes = parseInt(timer / 60 % 60, 10);
+					seconds = parseInt(timer % 60, 10);
+					hours 	= hours < 10 ? "0" + hours : hours;
+					minutes = minutes < 10 ? "0" + minutes : minutes;
+					seconds = seconds < 10 ? "0" + seconds : seconds;
+					if (duration.indexOf('-') != -1){
+						hours = "00";
+						minutes = "00";
+						seconds = "00";
+					}
+					$('#spanHour_'+aidx).text(hours);
+					$('#spanMinute_'+aidx).text(minutes);
+					$('#spanSecond_'+aidx).text(seconds);
+					if (--timer < 0) {
+						timer = 0;
+						clearInterval(interval);
+						//alert("aaa");
+					}
+				}, 1000);
+			}
+
+			dailyMissionTimer(du,vi);
+</script>
+<div id="viewDiv_1" class="list_box" > 
+	<table width="100%" style="margin-top:2%; margin-bottom:2%;"> 
+		<tr> 
+			<td width="20%"><span><img src="/m/images/sub/my_deal_cate_newcar.png" width="98%" alt="카테고리_신차"></span></td>
+			<td width="20%" style="text-align:right;"><span><img src='/m/images/sub/mall_list_progress_02.png' width='98%' alt='거래완료'></span></td>
+			<td width="60%" style="text-align:right;"><span style="font-size:2.3vw;font-weight:700;color:#e86300;">&nbsp;</span>&nbsp;&nbsp;<span class="mall_list_id_txt">gks****</span><span class="mall_list_txt_bold"> 님</span></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="3" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="80%"><span class="list_product_name_txt">현대&nbsp;싼타페 더 프라임(흰색)</span></td>
+			<td width="20%" class="list_txt">수량<span class="list_ea_txt">1</span>개</td>
+		</tr>
+		<tr>
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">모델 :</td>
+			<td width="75%" class="list_txt_bold">2016. D. R2.2 2WD) Exclusive(5인)</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">면세/할인 :</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">세부사항:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">추가할인:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법상세:</td>
+			<td width="75%" class="list_txt_bold">
+				
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매지역 :</td>
+			<td width="75%" class="list_txt_bold">경기도&nbsp;안양시 동안구</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="100%" class="memo_txt"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="1" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">거래시간 :</td>
+			<td width="75%"> 
+				<span class="list_time_txt" id="spanHour_113"></span><span class="list_txt_bold">시간</span>
+				<span class="list_time_txt" id="spanMinute_113"></span><span class="list_txt_bold">분</span>
+				<span class="list_time_txt" id="spanSecond_113"></span><span class="list_txt_bold">초</span>
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt" style="padding-top:3%;">업체제안금액 :</td>
+			<td width="40%" style="padding-top:3%;"><span class="list_money_deal_txt">미입찰</span></td>
+			<td width="5%"></td>
+			<td width="30%" style="text-align:right; vertical-align:middle; padding-top:3%;">
+			
+			</td>
+		</tr>
+	</table> 
+</div>
+
+<script type="text/javascript">
+	var du = '-1185424';
+	var vi = 108;
+	
+	function dailyMissionTimer(duration,aidx) {
+				
+				var timer = duration;
+				var hours, minutes, seconds;
+				var interval = setInterval(function(){
+					hours	= parseInt(timer / 3600, 10);
+					minutes = parseInt(timer / 60 % 60, 10);
+					seconds = parseInt(timer % 60, 10);
+					hours 	= hours < 10 ? "0" + hours : hours;
+					minutes = minutes < 10 ? "0" + minutes : minutes;
+					seconds = seconds < 10 ? "0" + seconds : seconds;
+					if (duration.indexOf('-') != -1){
+						hours = "00";
+						minutes = "00";
+						seconds = "00";
+					}
+					$('#spanHour_'+aidx).text(hours);
+					$('#spanMinute_'+aidx).text(minutes);
+					$('#spanSecond_'+aidx).text(seconds);
+					if (--timer < 0) {
+						timer = 0;
+						clearInterval(interval);
+						//alert("aaa");
+					}
+				}, 1000);
+			}
+
+			dailyMissionTimer(du,vi);
+</script>
+<div id="viewDiv_2" class="list_box" > 
+	<table width="100%" style="margin-top:2%; margin-bottom:2%;"> 
+		<tr> 
+			<td width="20%"><span><img src="/m/images/sub/my_deal_cate_newcar.png" width="98%" alt="카테고리_신차"></span></td>
+			<td width="20%" style="text-align:right;"><span><img src='/m/images/sub/mall_list_progress_02.png' width='98%' alt='거래완료'></span></td>
+			<td width="60%" style="text-align:right;"><span style="font-size:2.3vw;font-weight:700;color:#e86300;">&nbsp;</span>&nbsp;&nbsp;<span class="mall_list_id_txt">gop****</span><span class="mall_list_txt_bold"> 님</span></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="3" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="80%"><span class="list_product_name_txt">BMW&nbsp;5 Series(흰색)</span></td>
+			<td width="20%" class="list_txt">수량<span class="list_ea_txt">1</span>개</td>
+		</tr>
+		<tr>
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">모델 :</td>
+			<td width="75%" class="list_txt_bold">2016. Sedan) 528i xDrive M Aerodynamic Pro</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">면세/할인 :</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">세부사항:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">추가할인:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법상세:</td>
+			<td width="75%" class="list_txt_bold">
+				
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매지역 :</td>
+			<td width="75%" class="list_txt_bold">경상남도&nbsp;김해시</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="100%" class="memo_txt">초기비용 적습니다.할부생각해요</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="1" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">거래시간 :</td>
+			<td width="75%"> 
+				<span class="list_time_txt" id="spanHour_108"></span><span class="list_txt_bold">시간</span>
+				<span class="list_time_txt" id="spanMinute_108"></span><span class="list_txt_bold">분</span>
+				<span class="list_time_txt" id="spanSecond_108"></span><span class="list_txt_bold">초</span>
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt" style="padding-top:3%;">업체제안금액 :</td>
+			<td width="40%" style="padding-top:3%;"><span class="list_money_deal_txt">미입찰</span></td>
+			<td width="5%"></td>
+			<td width="30%" style="text-align:right; vertical-align:middle; padding-top:3%;">
+			
+			</td>
+		</tr>
+	</table> 
+</div>
+
+<script type="text/javascript">
+	var du = '-1115956';
+	var vi = 107;
+	
+	function dailyMissionTimer(duration,aidx) {
+				
+				var timer = duration;
+				var hours, minutes, seconds;
+				var interval = setInterval(function(){
+					hours	= parseInt(timer / 3600, 10);
+					minutes = parseInt(timer / 60 % 60, 10);
+					seconds = parseInt(timer % 60, 10);
+					hours 	= hours < 10 ? "0" + hours : hours;
+					minutes = minutes < 10 ? "0" + minutes : minutes;
+					seconds = seconds < 10 ? "0" + seconds : seconds;
+					if (duration.indexOf('-') != -1){
+						hours = "00";
+						minutes = "00";
+						seconds = "00";
+					}
+					$('#spanHour_'+aidx).text(hours);
+					$('#spanMinute_'+aidx).text(minutes);
+					$('#spanSecond_'+aidx).text(seconds);
+					if (--timer < 0) {
+						timer = 0;
+						clearInterval(interval);
+						//alert("aaa");
+					}
+				}, 1000);
+			}
+
+			dailyMissionTimer(du,vi);
+</script>
+<div id="viewDiv_3" class="list_box" > 
+	<table width="100%" style="margin-top:2%; margin-bottom:2%;"> 
+		<tr> 
+			<td width="20%"><span><img src="/m/images/sub/my_deal_cate_newcar.png" width="98%" alt="카테고리_신차"></span></td>
+			<td width="20%" style="text-align:right;"><span><img src='/m/images/sub/mall_list_progress_02.png' width='98%' alt='거래완료'></span></td>
+			<td width="60%" style="text-align:right;"><span style="font-size:2.3vw;font-weight:700;color:#e86300;">&nbsp;</span>&nbsp;&nbsp;<span class="mall_list_id_txt">jsj****</span><span class="mall_list_txt_bold"> 님</span></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="3" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="80%"><span class="list_product_name_txt">BMW&nbsp;Gran Turismo(쥐색)</span></td>
+			<td width="20%" class="list_txt">수량<span class="list_ea_txt">1</span>개</td>
+		</tr>
+		<tr>
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">모델 :</td>
+			<td width="75%" class="list_txt_bold">2016. 5 Series) GT 30d xDrive Luxury Line</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">면세/할인 :</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">세부사항:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">추가할인:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법상세:</td>
+			<td width="75%" class="list_txt_bold">
+				
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매지역 :</td>
+			<td width="75%" class="list_txt_bold">경상북도&nbsp;포항시 북구</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="100%" class="memo_txt">선수금:2천만원
+할부:24개월
+구입시기:3개월 이내</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="1" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">거래시간 :</td>
+			<td width="75%"> 
+				<span class="list_time_txt" id="spanHour_107"></span><span class="list_txt_bold">시간</span>
+				<span class="list_time_txt" id="spanMinute_107"></span><span class="list_txt_bold">분</span>
+				<span class="list_time_txt" id="spanSecond_107"></span><span class="list_txt_bold">초</span>
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt" style="padding-top:3%;">업체제안금액 :</td>
+			<td width="40%" style="padding-top:3%;"><span class="list_money_deal_txt">미입찰</span></td>
+			<td width="5%"></td>
+			<td width="30%" style="text-align:right; vertical-align:middle; padding-top:3%;">
+			
+			</td>
+		</tr>
+	</table> 
+</div>
+
+<script type="text/javascript">
+	var du = '-1901006';
+	var vi = 106;
+	
+	function dailyMissionTimer(duration,aidx) {
+				
+				var timer = duration;
+				var hours, minutes, seconds;
+				var interval = setInterval(function(){
+					hours	= parseInt(timer / 3600, 10);
+					minutes = parseInt(timer / 60 % 60, 10);
+					seconds = parseInt(timer % 60, 10);
+					hours 	= hours < 10 ? "0" + hours : hours;
+					minutes = minutes < 10 ? "0" + minutes : minutes;
+					seconds = seconds < 10 ? "0" + seconds : seconds;
+					if (duration.indexOf('-') != -1){
+						hours = "00";
+						minutes = "00";
+						seconds = "00";
+					}
+					$('#spanHour_'+aidx).text(hours);
+					$('#spanMinute_'+aidx).text(minutes);
+					$('#spanSecond_'+aidx).text(seconds);
+					if (--timer < 0) {
+						timer = 0;
+						clearInterval(interval);
+						//alert("aaa");
+					}
+				}, 1000);
+			}
+
+			dailyMissionTimer(du,vi);
+</script>
+<div id="viewDiv_4" class="list_box" > 
+	<table width="100%" style="margin-top:2%; margin-bottom:2%;"> 
+		<tr> 
+			<td width="20%"><span><img src="/m/images/sub/my_deal_cate_newcar.png" width="98%" alt="카테고리_신차"></span></td>
+			<td width="20%" style="text-align:right;"><span><img src='/m/images/sub/mall_list_progress_02.png' width='98%' alt='거래완료'></span></td>
+			<td width="60%" style="text-align:right;"><span style="font-size:2.3vw;font-weight:700;color:#e86300;">&nbsp;</span>&nbsp;&nbsp;<span class="mall_list_id_txt">sae****</span><span class="mall_list_txt_bold"> 님</span></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="3" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="80%"><span class="list_product_name_txt">현대&nbsp;제네시스G80(DH)(검정색)</span></td>
+			<td width="20%" class="list_txt">수량<span class="list_ea_txt">1</span>개</td>
+		</tr>
+		<tr>
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">모델 :</td>
+			<td width="75%" class="list_txt_bold">3.3 GDi 럭셔리 </td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">면세/할인 :</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">세부사항:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">추가할인:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법상세:</td>
+			<td width="75%" class="list_txt_bold">
+				
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매지역 :</td>
+			<td width="75%" class="list_txt_bold">전라북도&nbsp;전주시 덕진구</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="100%" class="memo_txt">그랜저 가솔린 2.4 기본이나 디젤 기본 사려고 합니다
+2015년형 행사하는거로 사려고 하구요
+
+여러가지 써포트 더 있으시면 알려주세요</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="1" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">거래시간 :</td>
+			<td width="75%"> 
+				<span class="list_time_txt" id="spanHour_106"></span><span class="list_txt_bold">시간</span>
+				<span class="list_time_txt" id="spanMinute_106"></span><span class="list_txt_bold">분</span>
+				<span class="list_time_txt" id="spanSecond_106"></span><span class="list_txt_bold">초</span>
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt" style="padding-top:3%;">업체제안금액 :</td>
+			<td width="40%" style="padding-top:3%;"><span class="list_money_deal_txt">미입찰</span></td>
+			<td width="5%"></td>
+			<td width="30%" style="text-align:right; vertical-align:middle; padding-top:3%;">
+			
+			</td>
+		</tr>
+	</table> 
+</div>
+
+<script type="text/javascript">
+	var du = '-2305391';
+	var vi = 97;
+	
+	function dailyMissionTimer(duration,aidx) {
+				
+				var timer = duration;
+				var hours, minutes, seconds;
+				var interval = setInterval(function(){
+					hours	= parseInt(timer / 3600, 10);
+					minutes = parseInt(timer / 60 % 60, 10);
+					seconds = parseInt(timer % 60, 10);
+					hours 	= hours < 10 ? "0" + hours : hours;
+					minutes = minutes < 10 ? "0" + minutes : minutes;
+					seconds = seconds < 10 ? "0" + seconds : seconds;
+					if (duration.indexOf('-') != -1){
+						hours = "00";
+						minutes = "00";
+						seconds = "00";
+					}
+					$('#spanHour_'+aidx).text(hours);
+					$('#spanMinute_'+aidx).text(minutes);
+					$('#spanSecond_'+aidx).text(seconds);
+					if (--timer < 0) {
+						timer = 0;
+						clearInterval(interval);
+						//alert("aaa");
+					}
+				}, 1000);
+			}
+
+			dailyMissionTimer(du,vi);
+</script>
+<div id="viewDiv_5" class="list_box" style="display:none;"> 
+	<table width="100%" style="margin-top:2%; margin-bottom:2%;"> 
+		<tr> 
+			<td width="20%"><span><img src="/m/images/sub/my_deal_cate_newcar.png" width="98%" alt="카테고리_신차"></span></td>
+			<td width="20%" style="text-align:right;"><span><img src='/m/images/sub/mall_list_progress_02.png' width='98%' alt='거래완료'></span></td>
+			<td width="60%" style="text-align:right;"><span style="font-size:2.3vw;font-weight:700;color:#e86300;">&nbsp;</span>&nbsp;&nbsp;<span class="mall_list_id_txt">iam****</span><span class="mall_list_txt_bold"> 님</span></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="3" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="80%"><span class="list_product_name_txt">현대&nbsp;그랜드 스타렉스(쥐색)</span></td>
+			<td width="20%" class="list_txt">수량<span class="list_ea_txt">1</span>개</td>
+		</tr>
+		<tr>
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">모델 :</td>
+			<td width="75%" class="list_txt_bold">2016. D. 왜건 2WD) 11인 Modern Special</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">면세/할인 :</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">세부사항:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">추가할인:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법상세:</td>
+			<td width="75%" class="list_txt_bold">
+				
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매지역 :</td>
+			<td width="75%" class="list_txt_bold">강원도&nbsp;동해시</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="100%" class="memo_txt">lpgi LT프리미엄
+
+네비 후방카메라 블랙박스 썬팅 블랙박스 추가욤</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="1" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">거래시간 :</td>
+			<td width="75%"> 
+				<span class="list_time_txt" id="spanHour_97"></span><span class="list_txt_bold">시간</span>
+				<span class="list_time_txt" id="spanMinute_97"></span><span class="list_txt_bold">분</span>
+				<span class="list_time_txt" id="spanSecond_97"></span><span class="list_txt_bold">초</span>
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt" style="padding-top:3%;">업체제안금액 :</td>
+			<td width="40%" style="padding-top:3%;"><span class="list_money_deal_txt">미입찰</span></td>
+			<td width="5%"></td>
+			<td width="30%" style="text-align:right; vertical-align:middle; padding-top:3%;">
+			
+			</td>
+		</tr>
+	</table> 
+</div>
+
+<script type="text/javascript">
+	var du = '-2467925';
+	var vi = 95;
+	
+	function dailyMissionTimer(duration,aidx) {
+				
+				var timer = duration;
+				var hours, minutes, seconds;
+				var interval = setInterval(function(){
+					hours	= parseInt(timer / 3600, 10);
+					minutes = parseInt(timer / 60 % 60, 10);
+					seconds = parseInt(timer % 60, 10);
+					hours 	= hours < 10 ? "0" + hours : hours;
+					minutes = minutes < 10 ? "0" + minutes : minutes;
+					seconds = seconds < 10 ? "0" + seconds : seconds;
+					if (duration.indexOf('-') != -1){
+						hours = "00";
+						minutes = "00";
+						seconds = "00";
+					}
+					$('#spanHour_'+aidx).text(hours);
+					$('#spanMinute_'+aidx).text(minutes);
+					$('#spanSecond_'+aidx).text(seconds);
+					if (--timer < 0) {
+						timer = 0;
+						clearInterval(interval);
+						//alert("aaa");
+					}
+				}, 1000);
+			}
+
+			dailyMissionTimer(du,vi);
+</script>
+<div id="viewDiv_6" class="list_box" style="display:none;"> 
+	<table width="100%" style="margin-top:2%; margin-bottom:2%;"> 
+		<tr> 
+			<td width="20%"><span><img src="/m/images/sub/my_deal_cate_newcar.png" width="98%" alt="카테고리_신차"></span></td>
+			<td width="20%" style="text-align:right;"><span><img src='/m/images/sub/mall_list_progress_02.png' width='98%' alt='거래완료'></span></td>
+			<td width="60%" style="text-align:right;"><span style="font-size:2.3vw;font-weight:700;color:#e86300;">&nbsp;</span>&nbsp;&nbsp;<span class="mall_list_id_txt">shs****</span><span class="mall_list_txt_bold"> 님</span></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="3" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="80%"><span class="list_product_name_txt">현대&nbsp;싼타페 더 프라임(쥐색)</span></td>
+			<td width="20%" class="list_txt">수량<span class="list_ea_txt">1</span>개</td>
+		</tr>
+		<tr>
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">모델 :</td>
+			<td width="75%" class="list_txt_bold">2016. D. R2.0 4WD) Premium(7인)</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">면세/할인 :</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">세부사항:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">추가할인:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법상세:</td>
+			<td width="75%" class="list_txt_bold">
+				
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매지역 :</td>
+			<td width="75%" class="list_txt_bold">경기도&nbsp;고양시 덕양구</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="100%" class="memo_txt">장애인용 프레스티지 원합니다</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="1" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">거래시간 :</td>
+			<td width="75%"> 
+				<span class="list_time_txt" id="spanHour_95"></span><span class="list_txt_bold">시간</span>
+				<span class="list_time_txt" id="spanMinute_95"></span><span class="list_txt_bold">분</span>
+				<span class="list_time_txt" id="spanSecond_95"></span><span class="list_txt_bold">초</span>
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt" style="padding-top:3%;">업체제안금액 :</td>
+			<td width="40%" style="padding-top:3%;"><span class="list_money_deal_txt">미입찰</span></td>
+			<td width="5%"></td>
+			<td width="30%" style="text-align:right; vertical-align:middle; padding-top:3%;">
+			
+			</td>
+		</tr>
+	</table> 
+</div>
+
+<script type="text/javascript">
+	var du = '-2686062';
+	var vi = 94;
+	
+	function dailyMissionTimer(duration,aidx) {
+				
+				var timer = duration;
+				var hours, minutes, seconds;
+				var interval = setInterval(function(){
+					hours	= parseInt(timer / 3600, 10);
+					minutes = parseInt(timer / 60 % 60, 10);
+					seconds = parseInt(timer % 60, 10);
+					hours 	= hours < 10 ? "0" + hours : hours;
+					minutes = minutes < 10 ? "0" + minutes : minutes;
+					seconds = seconds < 10 ? "0" + seconds : seconds;
+					if (duration.indexOf('-') != -1){
+						hours = "00";
+						minutes = "00";
+						seconds = "00";
+					}
+					$('#spanHour_'+aidx).text(hours);
+					$('#spanMinute_'+aidx).text(minutes);
+					$('#spanSecond_'+aidx).text(seconds);
+					if (--timer < 0) {
+						timer = 0;
+						clearInterval(interval);
+						//alert("aaa");
+					}
+				}, 1000);
+			}
+
+			dailyMissionTimer(du,vi);
+</script>
+<div id="viewDiv_7" class="list_box" style="display:none;"> 
+	<table width="100%" style="margin-top:2%; margin-bottom:2%;"> 
+		<tr> 
+			<td width="20%"><span><img src="/m/images/sub/my_deal_cate_newcar.png" width="98%" alt="카테고리_신차"></span></td>
+			<td width="20%" style="text-align:right;"><span><img src='/m/images/sub/mall_list_progress_02.png' width='98%' alt='거래완료'></span></td>
+			<td width="60%" style="text-align:right;"><span style="font-size:2.3vw;font-weight:700;color:#e86300;">&nbsp;</span>&nbsp;&nbsp;<span class="mall_list_id_txt">101****</span><span class="mall_list_txt_bold"> 님</span></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="3" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="80%"><span class="list_product_name_txt">현대&nbsp;포터2(기타)</span></td>
+			<td width="20%" class="list_txt">수량<span class="list_ea_txt">1</span>개</td>
+		</tr>
+		<tr>
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">모델 :</td>
+			<td width="75%" class="list_txt_bold">2015. CRDi(133마력) 2WD)슈퍼캡 초장축 HI-SUPER</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">면세/할인 :</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">세부사항:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">추가할인:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법상세:</td>
+			<td width="75%" class="list_txt_bold">
+				
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매지역 :</td>
+			<td width="75%" class="list_txt_bold">경상북도&nbsp;포항시 남구</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="100%" class="memo_txt">2017년식 sm7 lpe (어반그레이)차량구매예정입니다. 바이-제논 어댑티브 헤드 램프+ 사각지대 정보 시스템(BSW)에 New 18" 다이내믹 알로이 휠& 225/45R 18 타이어 + 앞좌석통풍시트 + 운전석 메모리시트(이지 액세스 포함) </td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="1" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">거래시간 :</td>
+			<td width="75%"> 
+				<span class="list_time_txt" id="spanHour_94"></span><span class="list_txt_bold">시간</span>
+				<span class="list_time_txt" id="spanMinute_94"></span><span class="list_txt_bold">분</span>
+				<span class="list_time_txt" id="spanSecond_94"></span><span class="list_txt_bold">초</span>
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt" style="padding-top:3%;">업체제안금액 :</td>
+			<td width="40%" style="padding-top:3%;"><span class="list_money_deal_txt">미입찰</span></td>
+			<td width="5%"></td>
+			<td width="30%" style="text-align:right; vertical-align:middle; padding-top:3%;">
+			
+			</td>
+		</tr>
+	</table> 
+</div>
+
+<script type="text/javascript">
+	var du = '-2702383';
+	var vi = 93;
+	
+	function dailyMissionTimer(duration,aidx) {
+				
+				var timer = duration;
+				var hours, minutes, seconds;
+				var interval = setInterval(function(){
+					hours	= parseInt(timer / 3600, 10);
+					minutes = parseInt(timer / 60 % 60, 10);
+					seconds = parseInt(timer % 60, 10);
+					hours 	= hours < 10 ? "0" + hours : hours;
+					minutes = minutes < 10 ? "0" + minutes : minutes;
+					seconds = seconds < 10 ? "0" + seconds : seconds;
+					if (duration.indexOf('-') != -1){
+						hours = "00";
+						minutes = "00";
+						seconds = "00";
+					}
+					$('#spanHour_'+aidx).text(hours);
+					$('#spanMinute_'+aidx).text(minutes);
+					$('#spanSecond_'+aidx).text(seconds);
+					if (--timer < 0) {
+						timer = 0;
+						clearInterval(interval);
+						//alert("aaa");
+					}
+				}, 1000);
+			}
+
+			dailyMissionTimer(du,vi);
+</script>
+<div id="viewDiv_8" class="list_box" style="display:none;"> 
+	<table width="100%" style="margin-top:2%; margin-bottom:2%;"> 
+		<tr> 
+			<td width="20%"><span><img src="/m/images/sub/my_deal_cate_newcar.png" width="98%" alt="카테고리_신차"></span></td>
+			<td width="20%" style="text-align:right;"><span><img src='/m/images/sub/mall_list_progress_02.png' width='98%' alt='거래완료'></span></td>
+			<td width="60%" style="text-align:right;"><span style="font-size:2.3vw;font-weight:700;color:#e86300;">&nbsp;</span>&nbsp;&nbsp;<span class="mall_list_id_txt">huh****</span><span class="mall_list_txt_bold"> 님</span></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="3" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="80%"><span class="list_product_name_txt">현대&nbsp;그랜드 스타렉스(쥐색)</span></td>
+			<td width="20%" class="list_txt">수량<span class="list_ea_txt">1</span>개</td>
+		</tr>
+		<tr>
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">모델 :</td>
+			<td width="75%" class="list_txt_bold">2016. D. 밴 2WD) 3인 기본형(M/T)</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">면세/할인 :</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">세부사항:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">추가할인:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법상세:</td>
+			<td width="75%" class="list_txt_bold">
+				
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매지역 :</td>
+			<td width="75%" class="list_txt_bold">부산광역시&nbsp;금정구</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="100%" class="memo_txt">2.5 ltz
+3.6   중에서 선택 할예정입니다.
+선루프 포함합니다.</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="1" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">거래시간 :</td>
+			<td width="75%"> 
+				<span class="list_time_txt" id="spanHour_93"></span><span class="list_txt_bold">시간</span>
+				<span class="list_time_txt" id="spanMinute_93"></span><span class="list_txt_bold">분</span>
+				<span class="list_time_txt" id="spanSecond_93"></span><span class="list_txt_bold">초</span>
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt" style="padding-top:3%;">업체제안금액 :</td>
+			<td width="40%" style="padding-top:3%;"><span class="list_money_deal_txt">미입찰</span></td>
+			<td width="5%"></td>
+			<td width="30%" style="text-align:right; vertical-align:middle; padding-top:3%;">
+			
+			</td>
+		</tr>
+	</table> 
+</div>
+
+<script type="text/javascript">
+	var du = '-2762115';
+	var vi = 92;
+	
+	function dailyMissionTimer(duration,aidx) {
+				
+				var timer = duration;
+				var hours, minutes, seconds;
+				var interval = setInterval(function(){
+					hours	= parseInt(timer / 3600, 10);
+					minutes = parseInt(timer / 60 % 60, 10);
+					seconds = parseInt(timer % 60, 10);
+					hours 	= hours < 10 ? "0" + hours : hours;
+					minutes = minutes < 10 ? "0" + minutes : minutes;
+					seconds = seconds < 10 ? "0" + seconds : seconds;
+					if (duration.indexOf('-') != -1){
+						hours = "00";
+						minutes = "00";
+						seconds = "00";
+					}
+					$('#spanHour_'+aidx).text(hours);
+					$('#spanMinute_'+aidx).text(minutes);
+					$('#spanSecond_'+aidx).text(seconds);
+					if (--timer < 0) {
+						timer = 0;
+						clearInterval(interval);
+						//alert("aaa");
+					}
+				}, 1000);
+			}
+
+			dailyMissionTimer(du,vi);
+</script>
+<div id="viewDiv_9" class="list_box" style="display:none;"> 
+	<table width="100%" style="margin-top:2%; margin-bottom:2%;"> 
+		<tr> 
+			<td width="20%"><span><img src="/m/images/sub/my_deal_cate_newcar.png" width="98%" alt="카테고리_신차"></span></td>
+			<td width="20%" style="text-align:right;"><span><img src='/m/images/sub/mall_list_progress_02.png' width='98%' alt='거래완료'></span></td>
+			<td width="60%" style="text-align:right;"><span style="font-size:2.3vw;font-weight:700;color:#e86300;">&nbsp;</span>&nbsp;&nbsp;<span class="mall_list_id_txt">asd****</span><span class="mall_list_txt_bold"> 님</span></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="3" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="80%"><span class="list_product_name_txt">현대&nbsp;쏘나타(LF)(흰색)</span></td>
+			<td width="20%" class="list_txt">수량<span class="list_ea_txt">1</span>개</td>
+		</tr>
+		<tr>
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">모델 :</td>
+			<td width="75%" class="list_txt_bold">2017. D) 1.7 e-VG.터보 Smart Special </td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">면세/할인 :</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">세부사항:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">추가할인:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법상세:</td>
+			<td width="75%" class="list_txt_bold">
+				
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매지역 :</td>
+			<td width="75%" class="list_txt_bold">제주특별자치도&nbsp;서귀포시</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="100%" class="memo_txt"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="1" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">거래시간 :</td>
+			<td width="75%"> 
+				<span class="list_time_txt" id="spanHour_92"></span><span class="list_txt_bold">시간</span>
+				<span class="list_time_txt" id="spanMinute_92"></span><span class="list_txt_bold">분</span>
+				<span class="list_time_txt" id="spanSecond_92"></span><span class="list_txt_bold">초</span>
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt" style="padding-top:3%;">업체제안금액 :</td>
+			<td width="40%" style="padding-top:3%;"><span class="list_money_deal_txt">미입찰</span></td>
+			<td width="5%"></td>
+			<td width="30%" style="text-align:right; vertical-align:middle; padding-top:3%;">
+			
+			</td>
+		</tr>
+	</table> 
+</div>
+
+<script type="text/javascript">
+	var du = '-3167303';
+	var vi = 89;
+	
+	function dailyMissionTimer(duration,aidx) {
+				
+				var timer = duration;
+				var hours, minutes, seconds;
+				var interval = setInterval(function(){
+					hours	= parseInt(timer / 3600, 10);
+					minutes = parseInt(timer / 60 % 60, 10);
+					seconds = parseInt(timer % 60, 10);
+					hours 	= hours < 10 ? "0" + hours : hours;
+					minutes = minutes < 10 ? "0" + minutes : minutes;
+					seconds = seconds < 10 ? "0" + seconds : seconds;
+					if (duration.indexOf('-') != -1){
+						hours = "00";
+						minutes = "00";
+						seconds = "00";
+					}
+					$('#spanHour_'+aidx).text(hours);
+					$('#spanMinute_'+aidx).text(minutes);
+					$('#spanSecond_'+aidx).text(seconds);
+					if (--timer < 0) {
+						timer = 0;
+						clearInterval(interval);
+						//alert("aaa");
+					}
+				}, 1000);
+			}
+
+			dailyMissionTimer(du,vi);
+</script>
+<div id="viewDiv_10" class="list_box" style="display:none;"> 
+	<table width="100%" style="margin-top:2%; margin-bottom:2%;"> 
+		<tr> 
+			<td width="20%"><span><img src="/m/images/sub/my_deal_cate_newcar.png" width="98%" alt="카테고리_신차"></span></td>
+			<td width="20%" style="text-align:right;"><span><img src='/m/images/sub/mall_list_progress_02.png' width='98%' alt='거래완료'></span></td>
+			<td width="60%" style="text-align:right;"><span style="font-size:2.3vw;font-weight:700;color:#e86300;">&nbsp;</span>&nbsp;&nbsp;<span class="mall_list_id_txt">rhe****</span><span class="mall_list_txt_bold"> 님</span></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="3" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="80%"><span class="list_product_name_txt">벤츠&nbsp;S-Class(쥐색)</span></td>
+			<td width="20%" class="list_txt">수량<span class="list_ea_txt">1</span>개</td>
+		</tr>
+		<tr>
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">모델 :</td>
+			<td width="75%" class="list_txt_bold">2016) AMG S65 Coupe</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">면세/할인 :</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">세부사항:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">추가할인:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법상세:</td>
+			<td width="75%" class="list_txt_bold">
+				
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매지역 :</td>
+			<td width="75%" class="list_txt_bold">서울특별시&nbsp;강서구</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="100%" class="memo_txt"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="1" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">거래시간 :</td>
+			<td width="75%"> 
+				<span class="list_time_txt" id="spanHour_89"></span><span class="list_txt_bold">시간</span>
+				<span class="list_time_txt" id="spanMinute_89"></span><span class="list_txt_bold">분</span>
+				<span class="list_time_txt" id="spanSecond_89"></span><span class="list_txt_bold">초</span>
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt" style="padding-top:3%;">업체제안금액 :</td>
+			<td width="40%" style="padding-top:3%;"><span class="list_money_deal_txt">미입찰</span></td>
+			<td width="5%"></td>
+			<td width="30%" style="text-align:right; vertical-align:middle; padding-top:3%;">
+			
+			</td>
+		</tr>
+	</table> 
+</div>
+
+<script type="text/javascript">
+	var du = '-3280723';
+	var vi = 88;
+	
+	function dailyMissionTimer(duration,aidx) {
+				
+				var timer = duration;
+				var hours, minutes, seconds;
+				var interval = setInterval(function(){
+					hours	= parseInt(timer / 3600, 10);
+					minutes = parseInt(timer / 60 % 60, 10);
+					seconds = parseInt(timer % 60, 10);
+					hours 	= hours < 10 ? "0" + hours : hours;
+					minutes = minutes < 10 ? "0" + minutes : minutes;
+					seconds = seconds < 10 ? "0" + seconds : seconds;
+					if (duration.indexOf('-') != -1){
+						hours = "00";
+						minutes = "00";
+						seconds = "00";
+					}
+					$('#spanHour_'+aidx).text(hours);
+					$('#spanMinute_'+aidx).text(minutes);
+					$('#spanSecond_'+aidx).text(seconds);
+					if (--timer < 0) {
+						timer = 0;
+						clearInterval(interval);
+						//alert("aaa");
+					}
+				}, 1000);
+			}
+
+			dailyMissionTimer(du,vi);
+</script>
+<div id="viewDiv_11" class="list_box" style="display:none;"> 
+	<table width="100%" style="margin-top:2%; margin-bottom:2%;"> 
+		<tr> 
+			<td width="20%"><span><img src="/m/images/sub/my_deal_cate_newcar.png" width="98%" alt="카테고리_신차"></span></td>
+			<td width="20%" style="text-align:right;"><span><img src='/m/images/sub/mall_list_progress_02.png' width='98%' alt='거래완료'></span></td>
+			<td width="60%" style="text-align:right;"><span style="font-size:2.3vw;font-weight:700;color:#e86300;">&nbsp;</span>&nbsp;&nbsp;<span class="mall_list_id_txt">rhe****</span><span class="mall_list_txt_bold"> 님</span></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="3" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="80%"><span class="list_product_name_txt">기아&nbsp;더 뉴 K9(쥐색)</span></td>
+			<td width="20%" class="list_txt">수량<span class="list_ea_txt">1</span>개</td>
+		</tr>
+		<tr>
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">모델 :</td>
+			<td width="75%" class="list_txt_bold">2015. 3.8. GDI) NOBLESSE</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">면세/할인 :</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">세부사항:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">추가할인:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법상세:</td>
+			<td width="75%" class="list_txt_bold">
+				
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매지역 :</td>
+			<td width="75%" class="list_txt_bold">서울특별시&nbsp;강서구</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="100%" class="memo_txt"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="1" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">거래시간 :</td>
+			<td width="75%"> 
+				<span class="list_time_txt" id="spanHour_88"></span><span class="list_txt_bold">시간</span>
+				<span class="list_time_txt" id="spanMinute_88"></span><span class="list_txt_bold">분</span>
+				<span class="list_time_txt" id="spanSecond_88"></span><span class="list_txt_bold">초</span>
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt" style="padding-top:3%;">업체제안금액 :</td>
+			<td width="40%" style="padding-top:3%;"><span class="list_money_deal_txt">미입찰</span></td>
+			<td width="5%"></td>
+			<td width="30%" style="text-align:right; vertical-align:middle; padding-top:3%;">
+			
+			</td>
+		</tr>
+	</table> 
+</div>
+
+<script type="text/javascript">
+	var du = '-3617849';
+	var vi = 87;
+	
+	function dailyMissionTimer(duration,aidx) {
+				
+				var timer = duration;
+				var hours, minutes, seconds;
+				var interval = setInterval(function(){
+					hours	= parseInt(timer / 3600, 10);
+					minutes = parseInt(timer / 60 % 60, 10);
+					seconds = parseInt(timer % 60, 10);
+					hours 	= hours < 10 ? "0" + hours : hours;
+					minutes = minutes < 10 ? "0" + minutes : minutes;
+					seconds = seconds < 10 ? "0" + seconds : seconds;
+					if (duration.indexOf('-') != -1){
+						hours = "00";
+						minutes = "00";
+						seconds = "00";
+					}
+					$('#spanHour_'+aidx).text(hours);
+					$('#spanMinute_'+aidx).text(minutes);
+					$('#spanSecond_'+aidx).text(seconds);
+					if (--timer < 0) {
+						timer = 0;
+						clearInterval(interval);
+						//alert("aaa");
+					}
+				}, 1000);
+			}
+
+			dailyMissionTimer(du,vi);
+</script>
+<div id="viewDiv_12" class="list_box" style="display:none;"> 
+	<table width="100%" style="margin-top:2%; margin-bottom:2%;"> 
+		<tr> 
+			<td width="20%"><span><img src="/m/images/sub/my_deal_cate_newcar.png" width="98%" alt="카테고리_신차"></span></td>
+			<td width="20%" style="text-align:right;"><span><img src='/m/images/sub/mall_list_progress_02.png' width='98%' alt='거래완료'></span></td>
+			<td width="60%" style="text-align:right;"><span style="font-size:2.3vw;font-weight:700;color:#e86300;">&nbsp;</span>&nbsp;&nbsp;<span class="mall_list_id_txt">yal****</span><span class="mall_list_txt_bold"> 님</span></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="3" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="80%"><span class="list_product_name_txt">현대&nbsp;제네시스(DH)(검정색)</span></td>
+			<td width="20%" class="list_txt">수량<span class="list_ea_txt">1</span>개</td>
+		</tr>
+		<tr>
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">모델 :</td>
+			<td width="75%" class="list_txt_bold">2015. G330 Premium</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">면세/할인 :</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">세부사항:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">추가할인:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법상세:</td>
+			<td width="75%" class="list_txt_bold">
+				
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매지역 :</td>
+			<td width="75%" class="list_txt_bold">경기도&nbsp;부천시 원미구</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="100%" class="memo_txt"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="1" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">거래시간 :</td>
+			<td width="75%"> 
+				<span class="list_time_txt" id="spanHour_87"></span><span class="list_txt_bold">시간</span>
+				<span class="list_time_txt" id="spanMinute_87"></span><span class="list_txt_bold">분</span>
+				<span class="list_time_txt" id="spanSecond_87"></span><span class="list_txt_bold">초</span>
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt" style="padding-top:3%;">업체제안금액 :</td>
+			<td width="40%" style="padding-top:3%;"><span class="list_money_deal_txt">미입찰</span></td>
+			<td width="5%"></td>
+			<td width="30%" style="text-align:right; vertical-align:middle; padding-top:3%;">
+			
+			</td>
+		</tr>
+	</table> 
+</div>
+
+<script type="text/javascript">
+	var du = '-3724978';
+	var vi = 83;
+	
+	function dailyMissionTimer(duration,aidx) {
+				
+				var timer = duration;
+				var hours, minutes, seconds;
+				var interval = setInterval(function(){
+					hours	= parseInt(timer / 3600, 10);
+					minutes = parseInt(timer / 60 % 60, 10);
+					seconds = parseInt(timer % 60, 10);
+					hours 	= hours < 10 ? "0" + hours : hours;
+					minutes = minutes < 10 ? "0" + minutes : minutes;
+					seconds = seconds < 10 ? "0" + seconds : seconds;
+					if (duration.indexOf('-') != -1){
+						hours = "00";
+						minutes = "00";
+						seconds = "00";
+					}
+					$('#spanHour_'+aidx).text(hours);
+					$('#spanMinute_'+aidx).text(minutes);
+					$('#spanSecond_'+aidx).text(seconds);
+					if (--timer < 0) {
+						timer = 0;
+						clearInterval(interval);
+						//alert("aaa");
+					}
+				}, 1000);
+			}
+
+			dailyMissionTimer(du,vi);
+</script>
+<div id="viewDiv_13" class="list_box" style="display:none;"> 
+	<table width="100%" style="margin-top:2%; margin-bottom:2%;"> 
+		<tr> 
+			<td width="20%"><span><img src="/m/images/sub/my_deal_cate_newcar.png" width="98%" alt="카테고리_신차"></span></td>
+			<td width="20%" style="text-align:right;"><span><img src='/m/images/sub/mall_list_progress_02.png' width='98%' alt='거래완료'></span></td>
+			<td width="60%" style="text-align:right;"><span style="font-size:2.3vw;font-weight:700;color:#e86300;">&nbsp;</span>&nbsp;&nbsp;<span class="mall_list_id_txt">woo****</span><span class="mall_list_txt_bold"> 님</span></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="3" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="80%"><span class="list_product_name_txt">현대&nbsp;그랜드 스타렉스(흰색)</span></td>
+			<td width="20%" class="list_txt">수량<span class="list_ea_txt">1</span>개</td>
+		</tr>
+		<tr>
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">모델 :</td>
+			<td width="75%" class="list_txt_bold">2016. D. 왜건 2WD) 12인 Smart</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">면세/할인 :</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">세부사항:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">추가할인:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법상세:</td>
+			<td width="75%" class="list_txt_bold">
+				
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매지역 :</td>
+			<td width="75%" class="list_txt_bold">전라남도&nbsp;여수시</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="100%" class="memo_txt"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="1" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">거래시간 :</td>
+			<td width="75%"> 
+				<span class="list_time_txt" id="spanHour_83"></span><span class="list_txt_bold">시간</span>
+				<span class="list_time_txt" id="spanMinute_83"></span><span class="list_txt_bold">분</span>
+				<span class="list_time_txt" id="spanSecond_83"></span><span class="list_txt_bold">초</span>
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt" style="padding-top:3%;">업체제안금액 :</td>
+			<td width="40%" style="padding-top:3%;"><span class="list_money_deal_txt">미입찰</span></td>
+			<td width="5%"></td>
+			<td width="30%" style="text-align:right; vertical-align:middle; padding-top:3%;">
+			
+			</td>
+		</tr>
+	</table> 
+</div>
+
+<script type="text/javascript">
+	var du = '-3603007';
+	var vi = 81;
+	
+	function dailyMissionTimer(duration,aidx) {
+				
+				var timer = duration;
+				var hours, minutes, seconds;
+				var interval = setInterval(function(){
+					hours	= parseInt(timer / 3600, 10);
+					minutes = parseInt(timer / 60 % 60, 10);
+					seconds = parseInt(timer % 60, 10);
+					hours 	= hours < 10 ? "0" + hours : hours;
+					minutes = minutes < 10 ? "0" + minutes : minutes;
+					seconds = seconds < 10 ? "0" + seconds : seconds;
+					if (duration.indexOf('-') != -1){
+						hours = "00";
+						minutes = "00";
+						seconds = "00";
+					}
+					$('#spanHour_'+aidx).text(hours);
+					$('#spanMinute_'+aidx).text(minutes);
+					$('#spanSecond_'+aidx).text(seconds);
+					if (--timer < 0) {
+						timer = 0;
+						clearInterval(interval);
+						//alert("aaa");
+					}
+				}, 1000);
+			}
+
+			dailyMissionTimer(du,vi);
+</script>
+<div id="viewDiv_14" class="list_box" style="display:none;"> 
+	<table width="100%" style="margin-top:2%; margin-bottom:2%;"> 
+		<tr> 
+			<td width="20%"><span><img src="/m/images/sub/my_deal_cate_newcar.png" width="98%" alt="카테고리_신차"></span></td>
+			<td width="20%" style="text-align:right;"><span><img src='/m/images/sub/mall_list_progress_02.png' width='98%' alt='거래완료'></span></td>
+			<td width="60%" style="text-align:right;"><span style="font-size:2.3vw;font-weight:700;color:#e86300;">&nbsp;</span>&nbsp;&nbsp;<span class="mall_list_id_txt">chl****</span><span class="mall_list_txt_bold"> 님</span></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="3" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="80%"><span class="list_product_name_txt">현대&nbsp;쏘나타(LF)(기타)</span></td>
+			<td width="20%" class="list_txt">수량<span class="list_ea_txt">1</span>개</td>
+		</tr>
+		<tr>
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">모델 :</td>
+			<td width="75%" class="list_txt_bold">2016. G.터보) 2.0 Turbo GDi Smart </td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">면세/할인 :</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">세부사항:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">추가할인:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법상세:</td>
+			<td width="75%" class="list_txt_bold">
+				
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매지역 :</td>
+			<td width="75%" class="list_txt_bold">경상북도&nbsp;구미시</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="100%" class="memo_txt"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="1" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">거래시간 :</td>
+			<td width="75%"> 
+				<span class="list_time_txt" id="spanHour_81"></span><span class="list_txt_bold">시간</span>
+				<span class="list_time_txt" id="spanMinute_81"></span><span class="list_txt_bold">분</span>
+				<span class="list_time_txt" id="spanSecond_81"></span><span class="list_txt_bold">초</span>
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt" style="padding-top:3%;">업체제안금액 :</td>
+			<td width="40%" style="padding-top:3%;"><span class="list_money_deal_txt">미입찰</span></td>
+			<td width="5%"></td>
+			<td width="30%" style="text-align:right; vertical-align:middle; padding-top:3%;">
+			
+			</td>
+		</tr>
+	</table> 
+</div>
+
+<script type="text/javascript">
+	var du = '-3724195';
+	var vi = 79;
+	
+	function dailyMissionTimer(duration,aidx) {
+				
+				var timer = duration;
+				var hours, minutes, seconds;
+				var interval = setInterval(function(){
+					hours	= parseInt(timer / 3600, 10);
+					minutes = parseInt(timer / 60 % 60, 10);
+					seconds = parseInt(timer % 60, 10);
+					hours 	= hours < 10 ? "0" + hours : hours;
+					minutes = minutes < 10 ? "0" + minutes : minutes;
+					seconds = seconds < 10 ? "0" + seconds : seconds;
+					if (duration.indexOf('-') != -1){
+						hours = "00";
+						minutes = "00";
+						seconds = "00";
+					}
+					$('#spanHour_'+aidx).text(hours);
+					$('#spanMinute_'+aidx).text(minutes);
+					$('#spanSecond_'+aidx).text(seconds);
+					if (--timer < 0) {
+						timer = 0;
+						clearInterval(interval);
+						//alert("aaa");
+					}
+				}, 1000);
+			}
+
+			dailyMissionTimer(du,vi);
+</script>
+<div id="viewDiv_15" class="list_box" style="display:none;"> 
+	<table width="100%" style="margin-top:2%; margin-bottom:2%;"> 
+		<tr> 
+			<td width="20%"><span><img src="/m/images/sub/my_deal_cate_newcar.png" width="98%" alt="카테고리_신차"></span></td>
+			<td width="20%" style="text-align:right;"><span><img src='/m/images/sub/mall_list_progress_02.png' width='98%' alt='거래완료'></span></td>
+			<td width="60%" style="text-align:right;"><span style="font-size:2.3vw;font-weight:700;color:#e86300;">&nbsp;</span>&nbsp;&nbsp;<span class="mall_list_id_txt">eli****</span><span class="mall_list_txt_bold"> 님</span></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="3" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="80%"><span class="list_product_name_txt">현대&nbsp;쏘나타(LF) 하이브리드(은색)</span></td>
+			<td width="20%" class="list_txt">수량<span class="list_ea_txt">1</span>개</td>
+		</tr>
+		<tr>
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">모델 :</td>
+			<td width="75%" class="list_txt_bold">2015. Smart </td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">면세/할인 :</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">세부사항:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">추가할인:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법상세:</td>
+			<td width="75%" class="list_txt_bold">
+				
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매지역 :</td>
+			<td width="75%" class="list_txt_bold">서울특별시&nbsp;중랑구</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="100%" class="memo_txt">528i xdrive luxury plus 원합니다.</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="1" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">거래시간 :</td>
+			<td width="75%"> 
+				<span class="list_time_txt" id="spanHour_79"></span><span class="list_txt_bold">시간</span>
+				<span class="list_time_txt" id="spanMinute_79"></span><span class="list_txt_bold">분</span>
+				<span class="list_time_txt" id="spanSecond_79"></span><span class="list_txt_bold">초</span>
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt" style="padding-top:3%;">업체제안금액 :</td>
+			<td width="40%" style="padding-top:3%;"><span class="list_money_deal_txt">미입찰</span></td>
+			<td width="5%"></td>
+			<td width="30%" style="text-align:right; vertical-align:middle; padding-top:3%;">
+			
+			</td>
+		</tr>
+	</table> 
+</div>
+
+<script type="text/javascript">
+	var du = '-4212161';
+	var vi = 73;
+	
+	function dailyMissionTimer(duration,aidx) {
+				
+				var timer = duration;
+				var hours, minutes, seconds;
+				var interval = setInterval(function(){
+					hours	= parseInt(timer / 3600, 10);
+					minutes = parseInt(timer / 60 % 60, 10);
+					seconds = parseInt(timer % 60, 10);
+					hours 	= hours < 10 ? "0" + hours : hours;
+					minutes = minutes < 10 ? "0" + minutes : minutes;
+					seconds = seconds < 10 ? "0" + seconds : seconds;
+					if (duration.indexOf('-') != -1){
+						hours = "00";
+						minutes = "00";
+						seconds = "00";
+					}
+					$('#spanHour_'+aidx).text(hours);
+					$('#spanMinute_'+aidx).text(minutes);
+					$('#spanSecond_'+aidx).text(seconds);
+					if (--timer < 0) {
+						timer = 0;
+						clearInterval(interval);
+						//alert("aaa");
+					}
+				}, 1000);
+			}
+
+			dailyMissionTimer(du,vi);
+</script>
+<div id="viewDiv_16" class="list_box" style="display:none;"> 
+	<table width="100%" style="margin-top:2%; margin-bottom:2%;"> 
+		<tr> 
+			<td width="20%"><span><img src="/m/images/sub/my_deal_cate_newcar.png" width="98%" alt="카테고리_신차"></span></td>
+			<td width="20%" style="text-align:right;"><span><img src='/m/images/sub/mall_list_progress_02.png' width='98%' alt='거래완료'></span></td>
+			<td width="60%" style="text-align:right;"><span style="font-size:2.3vw;font-weight:700;color:#e86300;">&nbsp;</span>&nbsp;&nbsp;<span class="mall_list_id_txt">jjd****</span><span class="mall_list_txt_bold"> 님</span></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="3" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="80%"><span class="list_product_name_txt">쉐보레&nbsp;캡티바(검정색)</span></td>
+			<td width="20%" class="list_txt">수량<span class="list_ea_txt">1</span>개</td>
+		</tr>
+		<tr>
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">모델 :</td>
+			<td width="75%" class="list_txt_bold">2016. 2.0 D. 2WD. 7인) LTZ</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">면세/할인 :</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">세부사항:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">추가할인:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법상세:</td>
+			<td width="75%" class="list_txt_bold">
+				
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매지역 :</td>
+			<td width="75%" class="list_txt_bold">울산광역시&nbsp;남구</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="100%" class="memo_txt">80% 현금 
+20% 할부
+이면 좋겠네요</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="1" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">거래시간 :</td>
+			<td width="75%"> 
+				<span class="list_time_txt" id="spanHour_73"></span><span class="list_txt_bold">시간</span>
+				<span class="list_time_txt" id="spanMinute_73"></span><span class="list_txt_bold">분</span>
+				<span class="list_time_txt" id="spanSecond_73"></span><span class="list_txt_bold">초</span>
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt" style="padding-top:3%;">업체제안금액 :</td>
+			<td width="40%" style="padding-top:3%;"><span class="list_money_deal_txt"><span class="list_money_deal_txt">이미지제공</span> </span></td>
+			<td width="5%"></td>
+			<td width="30%" style="text-align:right; vertical-align:middle; padding-top:3%;">
+			
+			</td>
+		</tr>
+	</table> 
+</div>
+
+<script type="text/javascript">
+	var du = '-4309013';
+	var vi = 72;
+	
+	function dailyMissionTimer(duration,aidx) {
+				
+				var timer = duration;
+				var hours, minutes, seconds;
+				var interval = setInterval(function(){
+					hours	= parseInt(timer / 3600, 10);
+					minutes = parseInt(timer / 60 % 60, 10);
+					seconds = parseInt(timer % 60, 10);
+					hours 	= hours < 10 ? "0" + hours : hours;
+					minutes = minutes < 10 ? "0" + minutes : minutes;
+					seconds = seconds < 10 ? "0" + seconds : seconds;
+					if (duration.indexOf('-') != -1){
+						hours = "00";
+						minutes = "00";
+						seconds = "00";
+					}
+					$('#spanHour_'+aidx).text(hours);
+					$('#spanMinute_'+aidx).text(minutes);
+					$('#spanSecond_'+aidx).text(seconds);
+					if (--timer < 0) {
+						timer = 0;
+						clearInterval(interval);
+						//alert("aaa");
+					}
+				}, 1000);
+			}
+
+			dailyMissionTimer(du,vi);
+</script>
+<div id="viewDiv_17" class="list_box" style="display:none;"> 
+	<table width="100%" style="margin-top:2%; margin-bottom:2%;"> 
+		<tr> 
+			<td width="20%"><span><img src="/m/images/sub/my_deal_cate_newcar.png" width="98%" alt="카테고리_신차"></span></td>
+			<td width="20%" style="text-align:right;"><span><img src='/m/images/sub/mall_list_progress_02.png' width='98%' alt='거래완료'></span></td>
+			<td width="60%" style="text-align:right;"><span style="font-size:2.3vw;font-weight:700;color:#e86300;">&nbsp;</span>&nbsp;&nbsp;<span class="mall_list_id_txt">bom****</span><span class="mall_list_txt_bold"> 님</span></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="3" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="80%"><span class="list_product_name_txt">기아&nbsp;올 뉴 K7(기타)</span></td>
+			<td width="20%" class="list_txt">수량<span class="list_ea_txt">1</span>개</td>
+		</tr>
+		<tr>
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">모델 :</td>
+			<td width="75%" class="list_txt_bold">2016. G. GDI) 2.4 프레스티지(내비미적용)</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">면세/할인 :</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">세부사항:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">추가할인:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법상세:</td>
+			<td width="75%" class="list_txt_bold">
+				
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매지역 :</td>
+			<td width="75%" class="list_txt_bold">경상북도&nbsp;울진군</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="100%" class="memo_txt">종류 ; 2.5 SL
+색상 : 스톰블루
+현금구매</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="1" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">거래시간 :</td>
+			<td width="75%"> 
+				<span class="list_time_txt" id="spanHour_72"></span><span class="list_txt_bold">시간</span>
+				<span class="list_time_txt" id="spanMinute_72"></span><span class="list_txt_bold">분</span>
+				<span class="list_time_txt" id="spanSecond_72"></span><span class="list_txt_bold">초</span>
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt" style="padding-top:3%;">업체제안금액 :</td>
+			<td width="40%" style="padding-top:3%;"><span class="list_money_deal_txt"><span class="list_money_deal_txt">이미지제공</span> </span></td>
+			<td width="5%"></td>
+			<td width="30%" style="text-align:right; vertical-align:middle; padding-top:3%;">
+			
+			</td>
+		</tr>
+	</table> 
+</div>
+
+<script type="text/javascript">
+	var du = '-4148597';
+	var vi = 70;
+	
+	function dailyMissionTimer(duration,aidx) {
+				
+				var timer = duration;
+				var hours, minutes, seconds;
+				var interval = setInterval(function(){
+					hours	= parseInt(timer / 3600, 10);
+					minutes = parseInt(timer / 60 % 60, 10);
+					seconds = parseInt(timer % 60, 10);
+					hours 	= hours < 10 ? "0" + hours : hours;
+					minutes = minutes < 10 ? "0" + minutes : minutes;
+					seconds = seconds < 10 ? "0" + seconds : seconds;
+					if (duration.indexOf('-') != -1){
+						hours = "00";
+						minutes = "00";
+						seconds = "00";
+					}
+					$('#spanHour_'+aidx).text(hours);
+					$('#spanMinute_'+aidx).text(minutes);
+					$('#spanSecond_'+aidx).text(seconds);
+					if (--timer < 0) {
+						timer = 0;
+						clearInterval(interval);
+						//alert("aaa");
+					}
+				}, 1000);
+			}
+
+			dailyMissionTimer(du,vi);
+</script>
+<div id="viewDiv_18" class="list_box" style="display:none;"> 
+	<table width="100%" style="margin-top:2%; margin-bottom:2%;"> 
+		<tr> 
+			<td width="20%"><span><img src="/m/images/sub/my_deal_cate_newcar.png" width="98%" alt="카테고리_신차"></span></td>
+			<td width="20%" style="text-align:right;"><span><img src='/m/images/sub/mall_list_progress_02.png' width='98%' alt='거래완료'></span></td>
+			<td width="60%" style="text-align:right;"><span style="font-size:2.3vw;font-weight:700;color:#e86300;">보험설계&nbsp;전보험비교TM</span>&nbsp;&nbsp;<span class="mall_list_id_txt">kim****</span><span class="mall_list_txt_bold"> 님</span></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="3" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="80%"><span class="list_product_name_txt">현대&nbsp;그랜저(검정색)</span></td>
+			<td width="20%" class="list_txt">수량<span class="list_ea_txt">1</span>개</td>
+		</tr>
+		<tr>
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">모델 :</td>
+			<td width="75%" class="list_txt_bold">2015. D) HG220 Premium </td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">면세/할인 :</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">세부사항:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">추가할인:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법상세:</td>
+			<td width="75%" class="list_txt_bold">
+				
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매지역 :</td>
+			<td width="75%" class="list_txt_bold">강원도&nbsp;강릉시</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="100%" class="memo_txt">지금 올리는 내용은 테스트 입니다. 이점 참고 하여 주시기 바랍니다. 글을 올리시는 분들도 테스트로만 이용 바랍니다. 감사합니다. 이 내용은 테스트 입니다.</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="1" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">거래시간 :</td>
+			<td width="75%"> 
+				<span class="list_time_txt" id="spanHour_70"></span><span class="list_txt_bold">시간</span>
+				<span class="list_time_txt" id="spanMinute_70"></span><span class="list_txt_bold">분</span>
+				<span class="list_time_txt" id="spanSecond_70"></span><span class="list_txt_bold">초</span>
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt" style="padding-top:3%;">업체제안금액 :</td>
+			<td width="40%" style="padding-top:3%;"><span class="list_money_deal_txt"><span class="list_money_deal_txt">이미지제공</span> </span></td>
+			<td width="5%"></td>
+			<td width="30%" style="text-align:right; vertical-align:middle; padding-top:3%;">
+			
+			</td>
+		</tr>
+	</table> 
+</div>
+
+<script type="text/javascript">
+	var du = '-4609977';
+	var vi = 57;
+	
+	function dailyMissionTimer(duration,aidx) {
+				
+				var timer = duration;
+				var hours, minutes, seconds;
+				var interval = setInterval(function(){
+					hours	= parseInt(timer / 3600, 10);
+					minutes = parseInt(timer / 60 % 60, 10);
+					seconds = parseInt(timer % 60, 10);
+					hours 	= hours < 10 ? "0" + hours : hours;
+					minutes = minutes < 10 ? "0" + minutes : minutes;
+					seconds = seconds < 10 ? "0" + seconds : seconds;
+					if (duration.indexOf('-') != -1){
+						hours = "00";
+						minutes = "00";
+						seconds = "00";
+					}
+					$('#spanHour_'+aidx).text(hours);
+					$('#spanMinute_'+aidx).text(minutes);
+					$('#spanSecond_'+aidx).text(seconds);
+					if (--timer < 0) {
+						timer = 0;
+						clearInterval(interval);
+						//alert("aaa");
+					}
+				}, 1000);
+			}
+
+			dailyMissionTimer(du,vi);
+</script>
+<div id="viewDiv_19" class="list_box" style="display:none;"> 
+	<table width="100%" style="margin-top:2%; margin-bottom:2%;"> 
+		<tr> 
+			<td width="20%"><span><img src="/m/images/sub/my_deal_cate_newcar.png" width="98%" alt="카테고리_신차"></span></td>
+			<td width="20%" style="text-align:right;"><span><img src='/m/images/sub/mall_list_progress_02.png' width='98%' alt='거래완료'></span></td>
+			<td width="60%" style="text-align:right;"><span style="font-size:2.3vw;font-weight:700;color:#e86300;">&nbsp;</span>&nbsp;&nbsp;<span class="mall_list_id_txt">ktw****</span><span class="mall_list_txt_bold"> 님</span></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="3" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="80%"><span class="list_product_name_txt">현대&nbsp;그랜드 스타렉스(검정색)</span></td>
+			<td width="20%" class="list_txt">수량<span class="list_ea_txt">1</span>개</td>
+		</tr>
+		<tr>
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">모델 :</td>
+			<td width="75%" class="list_txt_bold">2016. D. 밴 2WD) 3인 기본형(M/T)</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">면세/할인 :</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">세부사항:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">추가할인:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법상세:</td>
+			<td width="75%" class="list_txt_bold">
+				
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매지역 :</td>
+			<td width="75%" class="list_txt_bold">강원도&nbsp;원주시</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="100%" class="memo_txt">Ltz 선룹포함</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="1" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">거래시간 :</td>
+			<td width="75%"> 
+				<span class="list_time_txt" id="spanHour_57"></span><span class="list_txt_bold">시간</span>
+				<span class="list_time_txt" id="spanMinute_57"></span><span class="list_txt_bold">분</span>
+				<span class="list_time_txt" id="spanSecond_57"></span><span class="list_txt_bold">초</span>
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt" style="padding-top:3%;">업체제안금액 :</td>
+			<td width="40%" style="padding-top:3%;"><span class="list_money_deal_txt">미입찰</span></td>
+			<td width="5%"></td>
+			<td width="30%" style="text-align:right; vertical-align:middle; padding-top:3%;">
+			
+			</td>
+		</tr>
+	</table> 
+</div>
+
+<script type="text/javascript">
+	var du = '-5078518';
+	var vi = 53;
+	
+	function dailyMissionTimer(duration,aidx) {
+				
+				var timer = duration;
+				var hours, minutes, seconds;
+				var interval = setInterval(function(){
+					hours	= parseInt(timer / 3600, 10);
+					minutes = parseInt(timer / 60 % 60, 10);
+					seconds = parseInt(timer % 60, 10);
+					hours 	= hours < 10 ? "0" + hours : hours;
+					minutes = minutes < 10 ? "0" + minutes : minutes;
+					seconds = seconds < 10 ? "0" + seconds : seconds;
+					if (duration.indexOf('-') != -1){
+						hours = "00";
+						minutes = "00";
+						seconds = "00";
+					}
+					$('#spanHour_'+aidx).text(hours);
+					$('#spanMinute_'+aidx).text(minutes);
+					$('#spanSecond_'+aidx).text(seconds);
+					if (--timer < 0) {
+						timer = 0;
+						clearInterval(interval);
+						//alert("aaa");
+					}
+				}, 1000);
+			}
+
+			dailyMissionTimer(du,vi);
+</script>
+<div id="viewDiv_20" class="list_box" style="display:none;"> 
+	<table width="100%" style="margin-top:2%; margin-bottom:2%;"> 
+		<tr> 
+			<td width="20%"><span><img src="/m/images/sub/my_deal_cate_newcar.png" width="98%" alt="카테고리_신차"></span></td>
+			<td width="20%" style="text-align:right;"><span><img src='/m/images/sub/mall_list_progress_02.png' width='98%' alt='거래완료'></span></td>
+			<td width="60%" style="text-align:right;"><span style="font-size:2.3vw;font-weight:700;color:#e86300;">&nbsp;</span>&nbsp;&nbsp;<span class="mall_list_id_txt">ryu****</span><span class="mall_list_txt_bold"> 님</span></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="3" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="80%"><span class="list_product_name_txt">현대&nbsp;포터2(흰색)</span></td>
+			<td width="20%" class="list_txt">수량<span class="list_ea_txt">1</span>개</td>
+		</tr>
+		<tr>
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">모델 :</td>
+			<td width="75%" class="list_txt_bold">2015. CRDi(133마력) 2WD)더블캡 초장축 SUPER (M/T)</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">면세/할인 :</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">세부사항:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">추가할인:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법상세:</td>
+			<td width="75%" class="list_txt_bold">
+				
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매지역 :</td>
+			<td width="75%" class="list_txt_bold">서울특별시&nbsp;중랑구</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="100%" class="memo_txt"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="1" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">거래시간 :</td>
+			<td width="75%"> 
+				<span class="list_time_txt" id="spanHour_53"></span><span class="list_txt_bold">시간</span>
+				<span class="list_time_txt" id="spanMinute_53"></span><span class="list_txt_bold">분</span>
+				<span class="list_time_txt" id="spanSecond_53"></span><span class="list_txt_bold">초</span>
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt" style="padding-top:3%;">업체제안금액 :</td>
+			<td width="40%" style="padding-top:3%;"><span class="list_money_deal_txt">미입찰</span></td>
+			<td width="5%"></td>
+			<td width="30%" style="text-align:right; vertical-align:middle; padding-top:3%;">
+			
+			</td>
+		</tr>
+	</table> 
+</div>
+
+<script type="text/javascript">
+	var du = '-5092280';
+	var vi = 52;
+	
+	function dailyMissionTimer(duration,aidx) {
+				
+				var timer = duration;
+				var hours, minutes, seconds;
+				var interval = setInterval(function(){
+					hours	= parseInt(timer / 3600, 10);
+					minutes = parseInt(timer / 60 % 60, 10);
+					seconds = parseInt(timer % 60, 10);
+					hours 	= hours < 10 ? "0" + hours : hours;
+					minutes = minutes < 10 ? "0" + minutes : minutes;
+					seconds = seconds < 10 ? "0" + seconds : seconds;
+					if (duration.indexOf('-') != -1){
+						hours = "00";
+						minutes = "00";
+						seconds = "00";
+					}
+					$('#spanHour_'+aidx).text(hours);
+					$('#spanMinute_'+aidx).text(minutes);
+					$('#spanSecond_'+aidx).text(seconds);
+					if (--timer < 0) {
+						timer = 0;
+						clearInterval(interval);
+						//alert("aaa");
+					}
+				}, 1000);
+			}
+
+			dailyMissionTimer(du,vi);
+</script>
+<div id="viewDiv_21" class="list_box" style="display:none;"> 
+	<table width="100%" style="margin-top:2%; margin-bottom:2%;"> 
+		<tr> 
+			<td width="20%"><span><img src="/m/images/sub/my_deal_cate_newcar.png" width="98%" alt="카테고리_신차"></span></td>
+			<td width="20%" style="text-align:right;"><span><img src='/m/images/sub/mall_list_progress_02.png' width='98%' alt='거래완료'></span></td>
+			<td width="60%" style="text-align:right;"><span style="font-size:2.3vw;font-weight:700;color:#e86300;">&nbsp;</span>&nbsp;&nbsp;<span class="mall_list_id_txt">war****</span><span class="mall_list_txt_bold"> 님</span></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="3" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="80%"><span class="list_product_name_txt">현대&nbsp;아이오닉 하이브리드(기타)</span></td>
+			<td width="20%" class="list_txt">수량<span class="list_ea_txt">1</span>개</td>
+		</tr>
+		<tr>
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">모델 :</td>
+			<td width="75%" class="list_txt_bold">I </td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">면세/할인 :</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">세부사항:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">추가할인:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법상세:</td>
+			<td width="75%" class="list_txt_bold">
+				
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매지역 :</td>
+			<td width="75%" class="list_txt_bold">전라북도&nbsp;익산시</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="100%" class="memo_txt">트렌디 기본
+</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="1" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">거래시간 :</td>
+			<td width="75%"> 
+				<span class="list_time_txt" id="spanHour_52"></span><span class="list_txt_bold">시간</span>
+				<span class="list_time_txt" id="spanMinute_52"></span><span class="list_txt_bold">분</span>
+				<span class="list_time_txt" id="spanSecond_52"></span><span class="list_txt_bold">초</span>
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt" style="padding-top:3%;">업체제안금액 :</td>
+			<td width="40%" style="padding-top:3%;"><span class="list_money_deal_txt"><span class="list_money_deal_txt">이미지제공</span> </span></td>
+			<td width="5%"></td>
+			<td width="30%" style="text-align:right; vertical-align:middle; padding-top:3%;">
+			
+			</td>
+		</tr>
+	</table> 
+</div>
+
+<script type="text/javascript">
+	var du = '-5683654';
+	var vi = 37;
+	
+	function dailyMissionTimer(duration,aidx) {
+				
+				var timer = duration;
+				var hours, minutes, seconds;
+				var interval = setInterval(function(){
+					hours	= parseInt(timer / 3600, 10);
+					minutes = parseInt(timer / 60 % 60, 10);
+					seconds = parseInt(timer % 60, 10);
+					hours 	= hours < 10 ? "0" + hours : hours;
+					minutes = minutes < 10 ? "0" + minutes : minutes;
+					seconds = seconds < 10 ? "0" + seconds : seconds;
+					if (duration.indexOf('-') != -1){
+						hours = "00";
+						minutes = "00";
+						seconds = "00";
+					}
+					$('#spanHour_'+aidx).text(hours);
+					$('#spanMinute_'+aidx).text(minutes);
+					$('#spanSecond_'+aidx).text(seconds);
+					if (--timer < 0) {
+						timer = 0;
+						clearInterval(interval);
+						//alert("aaa");
+					}
+				}, 1000);
+			}
+
+			dailyMissionTimer(du,vi);
+</script>
+<div id="viewDiv_22" class="list_box" style="display:none;"> 
+	<table width="100%" style="margin-top:2%; margin-bottom:2%;"> 
+		<tr> 
+			<td width="20%"><span><img src="/m/images/sub/my_deal_cate_newcar.png" width="98%" alt="카테고리_신차"></span></td>
+			<td width="20%" style="text-align:right;"><span><img src='/m/images/sub/mall_list_progress_02.png' width='98%' alt='거래완료'></span></td>
+			<td width="60%" style="text-align:right;"><span style="font-size:2.3vw;font-weight:700;color:#e86300;">&nbsp;</span>&nbsp;&nbsp;<span class="mall_list_id_txt">sha****</span><span class="mall_list_txt_bold"> 님</span></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="3" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="80%"><span class="list_product_name_txt">현대&nbsp;아반떼(AD)(흰색)</span></td>
+			<td width="20%" class="list_txt">수량<span class="list_ea_txt">1</span>개</td>
+		</tr>
+		<tr>
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">모델 :</td>
+			<td width="75%" class="list_txt_bold">G) 1.6 GDi 스마트 </td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">면세/할인 :</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">세부사항:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">추가할인:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법상세:</td>
+			<td width="75%" class="list_txt_bold">
+				
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매지역 :</td>
+			<td width="75%" class="list_txt_bold">충청북도&nbsp;청주시 서원구</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="100%" class="memo_txt"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="1" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">거래시간 :</td>
+			<td width="75%"> 
+				<span class="list_time_txt" id="spanHour_37"></span><span class="list_txt_bold">시간</span>
+				<span class="list_time_txt" id="spanMinute_37"></span><span class="list_txt_bold">분</span>
+				<span class="list_time_txt" id="spanSecond_37"></span><span class="list_txt_bold">초</span>
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt" style="padding-top:3%;">업체제안금액 :</td>
+			<td width="40%" style="padding-top:3%;"><span class="list_money_deal_txt">미입찰</span></td>
+			<td width="5%"></td>
+			<td width="30%" style="text-align:right; vertical-align:middle; padding-top:3%;">
+			
+			</td>
+		</tr>
+	</table> 
+</div>
+
+<script type="text/javascript">
+	var du = '-5907341';
+	var vi = 32;
+	
+	function dailyMissionTimer(duration,aidx) {
+				
+				var timer = duration;
+				var hours, minutes, seconds;
+				var interval = setInterval(function(){
+					hours	= parseInt(timer / 3600, 10);
+					minutes = parseInt(timer / 60 % 60, 10);
+					seconds = parseInt(timer % 60, 10);
+					hours 	= hours < 10 ? "0" + hours : hours;
+					minutes = minutes < 10 ? "0" + minutes : minutes;
+					seconds = seconds < 10 ? "0" + seconds : seconds;
+					if (duration.indexOf('-') != -1){
+						hours = "00";
+						minutes = "00";
+						seconds = "00";
+					}
+					$('#spanHour_'+aidx).text(hours);
+					$('#spanMinute_'+aidx).text(minutes);
+					$('#spanSecond_'+aidx).text(seconds);
+					if (--timer < 0) {
+						timer = 0;
+						clearInterval(interval);
+						//alert("aaa");
+					}
+				}, 1000);
+			}
+
+			dailyMissionTimer(du,vi);
+</script>
+<div id="viewDiv_23" class="list_box" style="display:none;"> 
+	<table width="100%" style="margin-top:2%; margin-bottom:2%;"> 
+		<tr> 
+			<td width="20%"><span><img src="/m/images/sub/my_deal_cate_newcar.png" width="98%" alt="카테고리_신차"></span></td>
+			<td width="20%" style="text-align:right;"><span><img src='/m/images/sub/mall_list_progress_02.png' width='98%' alt='거래완료'></span></td>
+			<td width="60%" style="text-align:right;"><span style="font-size:2.3vw;font-weight:700;color:#e86300;">&nbsp;</span>&nbsp;&nbsp;<span class="mall_list_id_txt">zef****</span><span class="mall_list_txt_bold"> 님</span></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="3" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="80%"><span class="list_product_name_txt">현대&nbsp;아반떼(AD)(흰색)</span></td>
+			<td width="20%" class="list_txt">수량<span class="list_ea_txt">1</span>개</td>
+		</tr>
+		<tr>
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">모델 :</td>
+			<td width="75%" class="list_txt_bold">G) 1.6 GDi 스마트 </td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">면세/할인 :</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">세부사항:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">추가할인:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법상세:</td>
+			<td width="75%" class="list_txt_bold">
+				
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매지역 :</td>
+			<td width="75%" class="list_txt_bold">부산광역시&nbsp;동래구</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="100%" class="memo_txt">AVM 패키지 추가 견적요청합니다</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="1" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">거래시간 :</td>
+			<td width="75%"> 
+				<span class="list_time_txt" id="spanHour_32"></span><span class="list_txt_bold">시간</span>
+				<span class="list_time_txt" id="spanMinute_32"></span><span class="list_txt_bold">분</span>
+				<span class="list_time_txt" id="spanSecond_32"></span><span class="list_txt_bold">초</span>
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt" style="padding-top:3%;">업체제안금액 :</td>
+			<td width="40%" style="padding-top:3%;"><span class="list_money_deal_txt">미입찰</span></td>
+			<td width="5%"></td>
+			<td width="30%" style="text-align:right; vertical-align:middle; padding-top:3%;">
+			
+			</td>
+		</tr>
+	</table> 
+</div>
+
+<script type="text/javascript">
+	var du = '-6913408';
+	var vi = 21;
+	
+	function dailyMissionTimer(duration,aidx) {
+				
+				var timer = duration;
+				var hours, minutes, seconds;
+				var interval = setInterval(function(){
+					hours	= parseInt(timer / 3600, 10);
+					minutes = parseInt(timer / 60 % 60, 10);
+					seconds = parseInt(timer % 60, 10);
+					hours 	= hours < 10 ? "0" + hours : hours;
+					minutes = minutes < 10 ? "0" + minutes : minutes;
+					seconds = seconds < 10 ? "0" + seconds : seconds;
+					if (duration.indexOf('-') != -1){
+						hours = "00";
+						minutes = "00";
+						seconds = "00";
+					}
+					$('#spanHour_'+aidx).text(hours);
+					$('#spanMinute_'+aidx).text(minutes);
+					$('#spanSecond_'+aidx).text(seconds);
+					if (--timer < 0) {
+						timer = 0;
+						clearInterval(interval);
+						//alert("aaa");
+					}
+				}, 1000);
+			}
+
+			dailyMissionTimer(du,vi);
+</script>
+<div id="viewDiv_24" class="list_box" style="display:none;"> 
+	<table width="100%" style="margin-top:2%; margin-bottom:2%;"> 
+		<tr> 
+			<td width="20%"><span><img src="/m/images/sub/my_deal_cate_newcar.png" width="98%" alt="카테고리_신차"></span></td>
+			<td width="20%" style="text-align:right;"><span><img src='/m/images/sub/mall_list_progress_02.png' width='98%' alt='거래완료'></span></td>
+			<td width="60%" style="text-align:right;"><span style="font-size:2.3vw;font-weight:700;color:#e86300;">&nbsp;</span>&nbsp;&nbsp;<span class="mall_list_id_txt">mc5****</span><span class="mall_list_txt_bold"> 님</span></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="3" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="80%"><span class="list_product_name_txt">벤츠&nbsp;GLA-Class(흰색)</span></td>
+			<td width="20%" class="list_txt">수량<span class="list_ea_txt">1</span>개</td>
+		</tr>
+		<tr>
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">모델 :</td>
+			<td width="75%" class="list_txt_bold">2015) AMG 45 4Matic</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">면세/할인 :</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">세부사항:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">추가할인:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법상세:</td>
+			<td width="75%" class="list_txt_bold">
+				
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매지역 :</td>
+			<td width="75%" class="list_txt_bold">인천광역시&nbsp;남구</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="100%" class="memo_txt">풀옵션 견적 부탁드립니다.</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="1" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">거래시간 :</td>
+			<td width="75%"> 
+				<span class="list_time_txt" id="spanHour_21"></span><span class="list_txt_bold">시간</span>
+				<span class="list_time_txt" id="spanMinute_21"></span><span class="list_txt_bold">분</span>
+				<span class="list_time_txt" id="spanSecond_21"></span><span class="list_txt_bold">초</span>
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt" style="padding-top:3%;">업체제안금액 :</td>
+			<td width="40%" style="padding-top:3%;"><span class="list_money_deal_txt"><span class="list_money_deal_txt">이미지제공</span> </span></td>
+			<td width="5%"></td>
+			<td width="30%" style="text-align:right; vertical-align:middle; padding-top:3%;">
+			
+			</td>
+		</tr>
+	</table> 
+</div>
+
+<script type="text/javascript">
+	var du = '-7879125';
+	var vi = 6;
+	
+	function dailyMissionTimer(duration,aidx) {
+				
+				var timer = duration;
+				var hours, minutes, seconds;
+				var interval = setInterval(function(){
+					hours	= parseInt(timer / 3600, 10);
+					minutes = parseInt(timer / 60 % 60, 10);
+					seconds = parseInt(timer % 60, 10);
+					hours 	= hours < 10 ? "0" + hours : hours;
+					minutes = minutes < 10 ? "0" + minutes : minutes;
+					seconds = seconds < 10 ? "0" + seconds : seconds;
+					if (duration.indexOf('-') != -1){
+						hours = "00";
+						minutes = "00";
+						seconds = "00";
+					}
+					$('#spanHour_'+aidx).text(hours);
+					$('#spanMinute_'+aidx).text(minutes);
+					$('#spanSecond_'+aidx).text(seconds);
+					if (--timer < 0) {
+						timer = 0;
+						clearInterval(interval);
+						//alert("aaa");
+					}
+				}, 1000);
+			}
+
+			dailyMissionTimer(du,vi);
+</script>
+<div id="viewDiv_25" class="list_box" style="display:none;"> 
+	<table width="100%" style="margin-top:2%; margin-bottom:2%;"> 
+		<tr> 
+			<td width="20%"><span><img src="/m/images/sub/my_deal_cate_newcar.png" width="98%" alt="카테고리_신차"></span></td>
+			<td width="20%" style="text-align:right;"><span><img src='/m/images/sub/mall_list_progress_02.png' width='98%' alt='거래완료'></span></td>
+			<td width="60%" style="text-align:right;"><span style="font-size:2.3vw;font-weight:700;color:#e86300;">&nbsp;</span>&nbsp;&nbsp;<span class="mall_list_id_txt">mc5****</span><span class="mall_list_txt_bold"> 님</span></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="3" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="80%"><span class="list_product_name_txt">현대&nbsp;엑센트(은색)</span></td>
+			<td width="20%" class="list_txt">수량<span class="list_ea_txt">1</span>개</td>
+		</tr>
+		<tr>
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">모델 :</td>
+			<td width="75%" class="list_txt_bold">2015. Wit 5도어 G) 1.4 VVT Modern Special</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">면세/할인 :</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">세부사항:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">추가할인:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법상세:</td>
+			<td width="75%" class="list_txt_bold">
+				
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매지역 :</td>
+			<td width="75%" class="list_txt_bold">강원도&nbsp;고성군</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="100%" class="memo_txt">test</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="1" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">거래시간 :</td>
+			<td width="75%"> 
+				<span class="list_time_txt" id="spanHour_6"></span><span class="list_txt_bold">시간</span>
+				<span class="list_time_txt" id="spanMinute_6"></span><span class="list_txt_bold">분</span>
+				<span class="list_time_txt" id="spanSecond_6"></span><span class="list_txt_bold">초</span>
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt" style="padding-top:3%;">업체제안금액 :</td>
+			<td width="40%" style="padding-top:3%;"><span class="list_money_deal_txt">미입찰</span></td>
+			<td width="5%"></td>
+			<td width="30%" style="text-align:right; vertical-align:middle; padding-top:3%;">
+			
+			</td>
+		</tr>
+	</table> 
+</div>
+
+<script type="text/javascript">
+	var du = '-8296749';
+	var vi = 2;
+	
+	function dailyMissionTimer(duration,aidx) {
+				
+				var timer = duration;
+				var hours, minutes, seconds;
+				var interval = setInterval(function(){
+					hours	= parseInt(timer / 3600, 10);
+					minutes = parseInt(timer / 60 % 60, 10);
+					seconds = parseInt(timer % 60, 10);
+					hours 	= hours < 10 ? "0" + hours : hours;
+					minutes = minutes < 10 ? "0" + minutes : minutes;
+					seconds = seconds < 10 ? "0" + seconds : seconds;
+					if (duration.indexOf('-') != -1){
+						hours = "00";
+						minutes = "00";
+						seconds = "00";
+					}
+					$('#spanHour_'+aidx).text(hours);
+					$('#spanMinute_'+aidx).text(minutes);
+					$('#spanSecond_'+aidx).text(seconds);
+					if (--timer < 0) {
+						timer = 0;
+						clearInterval(interval);
+						//alert("aaa");
+					}
+				}, 1000);
+			}
+
+			dailyMissionTimer(du,vi);
+</script>
+<div id="viewDiv_26" class="list_box" style="display:none;"> 
+	<table width="100%" style="margin-top:2%; margin-bottom:2%;"> 
+		<tr> 
+			<td width="20%"><span><img src="/m/images/sub/my_deal_cate_newcar.png" width="98%" alt="카테고리_신차"></span></td>
+			<td width="20%" style="text-align:right;"><span><img src='/m/images/sub/mall_list_progress_02.png' width='98%' alt='거래완료'></span></td>
+			<td width="60%" style="text-align:right;"><span style="font-size:2.3vw;font-weight:700;color:#e86300;">&nbsp;</span>&nbsp;&nbsp;<span class="mall_list_id_txt">mc5****</span><span class="mall_list_txt_bold"> 님</span></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="3" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="80%"><span class="list_product_name_txt">현대&nbsp;아반떼(AD)(흰색)</span></td>
+			<td width="20%" class="list_txt">수량<span class="list_ea_txt">1</span>개</td>
+		</tr>
+		<tr>
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">모델 :</td>
+			<td width="75%" class="list_txt_bold">G) 1.6 GDi 스마트 스페셜 </td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">면세/할인 :</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">세부사항:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">추가할인:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법:</td>
+			<td width="75%" class="list_txt_bold"></td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매방법상세:</td>
+			<td width="75%" class="list_txt_bold">
+				
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">구매지역 :</td>
+			<td width="75%" class="list_txt_bold">인천광역시&nbsp;남구</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="100%" class="memo_txt">풀옵션으로 36개월 전액할부 요청드립니다.</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="1" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt">거래시간 :</td>
+			<td width="75%"> 
+				<span class="list_time_txt" id="spanHour_2"></span><span class="list_txt_bold">시간</span>
+				<span class="list_time_txt" id="spanMinute_2"></span><span class="list_txt_bold">분</span>
+				<span class="list_time_txt" id="spanSecond_2"></span><span class="list_txt_bold">초</span>
+			</td>
+		</tr>
+		<tr> 
+			<td height="1px" colspan="2" style="background-color:#e7e7e7;"></td>
+		</tr>
+	</table> 
+	<table width="100%"> 
+		<tr> 
+			<td width="25%" class="list_left_txt" style="padding-top:3%;">업체제안금액 :</td>
+			<td width="40%" style="padding-top:3%;"><span class="list_money_deal_txt">미입찰</span></td>
+			<td width="5%"></td>
+			<td width="30%" style="text-align:right; vertical-align:middle; padding-top:3%;">
+			
+			</td>
+		</tr>
+	</table> 
+</div>
+
+    
+    <!-- 리스트박스1 끝--> 
+    <!-- 리스트는 기본5개가 보여집니다.상품더보기 활성화 하면 5개씩 늘어납니다. 5개가 안될 경우엔 노출되지 않습니다. -->
+     <!-- 상품더보기 버튼 -->
+
+    <div id="list_more">
+        <span><img src="/m/images/sub/list_more_btn.png" width="25%" alt="상품더보기" onclick="viewMore();"></span>
+		<span><a href="#"><img src="/m/images/sub/list_top_btn.png" width="25%" alt="top"></a></span>
+    </div>  
+   
+</div>
+
+
+
+<div id="footer">
+    <div id="footer_menu">
+    <a href="/m/include/personal_info.asp" target="_blank"><span class="footer_txt">개인정보취급방침</span></a> <span class="footer_txt_line">|</span> 
+    <a href="/m/include/clause_info.asp" target="_blank"><span class="footer_txt">이용약관</span></a> <span class="footer_txt_line">|</span>
+	
+    <a href="/m/mypage/login.asp"><span class="footer_txt">로그인</span></a> <span class="footer_txt_line">|</span>
+	
+    <a href="tel:0260221112"><span class="footer_txt">고객센터</span> <span class="footer_bold_txt">02-6022-1112</span></a>
+</div>
+
+<div id="footer_logo_copy">
+    <img src="/m/images/footer/footer_logo.png" width="30%"/><br /><br />
+    <span style="font-size:2.5vw;">(주)보고타고 | 서울특별시 영등포로 254, A동 지층 102호(영등포동3가,우성타워)</span><br />
+    <span style="font-size:2.5vw;">대표자명:원기희 | 대표전화 02-6022-1112 | Fax 02-6944-8032</span><br />
+    <span style="font-size:2.5vw;">E-mail : bogotagotalk@bogotago.co.kr</span><br />
+    <span style="font-size:2.5vw;">ⓒ 2016 bogotago all rights reserved.</span>
+</div>
+
+
+<script type="text/javascript" src="http://wcs.naver.net/wcslog.js"></script> 
+<script type="text/javascript"> 
+if(!wcs_add) var wcs_add = {}; 
+wcs_add["wa"] = "15207538897c198"; 
+wcs_do(); 
+</script>
+
+
+
+</div>
+    
+</div>
+
+  <input type="hidden" id="viewCnt" value="5"/>
+</body>
+
+</html>
+ /�딽 I           Wぱ�<�-L       2    :http://bogotago.co.kr/m/mall/mall_list_newcar.asp request-method GET response-head HTTP/1.1 200 OK
+Cache-Control: private
+Content-Length: 142237
+Content-Type: text/html
+Server: Microsoft-IIS/7.5
+X-Powered-By: ASP.NET
+X-UA-Compatible: IE=Edge
+Date: Wed, 10 Aug 2016 07:03:30 GMT
+ charset UTF-8 uncompressed-len 0 predictor::resource-count 13 predictor::http://bogotago.co.kr/m/js/common-sub_v1.03.js 1,1,0,0 predictor::http://bogotago.co.kr/m/js/jquery-1.4.2.js 1,1,0,0 predictor::http://bogotago.co.kr/m/css/common.css 1,1,0,0 predictor::http://bogotago.co.kr/m/js/common.js 1,1,0,0 predictor::http://bogotago.co.kr/m/images/sub/newcar_banner.jpg 1,1,0,0 predictor::http://bogotago.co.kr/js/jquery.vticker-min.js 1,1,0,0 predictor::http://bogotago.co.kr/m/images/sub/my_deal_cate_newcar.png 1,1,0,0 predictor::http://bogotago.co.kr/m/images/sub/mall_list_progress_01.png 1,1,0,0 predictor::http://bogotago.co.kr/m/images/sub/mall_list_progress_02.png 1,1,0,0 predictor::http://bogotago.co.kr/m/images/sub/list_more_btn.png 1,1,0,0 predictor::http://bogotago.co.kr/m/images/sub/list_top_btn.png 1,1,0,0 predictor::http://wcs.naver.net/wcslog.js 1,1,0,0 predictor::http://wcs.naver.com/m?u=http%3A%2F%2Fbogotago.co.kr%2Fm%2Fmall%2Fmall_list_newcar.asp&e=http%3A%2F%2Fbogotago.co.kr%2Fm%2Fmain.asp%3Fregist%3D&wa=15207538897c198&bt=1470812602&os=Linux%20x86_64&ln=en-US&sr=1848x1015&bw=410&bh=680&c=24&j=N&jv=1.8&k=Y&ct=&cs=EUC-KR&tl=&vs=0.4.30&nt=1470812609024&EOU 1,1,0,0  +�

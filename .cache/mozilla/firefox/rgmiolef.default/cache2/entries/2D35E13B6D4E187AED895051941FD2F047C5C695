@@ -1,0 +1,902 @@
+
+<!DOCTYPE html> 
+<html> 
+<head>
+
+	<title></title>
+	<meta charset="euc-kr" /> 	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <script type="text/javascript" src="/m/js/common-sub_v1.03.js"></script>
+    <script type="text/javascript" src="/m/js/jquery-1.4.2.js"></script>  
+	<script type="text/javascript" src="/m/js/common.js"></script>  
+	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+	<link rel="stylesheet"  href="/m/css/common.css" type="text/css" />
+	<script type="text/javascript">
+	<!--
+		$(function(){
+			
+			$.ajax({
+				type:"post",
+				url:"/m/ajax/ajax.mCategory.asp",
+				dataType : "text",
+				success:function(data){
+					var inner = '';
+					var output = JSON.parse(data);
+					inner += '<option value="">==주요업종선택==</option>';
+					$(output).each(function(){
+						inner += '<option value='+this.idx+'>'+this.c_name+'</option>';
+					});
+					$('#m_category').append(inner);
+				},
+				error:function(xhr, textStatus){
+					alert(xhr.responseText);
+				}
+			});
+
+			$('#com_sido').change(function(){
+				$('#com_gungu').empty();
+				var sido = $('#com_sido').val();
+				$.ajax({
+					type:"post",
+					url:"/m/ajax/ajax.sido.asp",
+					dataType : "text",
+					data : "sido="+ escape(sido) ,
+					success:function(data){
+					//	alert(data);return false;
+						var inner = '';
+						var output = JSON.parse(data);
+						inner += '<option value="">군/구 선택</option>';
+						$(output).each(function(){
+							inner += '<option value="'+this.gungu+'">'+this.gungu+'</option>';
+						});
+						$('#com_gungu').append(inner);
+					},
+					error:function(xhr, textStatus){
+						alert(xhr.responseText);
+					}
+				});
+			});
+
+			$('#add_check').click(function(){
+				var currentScroll = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+				new daum.Postcode({
+					oncomplete: function(data) {
+						fullAddr = data.roadAddress;
+						m_comPost = data.zonecode;
+						$('#m_comPost').val(m_comPost);
+						$('#m_addr1').val(fullAddr);
+						document.getElementById('userwrap').style.display = 'none';
+						document.body.scrollTop = currentScroll;
+					},
+					onresize : function(size) {
+						document.getElementById('userwrap').style.height = size.height+'px';
+					},
+					width : '100%',
+					height : '100%'
+				}).embed(document.getElementById('userwrap'));
+				document.getElementById('userwrap').style.display = 'block';
+			});
+			$('#btnFoldWrap').click(function(){
+				$('#userwrap').attr('style','display:none');
+			});
+			$('#m_type').change(function(){
+				
+				var mType = $('#m_type').val();
+				if(mType == 1){
+					$('#personal').show();
+					$('#company').hide();
+					$('#join_ok2').hide();
+				}else if(mType == 2){
+					$('#personal').hide();
+					$('#join_ok2').show();
+					$('#company').show();
+				}else{
+					alert(MSG_TYPE); return false;
+					$('#personal').hide();
+					$('#company').hide();
+					$('#join_ok2').hide();
+				}
+			});
+
+			$('#id_check').click(function(){
+				var mid = $('#m_id').val();
+				mid = trim(mid);
+				$('#idVali').attr('style','').html('');
+				$('#idPass').val('0');
+				if (mid == "") {
+					$('#idVali').html(MSG_ID);
+					return false;
+				}
+				if ( !idExp.test( mid ) ){
+					$('#idVali').html(MSG_IDEXP);return false;
+				}
+				$.ajax({
+					type:"post",
+					url:"/m/ajax/ajax.idChk.asp",
+					dataType : "text",
+					data : "mid="+ mid ,
+					success:function(data){
+						if(data == "success"){
+							$('#idPass').val('1');
+							$('#idVali').attr('style','color:blue').html(MSG_IDOK);
+						}else{
+							$('#idVali').html(MSG_IDFAIL);
+							$('#m_id').val('').focus();
+						}
+					},
+					error:function(xhr, textStatus){
+						alert(xhr.responseText);
+					}
+				});
+			});
+			$('#m_category').change(function(){
+				var cat = $('#m_category').val();
+				$('#m_subject').hide();
+				if(cat == 1 || cat == 6){
+					$('#m_subject').empty();
+					$.ajax({
+						type:"post",
+						url:"/m/ajax/ajax.mSubject.asp",
+						dataType : "text",
+						data : "cat="+ cat ,
+						success:function(data){
+							var inner = '';
+							var output = JSON.parse(data);
+							inner += '<option value="">==세부업종선택==</option>';
+							$(output).each(function(){
+								inner += '<option value='+this.idx+'>'+this.s_name+'</option>';
+							});
+							$('#m_subject').append(inner);
+							$('#m_subject').show();
+						},
+						error:function(xhr, textStatus){
+							alert(xhr.responseText);
+						}
+					});
+				}
+			});
+			$('#btnSubmit').click(function(){
+				
+				if($('#m_type').val() == ''){
+					alert(MSG_TYPE); return false;
+				}
+				if($('#m_id').val() == ''){
+					alert(MSG_ID); return false;
+				}
+				if ($('#idPass').val() != '1'){
+					alert(MSG_IDCHK); return false;
+				}
+				if($('#m_pw').val() == ''){
+					alert(MSG_PW); return false;
+				}
+				if ( !pwExp.test( $('#m_pw').val() ) ){
+					alert(MSG_PWEXP);return false;
+				}
+				if($('#m_pwr').val() == ''){
+					alert(MSG_RPW); return false;
+				}
+				if($('#m_pw').val() != $('#m_pwr').val()){
+					alert(MSG_PWMCH); 
+					$('#m_pwr').empty(); return false;
+				}
+				if ($('#com_sido').val() == ''){
+					alert("거주지역을 선택하세요."); return false;
+				}
+				if ($('#com_gungu').val() == ''){
+					alert("거주지역을 선택하세요."); return false;
+				}
+				if($('#m_type').val() == 1) {
+					if($('#m_name').val() == ''){
+						alert(MSG_NAME); return false;
+					}
+					if($('#m_mail').val() == ''){
+						alert(MSG_MAIL); return false;
+					}
+					if($('#m_mail2').val() == ''){
+						alert(MSG_MAIL); return false;
+					}
+					if($('#m_mail2').val() == '직접입력' && $('#m_mail3').val() == ''){
+						alert(MSG_MAIL); return false;
+					}
+					if ( !mailExp.test( $('#m_mail').val() ) ){
+						//alert(MSG_MAILEXP); $('#m_mail').empty(); return false;
+					}
+					if($('#cStatus').val() != 2){
+						alert(MSG_PHONECERT); return false;
+					}
+					if($('#m_phone2').val() == ''){
+						alert(MSG_HP); return false;
+					}
+					if ( !numExp.test( $('#m_phone2').val() ) ){
+						alert(MSG_HPEXP); $('#m_phone2').empty(); return false;
+					}
+				}else if($('#m_type').val() == 2) {
+					if($('#m_company').val() == ''){
+						alert(MSG_COM); return false;
+					}
+					if($('#m_comNum').val() == ''){
+						alert(MSG_COMNUM); return false;
+					}
+					if($('#m_category').val() == ''){
+						alert(MSG_CATEGORY); return false;
+					}
+					if($('#m_category').val() == 1 || $('#m_category').val() == 6){
+						if($('#m_subject').val() == ''){
+							alert(MSG_SUBJECT); return false;
+						}
+					}
+					if($('#mc_name').val() ==''){
+						alert(MSG_NAME); return false;
+					}
+					if($('#mc_mail').val() ==''){
+						alert(MSG_MAIL); return false;
+					}
+					if($('#mc_mail2').val() == ''){
+						alert(MSG_MAIL); return false;
+					}
+					if($('#mc_mail2').val() == '직접입력' && $('#mc_mail3').val() == ''){
+						alert(MSG_MAIL); return false;
+					}
+					if($('#m_comTel2').val() == ''){
+						alert(MSG_COMTEL); return false;
+					}
+					if ( !numExp.test( $('#m_comTel2').val() ) ){
+						alert(MSG_COMTELEXP); $('#m_comTel2').empty(); return false;
+					}
+					if($('#mcStatus').val() != 2){
+						alert(MSG_PHONECERT); return false;
+					}
+					if($('#mc_phone2').val() == ''){
+						alert(MSG_HP); return false;
+					}
+					if ( !numExp.test( $('#mc_phone2').val() ) ){
+						alert(MSG_HPEXP); $('#mc_phone2').empty(); return false;
+					}
+					if($('#m_addr2').val() == ''){
+						alert(MSG_ADDR); return false;
+					}
+
+					//if ($('#m_img1').val() == ''){
+					//	alert(MSG_COMNUM); return false;
+					//}
+				}
+				$('.loading').show();
+				var f = document.frm;
+				f.action='join_step_fin.asp';
+				f.submit();
+			});
+
+			$('#btnSubmit2').click(function(){
+				
+				if($('#m_type').val() == ''){
+					alert(MSG_TYPE); return false;
+				}
+				if($('#m_id').val() == ''){
+					alert(MSG_ID); return false;
+				}
+				if ($('#idPass').val() != '1'){
+					alert(MSG_IDCHK); return false;
+				}
+				if($('#m_pw').val() == ''){
+					alert(MSG_PW); return false;
+				}
+				if ( !pwExp.test( $('#m_pw').val() ) ){
+					alert(MSG_PWEXP);return false;
+				}
+				if($('#m_pwr').val() == ''){
+					alert(MSG_RPW); return false;
+				}
+				if($('#m_pw').val() != $('#m_pwr').val()){
+					alert(MSG_PWMCH); 
+					$('#m_pwr').empty(); return false;
+				}
+				if ($('#com_sido').val() == ''){
+					alert("거주지역을 선택하세요."); return false;
+				}
+				if ($('#com_gungu').val() == ''){
+					alert("거주지역을 선택하세요."); return false;
+				}
+				
+				if($('#m_type').val() == 1) {
+					if($('#m_name').val() == ''){
+						alert(MSG_NAME); return false;
+					}
+					if($('#m_mail').val() == ''){
+						alert(MSG_MAIL); return false;
+					}
+					if($('#m_mail2').val() == ''){
+						alert(MSG_MAIL); return false;
+					}
+					if($('#m_mail2').val() == '직접입력' && $('#m_mail3').val() == ''){
+						alert(MSG_MAIL); return false;
+					}
+					if ( !mailExp.test( $('#m_mail').val() ) ){
+						//alert(MSG_MAILEXP); $('#m_mail').empty(); return false;
+					}
+					if($('#cStatus').val() != 2){
+						alert(MSG_PHONECERT); return false;
+					}
+					if($('#m_phone2').val() == ''){
+						alert(MSG_HP); return false;
+					}
+					if ( !numExp.test( $('#m_phone2').val() ) ){
+						alert(MSG_HPEXP); $('#m_phone2').empty(); return false;
+					}
+				}else if($('#m_type').val() == 2) {
+					if($('#m_company').val() == ''){
+						alert(MSG_COM); return false;
+					}
+					if($('#m_comNum').val() == ''){
+						alert(MSG_COMNUM); return false;
+					}
+					if($('#m_category').val() == ''){
+						alert(MSG_CATEGORY); return false;
+					}
+					if($('#m_category').val() == 1 || $('#m_category').val() == 6){
+						if($('#m_subject').val() == ''){
+							alert(MSG_SUBJECT); return false;
+						}
+					}
+					if($('#mc_name').val() ==''){
+						alert(MSG_NAME); return false;
+					}
+					if($('#mc_mail').val() ==''){
+						alert(MSG_MAIL); return false;
+					}
+					if($('#mc_mail2').val() == ''){
+						alert(MSG_MAIL); return false;
+					}
+					if($('#mc_mail2').val() == '직접입력' && $('#mc_mail3').val() == ''){
+						alert(MSG_MAIL); return false;
+					}
+					if($('#m_comTel2').val() == ''){
+						alert(MSG_COMTEL); return false;
+					}
+					if ( !numExp.test( $('#m_comTel2').val() ) ){
+						alert(MSG_COMTELEXP); $('#m_comTel2').empty(); return false;
+					}
+					if($('#mcStatus').val() != 2){
+						alert(MSG_PHONECERT); return false;
+					}
+					if($('#mc_phone2').val() == ''){
+						alert(MSG_HP); return false;
+					}
+					if ( !numExp.test( $('#mc_phone2').val() ) ){
+						alert(MSG_HPEXP); $('#mc_phone2').empty(); return false;
+					}
+					if($('#m_addr2').val() == ''){
+						alert(MSG_ADDR); return false;
+					}
+
+					//if ($('#m_img1').val() == ''){
+					//	alert(MSG_COMNUM); return false;
+					//}
+				}
+				$('.loading').show();
+				var f = document.frm;
+				f.action='join_regist.asp';
+				f.submit();
+			});
+			$('.input_cert_num_send').click(function(){
+				if($('#m_type').val() == 1){
+					var hp1 = $('#m_phone1').val();
+					var hp2 = $('#m_phone2').val();
+				}else{
+					var hp1 = $('#mc_phone1').val();
+					var hp2 = $('#mc_phone2').val();
+				}
+				if (hp1 =="" || hp2 == ""){return false;}
+				if ($('#cStatus').val() == 0){
+					$.ajax({
+						type:"post",
+						url:"/m/ajax/ajax.smsChk.asp",
+						dataType : "text",
+						data : "hp1="+ hp1 + "&hp2=" + hp2 ,
+						success:function(data){
+							if($('#m_type').val() == 1){
+								$('#cidx').val(data);
+								$('#cStatus').val(1);
+								$('#certDiv').html(MSG_SMSSEND);
+							}else{
+								$('#mcidx').val(data);
+								$('#mcStatus').val(1);
+								$('#mcertDiv').html(MSG_SMSSEND);
+							}
+						},
+						error:function(xhr, textStatus){
+							alert(xhr.responseText);
+						}
+					});
+				}else{
+					if($('#m_type').val() == 1){
+						$('#certDiv').html(MSG_SMSDEF);
+					}else{
+						$('#mcertDiv').html(MSG_SMSDEF);
+					}
+				}
+				
+			});
+			$('.input_cert_num_send_ok').click(function(){
+				if($('#m_type').val() == 1){
+					var cidx = $('#cidx').val();
+					var certNum = $('#user_cert_num').val();
+					$('#certDiv').attr('style','').html('');
+					if (certNum == ""){$('#certDiv').html(MSG_SMSEMPTY); return false;}
+					if (cidx ==""){$('#certDiv').html(MSG_SMSFAIL); return false;}
+				}else{
+					var cidx = $('#mcidx').val();
+					var certNum = $('#muser_cert_num').val();
+					$('#mcertDiv').attr('style','').html('');
+					if (certNum == ""){$('#mcertDiv').html(MSG_SMSEMPTY); return false;}
+					if (cidx ==""){$('#mcertDiv').html(MSG_SMSFAIL); return false;}
+				}
+				$.ajax({
+					type:"post",
+					url:"/m/ajax/ajax.smsCertChk.asp",
+					dataType : "text",
+					data : "cidx="+ cidx + "&certNum=" + certNum ,
+					success:function(data){
+						//data = "success" 인증 뛰어넘기
+						if (data == "success"){
+							if($('#m_type').val() == 1){
+								$('#cStatus').val(2);
+								$('#certDiv').attr('style','color:blue').html(MSG_SMSOK);
+								$('#certchk').hide();
+								$('#m_phone1').attr('readonly',true);
+								$('#m_phone2').attr('readonly',true);
+							}else{
+								$('#mcStatus').val(2);
+								$('#mcertDiv').attr('style','color:blue').html(MSG_SMSOK);
+								$('#mcertchk').hide();
+								$('#mc_phone1').attr('readonly',true);
+								$('#mc_phone2').attr('readonly',true);
+							}
+						}else{
+							if($('#m_type').val() == 1){
+								$('#cidx').val('');
+								$('#cStatus').val(0);
+								$('#user_cert_num').val('');
+								$('#certDiv').html(MSG_SMSFAIL);
+							}else{
+								$('#mcidx').val('');
+								$('#mcStatus').val(0);
+								$('#muser_cert_num').val('');
+								$('#mcertDiv').html(MSG_SMSFAIL);
+							}
+						}
+					},
+					error:function(xhr, textStatus){
+						alert(xhr.responseText);
+					}
+				});
+			});
+
+			$('#m_mail2').change(function(){
+				var mailVal = $('#m_mail2').val();
+				if(mailVal == "직접입력"){
+					$('#m_mail2').hide();
+					$('#m_mail3').show();
+				}
+			});
+
+			$('#mc_mail2').change(function(){
+				var mailVal = $('#mc_mail2').val();
+				if(mailVal == "직접입력"){
+					$('#mc_mail2').hide();
+					$('#mc_mail3').show();
+				}
+			});
+		});
+
+		var keyCodeVal = function(e){
+			var event = e || window.event; 
+			var keycode = event.keyCode || e.which; 
+			if (keycode == 32 ) { 
+				alert("공백은 허용불가");
+				$('#m_id').val('');
+			} 
+		} 	//-->
+	</script>
+</head> 
+
+<body >
+
+<div id="wrap">
+
+<div id="side_wrap"> 
+    <!-- 로그인하면 /m/include/side_menu_login.asp 보여짐 -->
+    
+<script type="text/javascript">
+<!--
+	$(function(){
+		$('#logoutBtn').click(function(){
+			location.href="/m/mypage/logout.asp";
+		});
+	});
+//-->
+</script>
+<div class="both_left" id="tabmenusub" style="display:none">
+<div class="side_close">
+    <p><a href="javascript:toggleTabMenu('tabmenusub')"><img src="/m/images/sidemenu/side_close_btn.png" width="5%" alt="닫기"></a></p>
+</div>
+
+<div class="side_top">
+    <table>
+        <tr>
+            <td class="s_top_txt">보고타고에 오신걸 환영합니다!</td>
+        </tr>
+    </table>
+</div>
+
+<div class="m_login">
+    <table width="100%">
+        <tr>
+            <td width="50%"><a href="/m/mypage/login.asp"><img src="/m/images/sidemenu/side_login.gif" width="100%" alt="로그인"/></a></td>
+            <td width="50%"><a href="/m/mypage/join_step_01.asp"><img src="/m/images/sidemenu/side_join.gif" width="100%" alt="회원가입"/></a></td>
+        </tr>
+    </table>
+</div>
+
+<div class="s_menu_list">
+    <ul>
+        <li><a href="/m/mypage/my_com_deal_buy.asp"><img src="/m/images/sidemenu/side_menu_01.gif" width="100%" alt="내거래보기"></a></li> <!-- 기업회원일 경우 'my_com_deal.asp' 로 이동 -->
+        <li><a href="/m/carproduct/car_product_regi.asp"><img src="/m/images/sidemenu/side_menu_02.gif" width="100%" alt="자동차용품"></a></li>
+        <li><a href="/m/newcar/new_car_regi.asp"><img src="/m/images/sidemenu/side_menu_03.gif" width="100%" alt="신차"></a></li>
+        <li><a href="/m/carcenter/carcenter_regi.asp"><img src="/m/images/sidemenu/side_menu_04.gif" width="100%" alt="경정비"></a></li>
+        <li><a href="/m/oldcar/old_car_regi.asp"><img src="/m/images/sidemenu/side_menu_05.gif" width="100%" alt="중고차"></a></li>
+        <li><a href="/m/carinsu/car_insu_regi.asp"><img src="/m/images/sidemenu/side_menu_06.gif" width="100%" alt="자동차보험"></a></li>
+        <li><a href="/m/junkcar/junk_car_regi.asp"><img src="/m/images/sidemenu/side_menu_07.gif" width="100%" alt="폐차"></a></li>
+        <li><a href="/m/pickup/pickup_regi.asp"><img src="/m/images/sidemenu/side_menu_08.gif" width="100%" alt="픽업"></a></li>
+        <li><a href="/m/store/store_list.asp"><img src="/m/images/sidemenu/side_menu_10.gif" width="100%" alt="가까운업체보기"></a></li>
+    </ul>
+</div>
+
+</div>
+
+
+
+    
+</div>
+        
+<div id="header">
+    
+<div id="logo">
+    <span><a href="/m/main.asp"><img src="/m/images/top/logo.png" width="40%" alt="보고타고로고"></a></span>
+</div>
+<div id="side_m">
+    <a href="javascript:toggleTabMenu('tabmenusub')"><img src="/m/images/top/side_menu_btn.png" width='45%'/></a> 
+</div>
+
+
+
+
+</div>
+
+<div id="sub_title">
+    <p>회원가입</p>
+</div>
+
+<div id="mp_contents">
+    <form name="frm" method="post" enctype="multipart/form-data">
+	<input type="hidden" id="idPass" />
+	<input type="hidden" id="memberShip" name="memberShip" value=""/>
+    <!-- 회원정보입력 -->
+	
+	
+    <h1 class="join_t">회원정보입력(필수입력)</h1>
+    <div id="join_input">
+        <table>
+            <tr>
+                <td class="member_sel">
+                    <select name="m_type" id="m_type" class='mem_type'>
+                        <option value="" selected>회원분류선택</option> <!-- 개인/기업 선택 안했을 경우 "회원분류를 선택해 주세요" 메세지 -->
+                        <option value="1">고객</option>
+                        <option value="2">기업회원(신차및중고차딜러,자동차수리,픽업,폐차등)</option>
+                    </select>
+                </td>
+            <tr>
+                <td class="member_id" style="padding-top:2%;">
+                    <span><input type="text" id="m_id" name="m_id" class="input_cre_id" title="아이디입력" placeholder="아이디입력, 6-15자리로 생성" maxlength="15" style="text-transform:lowercase;" onfocus="this.value='';" onkeyup="return keyCodeVal(event)"/></span>
+                    <span style="text-align:right"><input type="button" name="id_check" id="id_check" class="input_cre_id_check" value="중복체크" /></span>
+					 <!-- 알림문구 -->
+					<div id="join_clause_txt">
+						<span id="idVali"></span>
+					</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="member_pw"><input type="password" id="m_pw" name="m_pw" class="input_pw" title="비밀번호입력" placeholder="비밀번호입력, 6~15자리로 영문+숫자 조합" maxlength="15" /></td>
+            </tr>
+            <tr>
+                <td class="member_pw"><input type="password" id="m_pwr" name="m_pwr" class="input_pw" title="비밀번호확인" placeholder="비밀번호확인" maxlength="15" /></td>
+            </tr>
+			<tr>
+				 <td>
+					<select name="com_sido" id="com_sido" class='sel_email2' >
+					   <option value=''>시/도 선택</option><option value='강원도'>강원도</option><option value='경기도'>경기도</option><option value='경상남도'>경상남도</option><option value='경상북도'>경상북도</option><option value='광주광역시'>광주광역시</option><option value='대구광역시'>대구광역시</option><option value='대전광역시'>대전광역시</option><option value='부산광역시'>부산광역시</option><option value='서울특별시'>서울특별시</option><option value='세종특별자치시'>세종특별자치시</option><option value='울산광역시'>울산광역시</option><option value='인천광역시'>인천광역시</option><option value='전라남도'>전라남도</option><option value='전라북도'>전라북도</option><option value='제주특별자치도'>제주특별자치도</option><option value='충청남도'>충청남도</option><option value='충청북도'>충청북도</option>
+					 </select>
+					<select name="com_gungu" id="com_gungu" class='sel_email2'>
+					   <option value="">군/구 선택</option>
+					 </select>  
+				</td>         
+			</tr>
+        </table>
+
+
+        <!-- 개인정보입력 -->
+		<div id="personal" style="display:none;">
+        <h1 class="join_t2">개인정보입력(필수)</h1>
+
+        <table id="join_input" style="width:90%;margin:auto;">
+            <tr>
+                <td class="member_name"><input type="text" id="m_name" name="m_name" class="input_name" title="이름입력" placeholder="이름" maxlength="15" /></td>
+            </tr>
+            <tr>
+                <td class="member_email">
+                    <input type="text" id="m_mail" name="m_mail" class="input_email3" title="이메일아이디" placeholder="이메일" />@
+                    <select name="m_mail2" id="m_mail2" class='sel_email'>
+                        <option value="" selected>==선택==</option>
+                        <option value="직접입력">직접입력</option>
+						<option value="gmail.com">gmail.com</option>
+                        <option value="naver.com">naver.com</option>
+                        <option value="hanmail.net">hanmail.net</option>
+                        <option value="daum.net">daum.net</option>
+                        <option value="nate.com">nate.com</option>
+						<input type="text" id="m_mail3" name="m_mail3" class="input_email3" style="width:30%;display:none;"/>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="member_phone">
+					<input type="hidden" id="cidx" />
+					<input type="hidden" id="cStatus" />
+                    <select name="m_phone1" id="m_phone1" class='phone_type mp1'>
+                        <option value="010" selected>010</option>
+                        <option value="011">011</option>
+                        <option value="016">016</option>
+                        <option value="017">017</option>
+                        <option value="018">018</option>
+                        <option value="019">019</option>
+                        <option value="0130">0130</option>
+                    </select>
+                     <input type="text" id="m_phone2" name="m_phone2" class="input_phone mp2" title="연락처입력" placeholder="휴대폰번호(-제외)" maxlength="8" /></td>
+            </tr>
+            <tr>
+                <td>
+					<div id='certchk'>
+                    <span><a href="#none"><input type="button" name="cert_num" id="cert_num" class="input_cert_num_send" value="인증번호발송" /></a></span> 
+                    <span><input type="text" id="user_cert_num" name="user_cert_num" class="input_cert_num" title="인증번호입력" placeholder="인증번호를 입력해주세요" maxlength="15" /></span>
+                    <span><a href="#none"><input type="button" name="cert_num_ok" id="cert_num_ok" class="input_cert_num_send_ok" value="확인" /></a></span>
+					</div>
+					<div id="join_clause_txt"><span id="certDiv" style="color:red;"></span></div>
+                </td>     
+            </tr>
+        </table>
+		</div>
+		<div id="company" style="display:none;">
+        <!-- 기업정보입력--> <!--  * 회원타입이 기업일 경우*  -->
+        <h1 class="join_t2">기업정보입력(필수)</h1>
+
+        <table id="join_input" style="width:90%;margin:auto;">
+            <tr>
+                <td class="member_name"><input type="text" id="m_company" name="m_company" class="input_name" title="상호입력" placeholder="상호명" maxlength="15" /></td>
+            </tr>
+			<tr>
+                <td class="member_name"><input type="text" id="m_comNum" name="m_comNum" class="input_name" title="사업자번호" placeholder="사업자번호 또는 주민번호" maxlength="15" /></td>
+            </tr>
+            <tr>
+                <td class="member_job" style="padding-top:3%;padding-bottom:1%;">
+					<select name="m_category" id="m_category" class="job_type"></select>
+					<select name="m_subject" id="m_subject" class="job_type2" style="display:none;"></select>
+                </td>
+            </tr>
+            <tr>
+                <td class="member_name"><input type="text" id="mc_name" name="mc_name" class="input_name" title="담당자입력" placeholder="담당자이름" maxlength="15" /></td>
+            </tr>
+            <tr>
+                <td class="member_email">
+                    <input type="text" id="mc_mail" name="mc_mail" class="input_email3" title="이메일아이디" placeholder="이메일" />@
+                    <select name="mc_mail2" id="mc_mail2" class='sel_email'>
+						<option value="" selected>==선택==</option>
+                        <option value="직접입력">직접입력</option>
+						<option value="gmail.com">gmail.com</option>
+                        <option value="naver.com">naver.com</option>
+                        <option value="hanmail.net">hanmail.net</option>
+                        <option value="daum.net">daum.net</option>
+                        <option value="nate.com">nate.com</option>
+						<input type="text" id="mc_mail3" name="mc_mail3" class="input_email3" style="width:30%;display:none;"/>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="member_phone">
+                    <select name="m_comTel" id="m_comTel" class='phone_type'>
+                        <option value="02">02</option>
+                        <option value="051">051</option>
+                        <option value="053">053</option>
+                        <option value="032">032</option>
+                        <option value="062">062</option>
+                        <option value="042">042</option>
+                        <option value="052">052</option>
+                        <option value="044">044</option>
+                        <option value="031">031</option>
+                        <option value="033">033</option>
+                        <option value="043">043</option>
+                        <option value="041">041</option>
+                        <option value="063">063</option>
+                        <option value="061">061</option>
+                        <option value="054">054</option>
+                        <option value="055">055</option>
+                        <option value="064">064</option>
+                    </select> 
+                    <input type="text" id="m_comTel2" name="m_comTel2" class="input_phone" title="대표번호입력" placeholder="업체대표번호(-제외)" maxlength="8" /></td>
+            </tr>
+            <tr>
+                <td class="member_phone">
+					<input type="hidden" id="mcidx" />
+					<input type="hidden" id="mcStatus" />
+                    <select name="mc_phone1" id="mc_phone1" class='phone_type mp1'>
+                        <option value="010">010</option>
+                        <option value="011">011</option>
+                        <option value="016">016</option>
+                        <option value="017">017</option>
+                        <option value="018">018</option>
+                        <option value="019">019</option>
+                        <option value="0130">0130</option>
+                    </select>
+                    <input type="text" id="mc_phone2" name="mc_phone2" class="input_phone mp2" title="연락처입력" placeholder="휴대폰번호(-제외)" maxlength="8" /></td>
+            </tr>
+            <tr>
+                <td>
+					<div id='mcertchk'>
+                    <span><a href="#none"><input type="button" name="cert_num" id="cert_num" class="input_cert_num_send" value="인증번호발송" /></a></span> 
+                    <span><input type="text" id="muser_cert_num" name="user_cert_num" class="input_cert_num" title="인증번호입력" placeholder="인증번호를 입력해주세요" maxlength="15" /></span>
+                    <span><input type="button" name="cert_num_ok" id="cert_num_ok" class="input_cert_num_send_ok" value="확인" /></span>
+					</div>
+					<div id="join_clause_txt"><span id="mcertDiv" style="color:red;"></span></div>
+                </td>     
+            </tr>
+			
+            <tr>
+                <td class="member_add">
+					<div id="userwrap" style="display:none;border:1px solid;width:100%;height:300px;margin:5px 0;position:relative">
+					<img src="//i1.daumcdn.net/localimg/localimages/07/postcode/320/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" alt="접기 버튼">
+					</div>
+					<input type="hidden" id="m_comPost" name="m_comPost"/>
+                    <span><input type="text" id="m_addr1" name="m_addr1" class="input_add" title="주소입력" placeholder="사업장주소" readonly/></span>
+                    <span style="text-align:right"><input type="button" name="add_check" id="add_check" class="input_cre_add_check" value="주소검색" /></span>
+                    <span><input type="text" id="m_addr2" name="m_addr2" class="input_add2" title="나머지주소입력" placeholder="나머지주소" /></span>                    
+                </td>
+            </tr>
+        </table>
+
+        <!-- 기업정보 추가입력--> <!--  * 회원타입이 기업일 경우*  -->
+        <h1 class="join_t2">사업자등록증(개인영업人:본인명함사진)</h1>
+
+        <!-- <table id="join_input">            
+            <tr>
+                <td class="member_img">
+                    <span><input type="text" id="m_img2" name="m_img2" class="input_img" title="첨부파일이미지" /></span>
+                    <span style="text-align:right"><input type="file" name="img_check" id="img_check" class="input_cre_img_check" value="이미지찾기" onchange="javascript:document.getElementById('m_img1').value = this.value"/></span>
+                </td>
+            </tr>                   
+        </table> -->
+        
+        <!--이미지 첨부-->
+        <div class="filebox" style="width:90%;margin:auto; margin-top:1%;">
+            <input type="text" id="m_img1" name="m_img1" class="upload-name" readonly>
+            <label for="ex_filename1">파일찾기</label>
+            <input type="file" name="ex_filename1" id="ex_filename1" class="upload-hidden" onchange="javascript:document.getElementById('m_img1').value = this.value;">
+        </div>
+
+        <!-- 기업정보 추가입력--> <!--  * 회원타입이 기업일 경우*  -->
+        <h1 class="join_t2">업체사진(개인영업人:본인명함사진)</h1>
+
+        <!-- <table id="join_input">            
+            <tr>
+                <td class="member_img">
+                    <span><input type="text" id="m_img2" name="m_img2" class="input_img" title="첨부파일이미지" /></span>
+                    <span style="text-align:right"><input type="file" name="img_check" id="img_check" class="input_cre_img_check" value="이미지찾기" onchange="javascript:document.getElementById('m_img1').value = this.value"/></span>
+                </td>
+            </tr>                   
+        </table> -->
+        
+        <!--이미지 첨부-->
+        <div class="filebox" style="width:90%;margin:auto; margin-top:1%;">
+            <input type="text" id="m_img2" name="m_img2" class="upload-name" readonly>
+            <label for="ex_filename2">파일찾기</label>
+            <input type="file" name="ex_filename2" id="ex_filename2" class="upload-hidden" onchange="javascript:document.getElementById('m_img2').value = this.value">
+        </div>
+        <div class="filebox" style="width:90%;margin:auto; margin-top:1%;">
+            <input type="text" id="m_img3" name="m_img3" class="upload-name" readonly>
+            <label for="ex_filename3">파일찾기</label>
+            <input type="file" name="ex_filename3" id="ex_filename3" class="upload-hidden" onchange="javascript:document.getElementById('m_img3').value = this.value">
+        </div>
+        <div class="filebox" style="width:90%;margin:auto; margin-top:1%;">
+            <input type="text" id="m_img4" name="m_img4" class="upload-name" readonly>
+            <label for="ex_filename4">파일찾기</label>
+            <input type="file" name="ex_filename4" id="ex_filename4" class="upload-hidden" onchange="javascript:document.getElementById('m_img4').value = this.value">
+        </div>
+        <div class="filebox" style="width:90%;margin:auto; margin-top:1%;">
+            <input type="text" id="m_img5" name="m_img5" class="upload-name" readonly>
+            <label for="ex_filename5">파일찾기</label>
+            <input type="file" name="ex_filename5" id="ex_filename5" class="upload-hidden" onchange="javascript:document.getElementById('m_img5').value = this.value">
+        </div>   
+        
+        <!--기업회원 승인 안내 -->        
+        <div id="com_join_info">
+            <span class="list_txt_bold" style="padding-right:5%;">저희 보고타고는 안정적으로 운영을 하고 있는 업체를 선정하여 활동할 수 있도록 하고 있습니다.</span><br />
+            <span class="secession_txt_red" style="padding-right:5%;">서류증빙 후 확인이 되는 즉시 또는 24시간이 경과된 후에 활동이 가능함을 추가로 알려드립니다. 감사합니다.</span>
+        </div>                
+
+		</div>
+    </div> 
+    
+    <!-- 회원가입 버튼 -->
+    <div id="join_ok">
+        <span><a id="btnSubmit"><img src="/m/images/sub/join_fin_ok_btn.png" width="60%" alt="회원가입"></a></span>
+    </div>
+
+    <!-- 회원가입및업체등록 버튼 -->
+    <div id="join_ok2" style="display:none;">
+        <span><a id="btnSubmit2"><img src="/m/images/sub/join_fin_store_ok_btn.png" width="60%" alt="회원가입및업체등록"></a></span>
+    </div>
+    
+    
+             
+ <!-- 알림문구 -->
+	<div id="join_clause_txt">
+		<span id="regVali"></span>
+	</div>
+   
+   </form>
+   
+</div>
+
+
+
+<div id="footer">
+    <div id="footer_menu">
+    <a href="/m/include/personal_info.asp" target="_blank"><span class="footer_txt">개인정보취급방침</span></a> <span class="footer_txt_line">|</span> 
+    <a href="/m/include/clause_info.asp" target="_blank"><span class="footer_txt">이용약관</span></a> <span class="footer_txt_line">|</span>
+	
+    <a href="/m/mypage/login.asp"><span class="footer_txt">로그인</span></a> <span class="footer_txt_line">|</span>
+	
+    <a href="tel:0260221112"><span class="footer_txt">고객센터</span> <span class="footer_bold_txt">02-6022-1112</span></a>
+</div>
+
+<div id="footer_logo_copy">
+    <img src="/m/images/footer/footer_logo.png" width="30%"/><br /><br />
+    <span style="font-size:2.5vw;">(주)보고타고 | 서울특별시 영등포로 254, A동 지층 102호(영등포동3가,우성타워)</span><br />
+    <span style="font-size:2.5vw;">대표자명:원기희 | 대표전화 02-6022-1112 | Fax 02-6944-8032</span><br />
+    <span style="font-size:2.5vw;">E-mail : bogotagotalk@bogotago.co.kr</span><br />
+    <span style="font-size:2.5vw;">ⓒ 2016 bogotago all rights reserved.</span>
+</div>
+
+
+<script type="text/javascript" src="http://wcs.naver.net/wcslog.js"></script> 
+<script type="text/javascript"> 
+if(!wcs_add) var wcs_add = {}; 
+wcs_add["wa"] = "15207538897c198"; 
+wcs_do(); 
+</script>
+
+
+
+</div>
+    
+</div>
+<div class="loading" style="display:none;width: 100px;height: 100px;position: absolute;top:50%;left:0px;right:0px;bottom:0px;margin:0 auto;">
+<img src="/img/ajax-loader.gif" />
+</div>
+</body>
+</html>%엞�5      WなWな<�'�       0    :http://bogotago.co.kr/m/mypage/join_step_02.asp necko:classified 1 request-method GET response-head HTTP/1.1 200 OK
+Cache-Control: private
+Content-Length: 35780
+Content-Type: text/html
+Server: Microsoft-IIS/7.5
+X-Powered-By: ASP.NET
+X-UA-Compatible: IE=Edge
+Date: Wed, 10 Aug 2016 06:30:48 GMT
+ charset UTF-8 uncompressed-len 0 predictor::resource-count 12 predictor::http://bogotago.co.kr/m/js/common-sub_v1.03.js 1,1,1470810646,0 predictor::http://bogotago.co.kr/m/js/jquery-1.4.2.js 1,1,1470810646,0 predictor::http://bogotago.co.kr/m/js/common.js 1,1,1470810646,0 predictor::http://dmaps.daum.net/map_js_init/postcode.v2.js 1,1,1470810646,0 predictor::http://bogotago.co.kr/m/css/common.css 1,1,1470810646,0 predictor::http://i1.daumcdn.net/localimg/localimages/07/postcode/320/close.png 1,1,1470810646,0 predictor::http://bogotago.co.kr/m/images/sub/join_fin_ok_btn.png 1,1,1470810646,0 predictor::http://bogotago.co.kr/m/images/sub/join_fin_store_ok_btn.png 1,1,1470810646,0 predictor::http://wcs.naver.net/wcslog.js 1,1,1470810646,0 predictor::http://bogotago.co.kr/img/ajax-loader.gif 1,1,1470810646,0 predictor::http://s1.daumcdn.net/svc/attach/U03/cssjs/postcode/1467267596298/160630.js 1,1,1470810646,0 predictor::http://wcs.naver.com/m?u=http%3A%2F%2Fbogotago.co.kr%2Fm%2Fmypage%2Fjoin_step_02.asp&e=http%3A%2F%2Fbogotago.co.kr%2Fm%2Fmypage%2Fjoin_step_01.asp&wa=15207538897c198&bt=1470810643&os=Linux%20x86_64&ln=en-US&sr=1280x959&bw=410&bh=680&c=24&j=N&jv=1.8&k=Y&ct=&cs=EUC-KR&tl=&vs=0.4.30&nt=1470810647210&EOU 1,1,1470810646,0   떹

@@ -1,0 +1,20 @@
+logrotate state -- version 2
+"/home/mc59/.cache/upstart/window-stack-bridge.log" 2016-8-11-10:53:55
+"/home/mc59/.cache/upstart/hud.log" 2016-8-12-7:35:5
+"/home/mc59/.cache/upstart/dbus.log" 2016-8-12-7:35:5
+"/home/mc59/.cache/upstart/indicator-sound.log" 2016-8-11-10:53:55
+"/home/mc59/.cache/upstart/bamfdaemon.log" 2016-8-10-16:3:33
+"/home/mc59/.cache/upstart/update-notifier-release.log" 2016-8-10-16:3:33
+"/home/mc59/.cache/upstart/*.log" 2016-8-11-10:0:0
+"/home/mc59/.cache/upstart/ssh-agent.log" 2016-8-11-10:53:55
+"/home/mc59/.cache/upstart/unity7.log" 2016-8-16-7:35:4
+"/home/mc59/.cache/upstart/gnome-keyring-ssh.log" 2016-8-11-10:53:55
+"/home/mc59/.cache/upstart/indicator-keyboard.log" 2016-8-11-10:53:55
+"/home/mc59/.cache/upstart/unity-settings-daemon.log" 2016-8-11-10:53:55
+"/home/mc59/.cache/upstart/gpg-agent.log" 2016-8-11-10:53:55
+"/home/mc59/.cache/upstart/unity-panel-service-lockscreen.log" 2016-8-14-7:35:4
+"/home/mc59/.cache/upstart/update-notifier-crash-_var_crash__usr_bin_bijiben.1000.crash.log" 2016-8-13-7:35:6
+"/home/mc59/.cache/upstart/unity-panel-service.log" 2016-8-13-7:35:6
+"/home/mc59/.cache/upstart/upstart-event-bridge.log" 2016-8-11-10:53:55
+"/home/mc59/.cache/upstart/im-config.log" 2016-8-10-16:3:33
+"/home/mc59/.cache/upstart/unicast-local-avahi.log" 2016-8-11-10:53:55

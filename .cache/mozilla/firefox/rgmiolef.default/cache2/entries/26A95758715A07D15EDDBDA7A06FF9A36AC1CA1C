@@ -1,0 +1,3273 @@
+
+
+
+
+/*ÃÊ±âÈ­------------------------------------------------------------------------------------------------------------------*/
+* {
+	margin:0;
+    padding:0;
+    font: normal 3vw 'Malgun Gothic';
+    color:#888;
+}
+
+body {
+    margin-top:0;
+    margin-left:0;
+    background-color:#fff;
+}
+
+ul, dl, ol, li {
+    list-style-type:none;
+    padding:0;
+    margin:0;
+}
+
+img {
+    padding:0;
+    margin:0;
+    border:0;
+}
+
+p, dd, dt, th, strong, em, span {
+    margin:0;
+    padding:0;
+}
+
+table {
+    border-collapse:collapse;
+    table-layout:fixed;
+}
+
+table a img {
+    vertical-align:middle;
+}
+
+fieldset, from {
+    padding:0;
+    margin:0;
+    border:0;
+}
+
+#wrap {
+    position: relative;
+    width:100%;
+}
+
+a {text-decoration:none;}
+
+
+
+@media all and (min-width:1101px) { #side_m{width:20%;} }
+@media all and (max-width:1100px) { #side_m{width:20%;} }
+@media all and (max-width:1000px) { #side_m{width:20%;} }
+@media all and (max-width:900px) { #side_m{width:20%;} }
+@media all and (max-width:800px) { #side_m{width:20%;} }
+@media all and (max-width:700px) { #side_m{width:20%;} }
+@media all and (max-width:600px) { #side_m{width:20%;} }
+@media all and (max-width:500px) { #side_m{width:20%;} }
+@media all and (max-width:400px) { #side_m{width:20%;} }
+
+
+/*Ã¼Å©¹Ú½º ---------------------------------------------------------------------------------------------------------------*/
+
+
+/*³»°Å·¡³»¿ª ¼±ÅÃ»èÁ¦ Ã¼Å©¹Ú½º*/
+.chk {display:none;}
+
+.chk + label {
+    display:inline-block;
+    width:17px;
+    height:17px;
+    border:solid 1px #888;
+    cursor:pointer;
+    background-color:#fff;
+    vertical-align:middle;
+}
+
+.chk:checked + label::after {
+    position:relative;
+    bottom:2px;
+    content:'\2714';
+    font-size:17px;
+    color:#bb231a;
+}
+
+/*°Å·¡³»¿ª »ó¼¼º¸±â sms ¹®ÀÚ ¾Ë¸²*/
+#sms_chk {display:none;}
+
+#sms_chk + label {
+    display:inline-block;
+    width:17px;
+    height:17px;
+    border:solid 1px #888;
+    cursor:pointer;
+    background-color:#fff;
+    vertical-align:middle;
+}
+
+#sms_chk:checked + label::after {
+    position:relative;
+    bottom:2px;
+    content:'\2714';
+    font-size:17px;
+    color:#3b972c;
+}
+
+
+
+/*»ó´ÜºÎºÐ------------------------------------------------------------------------------------------------------------------*/
+
+#header {
+    position:relative;
+    text-align:center;
+    padding:4%;
+    background-color:#fff;
+}
+
+#side_m {
+    position:absolute;
+    top:30%;
+    left:3px;
+}
+
+
+/*¸ÞÀÎ_·Ñ¸µ------------------------------------------------------------------------------------------------------------------*/
+#main_rolling {
+    font-size:0;
+    background-color:#e9e9e9;
+}
+
+
+
+/*¸ÞÀÎÄÁÅÙÃ÷------------------------------------------------------------------------------------------------------------------*/
+
+#main_contents {
+    width:100%;
+    padding-top:15px;
+    background-color:#e9e9e9;
+    overflow:hidden;
+    vertical-align:top;
+    padding-bottom:7%;
+    font-size:0;    
+}
+
+#main_contents > #left_con {
+    width:60%;
+    background-color:#e9e9e9;
+    margin-right:1%;
+    float:left;
+}
+
+#main_contents > #right_con {
+    width:39%;
+    background-color:#e9e9e9;
+    float:right;
+}
+
+/*¸ÞÀÎ¸Þ´º ¾ÆÀÌÄÜ------------------------------------------------------------------------------------------------------------------*/
+
+.main_m_newcar {
+    width:49.5%;
+    text-align:center;
+    vertical-align:middle;
+    background-color:#41a2a0;
+}
+
+.main_m_carcenter {
+    width:49.5%;
+    text-align:center;
+    vertical-align:middle;
+    background-color:#428a9d;
+}
+
+.main_m_oldcar {
+    width:49.5%;
+    text-align:center;
+    vertical-align:middle;
+    background-color:#5bb3b1;
+}
+
+.main_m_carinsu {
+    width:49.5%;
+    text-align:center;
+    vertical-align:middle;
+    background-color:#5797a8;
+}
+
+.main_m_junkcar {
+    width:49.5%;
+    text-align:center;
+    vertical-align:middle;
+    background-color:#729b9a;
+}
+
+.main_m_pickup {
+    width:49.5%;
+    text-align:center;
+    vertical-align:middle;
+    background-color:#7095a0;
+}
+
+#main_m_emergency {
+    width:100%;
+    text-align:center;
+    background-color:#54af47;
+    background-image:url(../images/main/main_menu_mydeal.png);
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:40%;
+    
+}
+
+.deal_btn {
+    width:100%;
+    padding-bottom:111%;
+    background-size:100%;
+}
+
+#main_m_carproduct {
+    width:100%;
+    height:50%;
+    text-align:center;
+    background-color:#f8931e;
+    background-image:url(../images/main/main_menu_carproductl.png);
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:75%;    
+    margin-top:2.5%;
+   
+}
+
+.product_btn {
+    width:100%;
+    padding-bottom:111%;
+    background-size:100%;
+}
+
+/*ÇªÅÍ*/
+
+#footer_menu {
+    position:relative;
+    margin-top:3%;
+    text-align:center;
+    background-color:#fff;
+    font-size:3vw;
+    color:#a5a6a8;
+}
+
+#footer_logo_copy {
+    text-align:center;
+    margin-top:3%;
+    padding-bottom:10%;
+    background-color:#fff;
+}
+
+.footer_txt_line {
+    color:#ccc;
+    font-size:2vw;
+    padding:1.5%;
+}
+
+.footer_txt {
+    font-size:2.5vw;
+    color:#333;
+}
+
+.footer_bold_txt {
+    font-size:2.5vw;
+    color:#333;
+    font-weight:700;
+}
+
+/*»çÀÌµå¸Þ´º------------------------------------------------------------------------------------------------------------------*/
+
+#side_wrap{ 
+    background:#ffffff; 
+    width:100%; 
+    padding:0; 
+    float:left; 
+    display:inline;
+}
+
+.both_left { 
+    position:absolute;
+    width:100%; 
+    padding:0; 
+    float:left; 
+    display:inline; 
+    position:fixed;
+    top:0; 
+    height:100%; 
+    z-index:999999; 
+    overflow-x:hidden; 
+    background-color:#e9e9e9;
+}
+
+.side_close {
+    position:absolute;
+    width:100%;
+    padding-right:3%;
+    margin-top:2%;
+    text-align:right;
+    height:4%;
+    z-index:9999;
+}
+
+.side_close > p {
+    padding-right:2%;
+}
+
+
+.side_top {
+    position:absolute;
+    width:100%;
+    height:10%;
+    vertical-align:baseline;
+    padding-bottom:30%;
+    background-color:#f8931e;
+    background-image:url(../images/sidemenu/side_top_bg.gif);
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:cover;
+}
+
+.side_top > table {
+    width:90%;
+    text-align:left;
+    margin-top:15%;
+}
+
+.s_top_txt {
+    padding-left:5%;
+    font-size:4vw;
+    color:#fff;
+}
+
+.side_id {
+    padding-left:5%;
+    font-size:6vw;
+    color:#00ffd2;
+    font-weight:bold;
+}
+
+.side_point {
+    padding-left:5%;
+    font-size:5vw;
+    color:#fff;
+    font-weight:700;
+}
+
+.m_login {
+    position:absolute;
+    width:100%;
+    float:left;
+    margin-top:33%;
+    text-align:center;
+}
+
+.s_menu_list {
+    position:absolute;
+    width:100%;
+    margin-top:57%;
+}
+
+.s_menu_list > ul > li {
+    line-height:25px;
+    font-size:2em;
+    color:#536c6c;
+    text-align:left;
+}
+
+/*¼­ºêÅ¸ÀÌÆ²------------------------------------------------------------------------------------------------------------------*/
+
+#sub_title {
+    width:100%;
+    padding-top:4%;
+    padding-bottom:4%;
+    background-color:#55ae47;
+    vertical-align:middle;    
+}
+
+#sub_title > p {
+    text-align:center;
+    font-size:4vw;
+    font-weight:700;
+    color:#fff;
+}
+
+/*·Î±×ÀÎÆäÀÌÁö------------------------------------------------------------------------------------------------------------------*/
+
+#mp_contents {
+    width:100%;
+    min-height:100%;
+    padding-top:20px;
+    background-color:#e9e9e9;
+    overflow:hidden;
+    vertical-align:top;
+    padding-bottom:20px;
+    font-size:2vw;
+}
+
+#login_input {
+    width:100%;
+    height:100%;
+}
+
+#login_input > table {
+    width:90%;
+    margin-left:5%;
+    margin-right:5%;
+}
+
+.member_sel {
+    width:100%;
+}
+
+.member_id {
+    width:100%;
+}
+
+.mem_type {
+    width:100%;
+    height:150%;
+    font-size:3.5vw;
+    color:#333;
+    line-height:200%;
+}
+
+.member_auto {
+    width:100%;
+    padding-top:5%;
+    padding-bottom:3%;
+    font-size:3vw;
+    font-weight:400;
+    color:#333;
+}
+
+.member_auto > span {
+    font-size:3.5vw;
+    font-weight:400;
+    color:#888;
+}
+
+.member_login {
+    width:100%;
+    padding-top:3%;
+}
+
+.member_op {
+    width:100%;
+    padding-top:3%;
+}
+
+.input_id {
+    width:93.5%;
+    padding:3%;
+    margin-top:2%;
+    border:1px solid #aaaaaa;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+.input_pw {
+    width:93.5%;
+    padding:3%;
+    margin-top:2%;
+    border:1px solid #aaaaaa;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+#login_info {
+    width:89.5%;
+    margin-top:10%;
+    text-align:left;
+    padding-left:5%;
+    padding-right:5%;
+}
+
+/*È¸¿ø°¡ÀÔ------------------------------------------------------------------------------------------------------------------*/
+
+/*°³ÀÎÁ¤º¸µ¿ÀÇ*/
+
+#join_s_clause {
+    width:100%;
+    height:100%;
+}
+
+#join_s_clause > h1 {
+    padding-left:4%;
+    font-size:3.5vw;
+    font-weight:700;
+    color:#333;
+    line-height:150%;
+    vertical-align:middle;
+}
+
+.td_line_center {
+    width:100%;
+    text-align:center;
+}
+
+#join_p_clause {
+    width:100%;
+    height:100%;
+    margin-top:5%;
+}
+
+#join_p_clause > h1 {
+    padding-left:4%;
+    font-size:3.5vw;
+    font-weight:700;
+    color:#333;
+    line-height:150%;
+    vertical-align:middle;
+}
+
+.clause_frame {
+    width:90%;
+    text-align:left;
+    font-size:2vw;
+    font-weight:400;
+    color:#888;
+    padding:1%;
+}
+
+#join_clause_agree {
+    width:96%;
+    padding-left:4%;
+    margin-top:3%;
+}
+
+#join_clause_agree > span {
+    font-size:3vw;
+    color:#333;
+    vertical-align:top;
+
+}
+
+#join_next {
+    width:100%;
+    margin-top:10%;
+    text-align:center;
+}
+
+#join_clause_txt {
+    width:100%;
+    margin-top:2%;
+    text-align:center;
+}
+
+#join_clause_txt > span {
+    font-size:3vw;
+    font-weight:500;
+    color:#bb231a;
+}
+
+.custom_checkbox {position:relative; margin:3% 0 0 4%;}
+.custom_checkbox label {position:absolute; left:0; top:0px; height:24px; padding:3px 0 0 30px; background:url('/m/images/sub/agree_chk.gif') no-repeat; }
+.custom_checkbox input[type="checkbox"]:checked + label {background-position:0 -27px; }
+
+/*È¸¿øÁ¤º¸µî·Ï*/
+
+#join_input {
+    width:100%;
+    height:100%;
+}
+
+#join_input > table {
+    width:90%;
+    margin-left:5%;
+    margin-right:5%;
+}
+
+.join_t {
+    font-size:3.5vw;
+    color:#bb231a;
+    font-weight:700;
+    line-height:110%;
+    padding-left:5%;
+    vertical-align:middle;
+    padding-bottom:3%;
+}
+.memberShip {
+	 font-size:3.3vw;
+    color:#5d5d5d;
+    font-weight:700;
+    line-height:110%;
+    padding-left:5%;
+    vertical-align:middle;
+    padding-bottom:3%;
+}
+
+.join_t2 {
+    font-size:3.5vw;
+    color:#bb231a;
+    font-weight:700;
+    line-height:110%;
+    padding-left:5%;
+    vertical-align:middle;
+    margin-top:5%;
+    padding-bottom:1.5%;
+}
+
+.member_name {
+    width:100%;
+}
+
+.input_cre_id {
+    width:62.5%;
+    padding:3%;
+    margin-top:2%;
+    border:1px solid #aaaaaa;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+.input_cre_id_check {
+    width:30%;
+    padding:3%;
+    margin-top:2%;
+    border:1px solid #aaaaaa;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+.join_info_txt {
+    height:10%;
+    font-size:3vw;
+    font-weight:500;
+    color:#bb231a;
+    line-height:150%;
+    vertical-align:middle;
+}
+
+.join_info_txt > p {
+    height:10%;
+    font-size:3vw;
+    font-weight:500;
+    color:#bb231a;
+    line-height:150%;
+    vertical-align:middle;
+}
+
+.input_name {
+    width:93.5%;
+    padding:3%;
+    margin-top:2%;
+    border:1px solid #aaaaaa;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+.member_email {
+    width:100%;
+}
+
+.input_email {
+    width:93.5%;
+    padding:3%;
+    margin-top:2%;
+    border:1px solid #aaaaaa;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+.input_email2 {
+    width:30%;
+    padding:3%;
+    margin-top:2%;
+    border:1px solid #aaaaaa;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+.input_email3 {
+    width:50%;
+    padding:3%;
+    margin-top:2%;
+    border:1px solid #aaaaaa;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+.sel_email {
+    width:39.5%;
+    padding:3%;
+    margin-top:2%;
+    border:1px solid #aaaaaa;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+.sel_email2 {
+    width:43.5%;
+    padding:3%;
+    margin-top:2%;
+    border:1px solid #aaaaaa;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+.email_type {
+    width:25%;
+    height:35px;
+    font-size:3vw;
+    color:#333;
+    margin-top:0.5%;
+}
+
+.member_phone {
+    width:100%;
+}
+
+.phone_type {
+    width:20%;
+    padding:3%;
+    margin-top:2%;
+    border:1px solid #aaaaaa;
+    font-size:3vw;
+    font-weight:400;
+    color:#333;
+}
+
+.input_phone {
+    width:72.5%;
+    padding:3%;
+    margin-top:2%;
+    border:1px solid #aaaaaa;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+.input_comphone1 {
+    width:17.5%;
+    padding:3%;
+    margin-top:2%;
+    border:1px solid #aaaaaa;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+.input_comphone2 {
+    width:27.5%;
+    padding:3%;
+    margin-top:2%;
+    border:1px solid #aaaaaa;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+.input_cert_num_send {
+    width:30%;
+    padding:3%;
+    margin-top:2%;
+    border:1px solid #aaaaaa;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+.input_cert_num {
+    width:45%;
+    padding:3%;
+    margin-top:2%;
+    border:1px solid #aaaaaa;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+.input_cert_num_send_ok {
+    width:16.8%;
+    padding:3%;
+    margin-top:2%;
+    border:1px solid #aaaaaa;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+.member_job {
+    width:100%;
+}
+
+.job_type {
+    width:100%;
+    height:150%;
+    font-size:3.5vw;
+    color:#333;
+    line-height:300%;
+}
+
+.job_type2 {
+    width:100%;
+    height:150%;
+    font-size:3.5vw;
+    color:#333;
+    line-height:300%;
+}
+
+
+#join_ok {
+    width:100%;
+    margin-top:10%;
+    text-align:center;
+}
+
+#join_ok2 {
+    width:100%;
+    margin-top:2%;
+    text-align:center;
+}
+
+.member_add {
+    width:100%;
+}
+
+.input_add {
+    width:62.5%;
+    padding:3%;
+    margin-top:2%;
+    border:1px solid #aaaaaa;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+.input_cre_add_check {
+    width:30%;
+    padding:3%;
+    margin-top:2%;
+    border:1px solid #aaaaaa;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+.input_add2 {
+    width:93.5%;
+    padding:3%;
+    margin-top:2%;
+    border:1px solid #aaaaaa;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+.member_img {
+    width:100%;
+    vertical-align:top;
+}
+
+.input_img {
+    width:42%;
+    padding:1.5%;
+    margin-top:2%;
+    border:1px solid #aaaaaa;
+    background-color:#f2f2f2;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+.input_cre_img_check {
+    width:40%;
+    padding:3%;
+    margin-top:2%;  
+    font-size:5vw;
+    font-weight:400;
+    color:#428a9d;
+}
+
+#com_join_info {
+    width:85%;
+    margin:5%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom:5%;
+    border:solid 1px #d5d5d5;
+    padding:2%;
+    background-color:#fff;
+    text-align:left;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+
+.filebox input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  clip:rect(0,0,0,0);
+  border: 0;
+  
+}
+
+.filebox label {
+  display: inline-block;
+  padding: 1em 2em;
+  color: #333;
+  font-size: inherit;
+  line-height: normal;
+  vertical-align: middle;
+  background-color: #ddd;
+  cursor: pointer;
+  border: 1px solid #aaa;
+  
+}
+
+/* named upload */
+.filebox .upload-name {
+  display: inline-block;
+  width:55.5%;
+  padding: 1em 2em;  /* labelÀÇ ÆÐµù°ª°ú ÀÏÄ¡ */
+  font-size: inherit;
+  font-family: inherit;
+  line-height: normal;
+  vertical-align: middle;
+  background-color: #fff;
+  border: 1px solid #aaaaaa;
+  -webkit-appearance: none; /* ³×ÀÌÆ¼ºê ¿ÜÇü °¨Ãß±â */
+  -moz-appearance: none;
+  appearance: none;
+}
+
+
+.estimate input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  clip:rect(0,0,0,0);
+  border: 0;
+}
+
+.estimate label {
+  display: inline-block;
+  padding: 1em 2em;
+  color: #333;
+  font-size: inherit;
+  line-height: normal;
+  vertical-align: middle;
+  background-color: #ddd;
+  cursor: pointer;
+  border: 1px solid #aaa;
+}
+
+/* named upload */
+.estimate .upload-name {
+  display: inline-block;
+  width:52%;
+  padding: 1em 2em;  /* labelÀÇ ÆÐµù°ª°ú ÀÏÄ¡ */
+  font-size: inherit;
+  font-family: inherit;
+  line-height: normal;
+  vertical-align: middle;
+  background-color: #fff;
+  border: 1px solid #aaaaaa;
+  -webkit-appearance: none; /* ³×ÀÌÆ¼ºê ¿ÜÇü °¨Ãß±â */
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+
+
+
+/*È¸¿ø°¡ÀÔ¿Ï·á*/
+
+#join_fin {
+    width:100%;
+    height:100%;
+    text-align:center;
+    margin-top:10%;
+}
+
+#join_fin_btn {
+    width:100%;
+    height:100%;
+    text-align:center;
+    margin-top:10%;
+}
+
+
+
+/*¾ÆÀÌµð/ºñ¹Ð¹øÈ£ Ã£±â*/
+
+.member_sel_idpw {
+    width:100%;
+    padding-top:3%;
+}
+
+.id_search_phone {
+    
+    margin-top:5%;
+	width:90%;
+    margin-left:5%;
+    margin-right:5%;
+}
+
+.id_search_email {
+
+    margin-top:8%;
+	width:90%;
+    margin-left:5%;
+    margin-right:5%;
+}
+
+.id_sel_title {
+    text-align:left;
+    font-size:3.5vw;
+    font-weight:700;
+    color:#333;
+    line-height:130%;
+    vertical-align:top;
+}
+
+#id_search_ok {
+    width:100%;
+    margin-top:10%;
+    text-align:center;
+}
+
+#id_search_fin_txt {
+    width:100%;
+    margin-top:10%;
+    text-align:center;
+    
+}
+
+#id_search_fin_txt > ul > li {
+    font-size:3.5vw;
+    color:#333;
+}
+
+.your_id {
+    font-size:6vw;
+    font-weight:700;
+    color:#3b972c;
+    line-height:200%;
+}
+
+.pw_search_phone {
+	margin-top:5%;
+	width:90%;
+    margin-left:5%;
+    margin-right:5%;
+}
+
+.pw_search_email {
+	margin-top:8%;
+	width:90%;
+    margin-left:5%;
+    margin-right:5%;
+}
+
+#pw_search_ok {
+    width:100%;
+    margin-top:10%;
+    text-align:center;
+}
+
+.your_pw {
+    font-size:6vw;
+    font-weight:700;
+    color:#3b972c;
+    line-height:200%;
+}
+
+
+/*¸¶ÀÌÆäÀÌÁö -------------------------------------------------------------------------------------------------*/
+
+#myp_tab_menu {
+    background-color:#e9e9e9;
+    padding-top:5%;
+    padding-left:5%;
+}
+
+
+/*È¸¿øÁ¤º¸¼öÁ¤*/
+
+#revice_info {
+    width:100%;
+    height:100%;
+}
+
+#revice_info > table {
+    width:90%;
+    margin-left:5%;
+    margin-right:5%;
+}
+
+.your_name_id {
+    font-size:5vw;
+    font-weight:700;
+    color:#3b972c;
+    line-height:200%;
+    padding-left:5%;   
+}
+
+.your_com_num {
+    font-size:3.5vw;
+    font-weight:700;
+    color:#bb231a;
+    line-height:200%;
+    padding-left:5%;
+}
+
+.your_com_job {
+    font-size:3.5vw;
+    font-weight:700;
+    color:#bb231a;
+    line-height:100%;
+    padding-left:5%; 
+    padding-bottom:3%;  
+}
+
+
+.revice_title {
+    font-size:3.5vw;
+    font-weight:700;
+    color:#333;
+    line-height:200%;
+    vertical-align:baseline;
+    padding-top:2%;
+}
+
+#member_secession {    
+    text-align:right;
+    padding-right:5%;
+}
+
+.mem_secession {
+    width:20%;
+    padding:2%;
+    margin-top:2%;
+    border:1px solid #aaaaaa;
+    font-size:3.5vw;
+    font-weight:200;
+    color:#333;
+}
+
+#revice_ok {
+    width:100%;
+    margin-top:10%;
+    text-align:center;
+}
+
+
+/*È¸¿øÅ»Åð*/
+
+#secession_info {
+    width:100%;
+    height:100%;
+}
+
+#secession_info > table {
+    width:90%;
+    margin-left:5%;
+    margin-right:5%;
+}
+
+#session_ok {
+    width:100%;
+    padding-bottom:20%;
+    padding-top:10%;
+    text-align:center;
+    background-color:#e9e9e9;
+}
+
+.secession_txt_red {
+    font-size:3vw;
+    font-weight:700;
+    color:#bb231a;
+}
+
+
+
+/*³»°Å·¡³»¿ª*/
+
+.list_box {
+    width:85%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom:5%;
+    border:solid 1px #d5d5d5;
+    padding:2%;
+    background-color:#fff;
+}
+
+.list_product_name_txt {
+    font-size:4vw;
+    font-weight:700;
+    color:#3b972c;
+    text-align:left;
+    line-height:200%;
+}
+
+.list_product_name_txt:link {
+    font-size:4vw;
+    font-weight:700;
+    color:#3b972c;
+    text-align:left;
+    line-height:200%;
+}
+
+.list_product_name_txt:visited {
+    font-size:4vw;
+    font-weight:700;
+    color:#3b972c;
+    text-align:left;
+    line-height:200%;
+}
+
+.list_product_name_txt:hover {
+    font-size:4vw;
+    font-weight:700;
+    color:#3b972c;
+    text-align:left;
+    line-height:200%;
+}
+
+.list_progress_txt {
+    font-size:4vw;
+    font-weight:700;
+    color:#333;
+    text-align:left;
+}
+
+.list_txt {
+    font-size:3vw;
+    font-weight:400;
+    color:#333;
+    text-align:right;
+}
+
+.list_left_txt {
+    font-size:3vw;
+    font-weight:400;
+    color:#333;
+    text-align:left;
+    line-height:300%;
+}
+
+.list_center_txt {
+    font-size:3vw;
+    font-weight:400;
+    color:#333;
+    text-align:center;
+    line-height:300%;
+}
+
+.list_txt_bold {
+    font-size:3vw;
+    font-weight:700;
+    color:#333;
+    text-align:left;
+}
+
+.list_ea_txt {
+    font-size:3.5vw;
+    font-weight:700;
+    color:#bb231a;
+    text-align:left;
+}
+
+.list_time_txt {
+    font-size:4vw;
+    font-weight:700;
+    color:#bb231a;
+    text-align:left;
+    line-height:200%;
+}
+
+.list_money_deal_txt {
+    font-size:4.5vw;
+    font-weight:700;
+    color:#bb231a;
+    text-align:left;
+    line-height:200%;
+}
+
+.list_money_deal_txt:link {
+    font-size:4.5vw;
+    font-weight:700;
+    color:#bb231a;
+    text-align:left;
+    line-height:200%;
+}
+
+.list_money_deal_txt:visited {
+    font-size:4.5vw;
+    font-weight:700;
+    color:#bb231a;
+    text-align:left;
+    line-height:200%;
+}
+
+.list_money_deal_txt:hover {
+    font-size:4.5vw;
+    font-weight:700;
+    color:#bb231a;
+    text-align:left;
+    line-height:200%;
+}
+
+#sel_del_ok {
+    width:94%;
+    margin-top:7%;
+    text-align:right;
+}
+
+
+.input_ea {
+    width:30%;
+    padding:3%;
+    margin-top:2%;
+    border:1px solid #aaaaaa;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+.deal_time {
+    width:100%;
+    height:20px;
+    font-size:3vw;
+    color:#333;
+    margin-top:0.5%;
+}
+
+.area_txt {
+    width:99.5%;
+    font-size:3.3vw;
+    font-weight:400;
+    color:#333;
+    text-align:left;
+    line-height:200%;
+    background-color:#fcfcfc;
+    border:solid 1px #e7e7e7;
+}
+
+.com_box {
+    width:85%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom:5%;
+    border:solid 1px #e0635b;
+    padding:2%;
+    background-color:#ffeded;
+}
+
+.com_memo_txt {
+    font-size:3vw;
+    color:#666;
+    font-weight:400;
+}
+
+
+#no_deal {
+    width:85%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom:5%;
+    border:solid 1px #d5d5d5;
+    padding:2%;
+    text-align:center;    
+    background-color:#fcfcfc;
+}
+
+#no_deal > span {
+    font-size:3.5vw;
+    font-weight:400;
+    color:#111;
+}
+
+#myp_com_search {
+    background-color:#e9e9e9;
+    padding-top:5%;
+    padding-left:5%;
+}
+
+.com_pyd_src {
+    width:95%;
+    height:100%;
+    font-size:3vw;
+    color:#333;
+}
+
+.com_pyd_src2 {
+    width:95%;
+    height:200%;
+    font-size:3vw;
+    color:#333;
+}
+
+#sub_tab_menu {
+    width:100%;
+    padding-top:3%;
+    padding-bottom:3%;
+    background-color:#575757;
+    vertical-align:middle;    
+}
+
+
+.sub_tab_menu_txt {
+    font-size:3.1vw;
+    font-weight:700;
+    color:#fff;
+    line-height:200%;
+}
+
+.sub_tab_menu_txt:link {
+    font-size:3.1vw;
+    font-weight:700;
+    color:#fff;
+    line-height:200%;
+}
+
+.sub_tab_menu_txt:visited {
+    font-size:3.1vw;
+    font-weight:700;
+    color:#fff;
+    line-height:200%;
+}
+
+.sub_tab_menu_txt:hover {
+    font-size:3.1vw;
+    font-weight:700;
+    color:#fff;
+    line-height:200%;
+}
+
+.sub_tab_menu_sel_txt {
+    font-size:3.1vw;
+    font-weight:700;
+    color:#fff7b4;
+    line-height:200%;
+}
+
+.input_money {
+    width:50%;
+    padding:1%;
+    margin-top:1%;
+    border:1px solid #eba7a3;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+.com_area_txt {
+    width:99.5%;
+    font-size:3.3vw;
+    font-weight:400;
+    color:#333;
+    text-align:left;
+    line-height:200%;
+    background-color:#fcfcfc;
+    border:solid 1px #eba7a3;
+}
+
+#mp_com_tab_menu {
+    margin-left:5%;
+    padding-bottom:3%;
+}
+
+/*Æ÷ÀÎÆ®ÃæÀü¼Ò*/
+
+#u_point {
+    width:85%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom:5%;
+    border:solid 1px #d5d5d5;
+    padding:2%;
+    background-color:#fff;
+}
+
+#u_point > ul > li {
+    font-size:3vw;
+    font-weight:400;
+    color:#666;
+    line-height:200%;
+}
+
+.point_green_txt {
+    font-size:3.5vw;
+    font-weight:700;
+    color:#3b972c;
+}
+
+.point_gold_txt {
+    font-size:3.5vw;
+    font-weight:700;
+    color:#f89e00;
+}
+
+.point_txt {
+    font-size:3.5vw;
+    font-weight:700;
+    color:#bb231a;
+}
+
+#point_charge_pay {
+    width:85%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom:5%;
+    border:solid 1px #d5d5d5;
+    padding:2%;
+    background-color:#fff;
+}
+
+.pay_txt {
+    font-size:3.5vw;
+    font-weight:700;
+    color:#333;
+    line-height:200%;
+}
+
+#point_info {
+    width:85%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom:5%;
+    border:solid 1px #d5d5d5;
+    padding:2%;
+    background-color:#fff;
+}
+
+.point_info_tit_txt {
+    font-size:3.3vw;
+    font-weight:700;
+    color:#bb231a;
+    line-height:170%;
+}
+
+.point_info_txt {
+    font-size:3vw;
+    font-weight:400;
+    color:#888;
+    text-align:left;
+    line-height:130%;
+}
+
+/*°³ÀÎurl*/
+
+#my_url {
+    width:85%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom:5%;
+    border:solid 1px #d5d5d5;
+    padding:2%;
+    background-color:#fff;
+}
+
+.com_url_add_txt {
+   font-size:3.5vw;
+   font-weight:700;
+   color:#428a9d;
+   line-height:150%;
+}
+
+.url_copy_send {
+    width:18%;
+    padding:1%;
+    margin-top:2%;
+    border:1px solid #2e7e21;
+    background-color:#3b972c;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#fff;
+}
+
+#sns_url {
+    width:85%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom:5%;
+    border:solid 1px #d5d5d5;
+    padding:2%;
+    background-color:#fff;
+}
+
+.url_introduce_txt {
+   font-size:3vw;
+   font-weight:700;
+   color:#333;
+   line-height:150%;
+   vertical-align:middle;
+}
+
+#list_info {
+    width:85%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom:5%;
+    border:solid 1px #d5d5d5;
+    padding:2%;
+    background-color:#fff;
+}
+
+#see_list {
+    width:94%;
+    text-align:right;
+}
+
+
+/*°³ÀÎurl_°í°´¸®½ºÆ®*/
+
+.url_info_txt {
+    margin-left:6%;
+    font-size:3.5vw;
+    font-weight:700;
+    color:#444;
+    line-height:200%;
+}
+
+#list_table {
+    width:85%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom:2%;
+    border:solid 1px #d5d5d5;
+    padding:2%;
+    background-color:#fff;
+}
+
+#list_table_nomem {
+    width:85%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom:2%;
+    border:solid 1px #d5d5d5;
+    padding:2%;
+    background-color:#fff;
+    text-align:center;
+}
+
+#list_table > table {
+    text-align:center;
+}
+
+.url_list_tit {
+    font-size:3.5vw;
+    font-weight:700;
+    color:#428a9d;
+    line-height:200%;
+}
+
+.url_no_member_txt {
+    font-size:3.5vw;
+    font-weight:700;
+    color:#428a9d;
+    text-align:center;    ;
+    line-height:200%;
+}
+
+.url_point_info_txt {
+    font-size:3vw;
+    font-weight:400;
+    color:#888;
+    text-align:center;
+    line-height:200%;
+}
+
+.url_list_normal_txt {
+    font-size:3vw;
+    font-weight:400;
+    color:#888;
+    line-height:250%;
+}
+
+.url_list_member_txt {
+    font-size:3.5vw;
+    font-weight:700;
+    color:#3b972c;
+    line-height:200%;
+}
+
+.url_list_out_txt {
+    font-size:3.5vw;
+    font-weight:700;
+    color:#bb231a;
+    line-height:200%;
+}
+
+#list_page_navi {
+    width:94%;
+    text-align:right;
+    padding-top:2%;
+    padding-bottom:10%;    
+}
+
+.url_change_page {
+    font-size:3.5vw;
+    font-weight:700;
+    line-height:100%;
+}
+
+
+/*±â¾÷Æò°¡Á¡¼ö*/
+
+#com_level_table {
+    width:85%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom:2%;
+    border:solid 1px #111;
+    padding:2%;
+    background-color:#333;
+}
+
+.com_score_tit {
+    font-size:4vw;
+    font-weight:700;
+    color:#e9e9e9;
+    line-height:200%;
+}
+
+.com_class_td {
+    text-align:right;
+    padding-right:1%;
+    vertical-align:bottom;
+}
+
+.com_score_txt {
+    font-size:5.5vw;
+    font-weight:700;
+    color:#fff7b4;
+    line-height:100%;
+}
+
+.com_class_level_perfect_txt {
+    font-size:4.5vw;
+    font-weight:700;
+    color:#ffc107;
+    line-height:200%;
+}
+
+.com_class_level_excellent_txt {
+    font-size:4.5vw;
+    font-weight:700;
+    color:#d548dd;
+    line-height:200%;
+}
+
+.com_class_level_normal_txt {
+    font-size:4.5vw;
+    font-weight:700;
+    color:#4df17f;
+    line-height:200%;
+}
+
+#com_level_criteria_table {
+    width:85%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom:2%;
+    border:solid 1px #444;
+    padding:2%;
+    background-color:#575757;
+}
+
+.com_class_info_tit_txt {
+    font-size:3vw;
+    font-weight:400;
+    color:#fff7b4;
+    line-height:140%;
+}
+
+.com_class_e9_txt {
+    font-size:2.5vw;
+    font-weight:400;
+    color:#e9e9e9;
+    line-height:120%;
+}
+
+.com_review_info_txt {
+    margin-top:7%;
+    margin-left:6%;
+    font-size:3.5vw;
+    font-weight:700;
+    color:#444;
+    line-height:200%;
+}
+
+.com_level_review_table {
+    width:85%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom:2%;
+    border:solid 1px #d5d5d5;
+    padding:2%;
+    background-color:#fff;
+}
+
+.review_product_txt {
+    font-size:3vw;
+    font-weight:700;
+    color:#3b972c;
+    line-height:200%;
+}
+
+.review_info_txt {
+    font-size:3vw;
+    font-weight:400;
+    color:#333;
+    line-height:200%;
+}
+
+#review_more {
+    width:94%;
+    margin-top:3%;
+    text-align:right;
+}
+
+#no_review {
+    width:85%;
+    margin-top:3%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom:2%;
+    border:solid 1px #d5d5d5;
+    padding:2%;
+    background-color:#fff;
+    text-align:center;
+}
+
+
+/*Á¦¾È¾÷Ã¼º¸±â*/
+
+#com_info_view {
+    width:85%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom:2%;
+    border:solid 1px #d5d5d5;
+    padding:2%;
+    background-color:#fff;
+}
+
+.com_info_list_txt {
+    font-size:3vw;
+    font-weight:400;
+    color:#333;
+    text-align:right;
+    line-height:200%;
+}
+
+.com_info_txt {
+    font-size:3.5vw;
+    font-weight:700;
+    color:#428a9d;    
+    text-align:left;
+    line-height:200%;
+}
+
+#com_map {
+    width:100%;
+    text-align:center; 
+    margin-top:5%; 
+    margin-bottom:5%;
+    background-color:#e9e9e9;
+    border:solid 1px #ccc;
+}
+
+#com_info_not_view {
+    width:85%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom:2%;
+    border:solid 1px #d5d5d5;
+    padding:4% 2% 4% 2%;
+    background-color:#fff;
+    text-align:center;
+}
+
+.com_info_not_txt {
+    font-size:3.5vw;
+    font-weight:700;
+    color:#428a9d;    
+    text-align:left;
+    line-height:200%;
+}
+
+#review_writing {
+    width:85%;
+    margin-top:5%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom:5%;
+    border:solid 1px #e0635b;
+    padding:2%;
+    background-color:#ffeded;
+}
+
+.review_score {
+    width:100%;
+    height:20px;
+    font-size:3vw;
+    color:#333;
+    margin-top:0.5%;
+}
+
+.review_area_txt {
+    width:99.5%;
+    font-size:3.3vw;
+    font-weight:400;
+    color:#333;
+    text-align:left;
+    line-height:200%;
+    background-color:#fcfcfc;
+    border:solid 1px #e0635b;
+}
+
+
+/*¾÷Ã¼»çÁøº¸±â*/
+
+#view_pic_contents {
+    width:100%;
+    min-height:100%;
+    padding-top:20px;
+    background-color:#575757;
+    overflow:hidden;
+    vertical-align:top;
+    padding-bottom:20px;
+    font-size:0;   
+}
+
+#pic_view {
+    width:85%;
+    min-height:150px;
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom:2%;
+    border:solid 1px #555;
+    padding:2%;
+    background-color:#e9e9e9;
+    text-align:center;
+}
+
+#no_pic_view {
+    width:85%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom:2%;
+    border:solid 1px #888;
+    padding:2%;
+    background-color:#575757;
+    text-align:center;
+}
+
+#no_pic_view > span {
+    font-size:3.5vw;
+    font-weight:400;
+    color:#e9e9e9;
+    text-align:center;
+}
+
+
+/*»óÇ°µî·ÏÆäÀÌÁö °øÅë------------------------------------------------------------------------------------------------------------------*/
+
+#buy_contents {
+    width:100%;
+    min-height:100%;
+    padding-top:20px;
+    background-color:#e9e9e9;
+    overflow:hidden;
+    vertical-align:top;
+    padding-bottom:20px;
+    font-size:0;   
+}
+
+/*½ÅÂ÷µî·Ï-----------------------------------------------------------------------------------------------------------------------------*/
+
+.nc_t {
+    font-size:3.5vw;
+    color:#bb231a;
+    font-weight:700;
+    line-height:110%;
+    padding-left:5%;
+    vertical-align:middle;
+    padding-bottom:3%;
+}
+
+.you_nc_t {
+    font-size:3.5vw;
+    color:#bb231a;
+    font-weight:700;
+    line-height:110%;
+    padding-top:4%;
+    padding-left:5%;
+    vertical-align:middle;
+    padding-bottom:2%;
+}
+
+#nc_input {
+    width:100%;
+    height:100%;
+    padding-left:5%;
+}
+
+#nc_input > table {
+    width:90%;
+    height:100%;
+}
+
+.newcar_sel {
+    padding-bottom:2%;
+}
+
+.new_car {
+    width:100%;
+    height:200%;
+    font-size:3vw;
+    color:#333;
+}
+
+.car_sel_ok {
+    text-align:center;
+    padding-top:3%;
+    padding-bottom:5%;
+}
+
+#you_sel_car {
+    width:85%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom:5%;
+    border:solid 1px #d5d5d5;
+    padding:2%;
+    background-color:#fff;
+}
+
+.car_com_txt {
+    font-size:3.5vw;
+    font-weight:700;
+    color:#333;
+}
+
+.car_name_txt {
+    font-size:3.5vw;
+    font-weight:700;
+    color:#3b972c;
+}
+
+#newcar_but_writing {
+    width:85%;
+    margin-top:1%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom:5%;
+    border:solid 1px #e0635b;
+    padding:2%;
+    background-color:#ffeded;
+}
+
+.msg_area_txt {
+    width:99.5%;
+    font-size:3.3vw;
+    font-weight:400;
+    color:#333;
+    text-align:left;
+    line-height:200%;
+    background-color:#fcfcfc;
+    border:solid 1px #e0635b;
+}
+
+.buy_time {
+    width:100%;
+    height:200%;
+    font-size:3vw;
+    line-height:200%;
+    color:#333;
+    border:solid 1px #e0635b;
+    background-color:#fcfcfc;
+}
+
+.nc_ea {
+    width:10%;
+    padding:2%;
+    margin-top:2%;
+    border:solid 1px #e0635b;
+    background-color:#fcfcfc;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+.city_sel {
+    width:49.4%;
+    height:50%;
+    font-size:3vw;
+    color:#333;
+    border:solid 1px #e0635b;
+    background-color:#fcfcfc;
+}
+
+#new_car_regi {
+    width:100%;
+    text-align:center;
+}
+
+#sale_tab {
+    width:100%;
+    height:100%;
+    padding-left:5%;
+}
+
+.input_newcar_txt {
+    width:93.5%;
+    padding:3%;
+    border:1px solid #aaaaaa;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+
+/*°æÁ¤ºñµî·Ï--------------------------------------------------------------------------------------------------------------------------*/
+
+.cc_t {
+    font-size:3.5vw;
+    color:#bb231a;
+    font-weight:700;
+    line-height:110%;
+    padding-left:5%;
+    vertical-align:middle;
+    padding-bottom:3%;
+}
+
+.you_cc_t {
+    font-size:3.5vw;
+    color:#bb231a;
+    font-weight:700;
+    line-height:110%;
+    padding-top:4%;
+    padding-left:5%;
+    vertical-align:middle;
+    padding-bottom:3%;
+}
+
+#cc_input {
+    width:100%;
+    height:100%;
+    padding-left:5%;
+}
+
+#cc_input > table {
+    width:90%;
+    height:100%;
+}
+
+.carcenter_sel {
+    padding-bottom:2%;
+}
+
+.car_center {
+    width:100%;
+    height:200%;
+    font-size:3vw;
+    color:#333;
+}
+
+.car_sel_ok {
+    text-align:center;
+    padding-top:3%;
+    padding-bottom:5%;
+}
+
+#you_sel_car {
+    width:85%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom:5%;
+    border:solid 1px #d5d5d5;
+    padding:2%;
+    background-color:#fff;
+}
+
+.car_com_txt {
+    font-size:3.5vw;
+    font-weight:700;
+    color:#333;
+}
+
+.car_name_txt {
+    font-size:3.5vw;
+    font-weight:700;
+    color:#3b972c;
+}
+
+#carcenter_but_writing {
+    width:85%;
+    margin-top:1%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom:5%;
+    border:solid 1px #e0635b;
+    padding:2%;
+    background-color:#ffeded;
+}
+
+.msg_area_txt {
+    width:99.5%;
+    font-size:3.3vw;
+    font-weight:400;
+    color:#333;
+    text-align:left;
+    line-height:200%;
+    background-color:#fcfcfc;
+    border:solid 1px #e0635b;
+}
+
+.buy_time {
+    width:100%;
+    height:200%;
+    font-size:3vw;
+    color:#333;
+    border:solid 1px #e0635b;
+    background-color:#fcfcfc;
+}
+
+.cc_ea {
+    width:10%;
+    padding:2%;
+    margin-top:2%;
+    border:solid 1px #e0635b;
+    background-color:#fcfcfc;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+.date_sel {
+    width:30%;
+    height:200%;
+    font-size:3vw;
+    color:#333;
+    border:solid 1px #e0635b;
+    background-color:#fcfcfc;
+}
+
+.date_sel2 {
+    width:20%;
+    height:200%;
+    font-size:3vw;
+    color:#333;
+    border:solid 1px #e0635b;
+    background-color:#fcfcfc;
+}
+
+.city_sel {
+    width:49%;
+    height:200%;
+    font-size:3vw;
+    color:#333;
+    border:solid 1px #e0635b;
+    background-color:#fcfcfc;
+}
+
+#car_center_regi {
+    width:100%;
+    text-align:center;
+}
+
+.cct_sel_src {
+    width:98%;
+    height:170%;
+    font-size:3vw;
+    color:#333;
+}
+
+.cct_sel_src2 {
+    width:99%;
+    height:170%;
+    font-size:3vw;
+    color:#333;
+}
+
+#page_sel {
+    background-color:#e9e9e9;
+    padding-top:5%;
+    padding-left:5%;
+}
+
+/*Áß°íÂ÷µî·Ï--------------------------------------------------------------------------------------------------------------------------*/
+
+#oldcar_tab_menu {
+    width:100%;
+    height:100%;
+    margin-top:5%;
+    padding-left:5%;
+    background-color:#e9e9e9;
+    padding-top:5%;
+}
+
+.oc_t {
+    font-size:3.5vw;
+    color:#bb231a;
+    font-weight:700;
+    line-height:110%;
+    padding-top:4%;
+    padding-left:5%;
+    vertical-align:middle;
+    padding-bottom:3%;
+}
+
+.old_car {
+    width:100%;
+    height:200%;
+    font-size:3vw;
+    color:#333;
+}
+
+.old_car_list {
+    width:97%;
+    height:100%;
+    font-size:3vw;
+    color:#333;
+}
+
+#oc_input {
+    width:100%;
+    height:100%;
+    padding-left:5%;
+}
+
+#oc_input > table {
+    width:90%;
+    height:100%;
+}
+
+.oldcar_sel {
+    padding-bottom:2%;
+}
+
+.input_oldcar {
+    width:70%;
+    padding:3%;
+    border:1px solid #aaaaaa;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+.input_oldcar_color {
+    width:93.5%;
+    padding:3%;
+    border:1px solid #aaaaaa;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+.input_oldcar_much {
+    width:70%;
+    padding:3%;
+    border:solid 1px #e0635b;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+#oldcar_but_writing {
+    width:85%;
+    margin-top:1%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom:5%;
+    border:solid 1px #e0635b;
+    padding:2%;
+    background-color:#ffeded;
+}
+
+#old_car_regi {
+    width:100%;
+    text-align:center;
+}
+
+#oldcar_cate_tab {
+    background-color:#e9e9e9;
+    padding-top:5%;
+    padding-left:5%;
+}
+
+
+/*ÀÚµ¿Â÷º¸Çèµî·Ï--------------------------------------------------------------------------------------------------------------------------*/
+
+#carinsu_tab_menu {
+    width:100%;
+    height:100%;
+    margin-top:5%;
+    padding-left:5%;
+    background-color:#e9e9e9;
+    padding-top:5%;
+}
+
+.ci_t {
+    font-size:3.5vw;
+    color:#bb231a;
+    font-weight:700;
+    line-height:110%;
+    padding-top:4%;
+    padding-left:5%;
+    vertical-align:middle;
+    padding-bottom:3%;
+}
+
+.ci_car {
+    width:99.5%;
+    height:200%;
+    font-size:3vw;
+    color:#333;
+}
+
+#ci_input {
+    width:100%;
+    height:100%;
+    padding-left:5%;
+}
+
+#ci_input > table {
+    width:90%;
+    height:100%;
+}
+
+.carinsu_sel {
+    padding-bottom:2%;
+}
+
+.input_oldcar {
+    width:70%;
+    padding:3%;
+    border:1px solid #aaaaaa;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+.input_carinsu_much {
+    width:93%;
+    padding:3%;
+    border:solid 1px #e0635b;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+.insu_sel {
+    width:100%;
+    height:32px;
+    font-size:3vw;
+    color:#333;
+    border:solid 1px #e0635b;
+    background-color:#fcfcfc;
+}
+
+#carinsu_op_check {
+    margin-top:3%;
+    margin-left:5%;
+}
+
+#carinsu_but_writing {
+    width:85%;
+    margin-top:1%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom:5%;
+    border:solid 1px #e0635b;
+    padding:2%;
+    background-color:#ffeded;
+}
+
+#car_insu_regi {
+    width:100%;
+    text-align:center;
+}
+
+
+/*ÆóÂ÷µî·Ï--------------------------------------------------------------------------------------------------------------------------*/
+
+#junkcar_tab_menu {
+    width:100%;
+    height:100%;
+    margin-top:5%;
+    padding-left:5%;
+    background-color:#e9e9e9;
+    padding-top:5%;
+}
+
+.jc_t {
+    font-size:3.5vw;
+    color:#bb231a;
+    font-weight:700;
+    line-height:110%;
+    padding-top:4%;
+    padding-left:5%;
+    vertical-align:middle;
+    padding-bottom:3%;
+}
+
+.junk_car {
+    width:100%;
+    height:200%;
+    font-size:3vw;
+    color:#333;
+}
+
+#jc_input {
+    width:100%;
+    height:100%;
+    padding-left:5%;
+}
+
+#jc_input > table {
+    width:90%;
+    height:100%;
+}
+
+.junkcar_sel {
+    padding-bottom:2%;
+}
+
+.input_junkcar {
+    width:93.5%;
+    padding:3%;
+    border:1px solid #aaaaaa;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+.input_junkcar_much {
+    width:70%;
+    padding:3%;
+    border:solid 1px #e0635b;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+#junkcar_but_writing {
+    width:85%;
+    margin-top:1%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom:5%;
+    border:solid 1px #e0635b;
+    padding:2%;
+    background-color:#ffeded;
+}
+
+#junk_car_regi {
+    width:100%;
+    text-align:center;
+}
+
+#junk_type_tab {
+    width:100%;
+    height:100%;
+    padding-left:5%;
+    margin-top:4%;    
+}
+
+#junk_type_normal {
+    width:87%;
+    background-color:#d9e8ff;
+    border:solid 1px #779cd4;
+    margin-top:3%;
+    margin-left:5%;
+    padding:1%;
+}
+
+#junk_type_normal > h1 {
+    font-size:3.5vw;
+    font-weight:600;
+    color:#3265b1;
+    line-height:200%;
+}
+
+#junk_type_normal > ul > li {    
+    color:#333;
+    line-height:150%;
+}
+
+#junk_type_normal > p {    
+    color:#333;
+    line-height:150%;
+}
+
+/*ÇÈ¾÷µî·Ï--------------------------------------------------------------------------------------------------------------------------*/
+
+.pu_t {
+    font-size:3.5vw;
+    color:#bb231a;
+    font-weight:700;
+    line-height:110%;
+    padding-top:4%;
+    padding-left:5%;
+    vertical-align:middle;
+    padding-bottom:3%;
+}
+
+.pu_purpose {
+    width:49.3%;
+    height:200%;
+    font-size:3vw;
+    color:#333;
+}
+
+.pu_purpose_time {
+    width:20%;
+    height:200%;
+    font-size:3vw;
+    color:#333;
+}
+
+#pu_input {
+    width:100%;
+    height:100%;
+    padding-left:5%;
+}
+
+#pu_input > table {
+    width:90%;
+    height:100%;
+}
+
+.pickup_sel {
+    padding-bottom:2%;
+}
+
+.input_pickup {
+    width:70%;
+    padding:3%;
+    border:1px solid #aaaaaa;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+.input_pickup_much {
+    width:93%;
+    padding:3%;
+    border:solid 1px #e0635b;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+.insu_sel {
+    width:100%;
+    height:32px;
+    font-size:3vw;
+    color:#333;
+    border:solid 1px #e0635b;
+    background-color:#fcfcfc;
+}
+
+#pickup_op_check {
+    margin-top:3%;
+    margin-left:5%;
+}
+
+#pickup_but_writing {
+    width:85%;
+    margin:5%;
+    border:solid 1px #e0635b;
+    padding:2%;
+    background-color:#ffeded;
+}
+
+#pickup_regi {
+    width:100%;
+    text-align:center;
+}
+
+#pickup_tel_info {
+    width:90%;
+    height:100%;
+    margin-top:1%;
+    padding-left:5%;
+    background-color:#e9e9e9;
+}
+
+#pu_tab {
+    width:100%;
+    height:100%;
+    padding-left:5%;
+}
+
+
+
+
+/*ÀÚµ¿Â÷¿ëÇ°µî·Ï--------------------------------------------------------------------------------------------------------------------------*/
+
+#carproduct_tab_menu {
+    width:100%;
+    height:100%;
+    margin-top:5%;
+    padding-left:5%;
+    background-color:#e9e9e9;
+    padding-top:5%;
+}
+
+.cp_t {
+    font-size:3.5vw;
+    color:#bb231a;
+    font-weight:700;
+    line-height:110%;
+    padding-top:4%;
+    padding-left:5%;
+    vertical-align:middle;
+    padding-bottom:3%;
+}
+
+.car_product {
+    width:100%;
+    height:200%;
+    font-size:3vw;
+    color:#333;
+}
+
+#cp_input {
+    width:100%;
+    height:100%;
+    padding-left:5%;
+}
+
+#cp_input > table {
+    width:90%;
+    height:100%;
+}
+
+.carproduct_sel {
+    padding-bottom:2%;
+}
+
+.input_carproduct {
+    width:70%;
+    padding:3%;
+    border:1px solid #aaaaaa;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+.input_carproduct_much {
+    width:70%;
+    padding:3%;
+    border:solid 1px #e0635b;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+#carproduct_but_writing {
+    width:85%;
+    margin-top:1%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom:5%;
+    border:solid 1px #e0635b;
+    padding:2%;
+    background-color:#ffeded;
+}
+
+#car_product_regi {
+    width:100%;
+    text-align:center;
+}
+
+#carproduct_goods_check {
+    margin-top:2%;
+    margin-left:5%;
+}
+
+
+/*±¸°æ¸ô¸®½ºÆ®--------------------------------------------------------------------------------------------------------------------------*/
+
+#mall_cate_search {
+    background-color:#e9e9e9;
+    padding-top:5%;
+    padding-left:5%;
+}
+
+.cate_sel {
+    width:100%;
+    height:35px;
+    font-size:3vw;
+    color:#333;
+}
+
+#mall_contents {
+    width:100%;
+    min-height:100%;
+    padding-top:20px;
+    background-color:#e9e9e9;
+    overflow:hidden;
+    vertical-align:top;
+    padding-bottom:20px;
+    font-size:0;   
+}
+
+.mall_list_id_txt {
+    font-size:3.5vw;
+    font-weight:700;
+    color:#428a9d;
+}
+
+.mall_list_txt_bold {
+    font-size:3.5vw;
+    font-weight:700;
+    color:#333;
+}
+
+#list_more {
+    width:94%;
+    margin-top:3%;
+    text-align:right;
+}
+
+.memo_txt {
+    font-size:3vw;
+    font-weight:400;
+    color:#333;
+    padding-top:2%;
+    padding-bottom:2%;
+    text-align:left;
+    line-height:150%;
+}
+
+/*°¡±î¿î ¾÷Ã¼º¸±â-----------------------------------------------------------------------------------------------------------------*/
+
+.store_list_sel {
+    width:94%;
+    height:200%;
+    font-size:3vw;
+    color:#333;
+}
+
+.store_list_sel2 {
+    width:97%;
+    height:90%;
+    font-size:3vw;
+    color:#333;
+}
+
+#store_contents {
+    width:100%;
+    min-height:100%;
+    padding-top:20px;
+    background-color:#e9e9e9;
+    overflow:hidden;
+    vertical-align:top;
+    padding-bottom:20px;
+    font-size:0;   
+}
+
+.store_box {
+    width:85%;
+
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom:5%;
+    border:solid 1px #d5d5d5;
+    padding:2%;
+    background-color:#fff;
+}
+
+.st_job_title {
+    font-size:4.3vw;
+    color:#333;
+    line-height:120%;
+    text-align:left;
+    font-weight:700;
+    padding-bottom:2%;
+}
+
+.store_img {
+    background-color:#e9e9e9;
+    text-align:center;
+    border:solid 1px #d5d5d5;
+}
+
+.st_job_name {
+    font-size:4vw;
+    color:#1ab2bb;
+    line-height:120%;
+    text-align:left;
+    font-weight:700;
+    padding-bottom:2%;
+}
+
+.st_job_info {
+    font-size:2.5vw;
+    color:#888;
+    line-height:120%;
+    text-align:left;
+    font-weight:400;
+    padding-bottom:2%;
+}
+
+.store_txt_add {
+    font-size:2.5vw;
+    color:#000;
+    line-height:120%;
+    text-align:left;
+    font-weight:400;
+    padding-bottom:2%;
+}
+
+.store_txt_phone {
+    font-size:3.5vw;
+    color:#bb231a;
+    line-height:120%;
+    text-align:left;
+    font-weight:700;
+    padding-bottom:2%;
+}
+
+.store_txt_time {
+    font-size:2.5vw;
+    color:#000;
+    line-height:120%;
+    text-align:left;
+    font-weight:400;
+    padding-bottom:2%;
+}
+
+
+
+/*¾÷Ã¼µî·Ï----------------------------------------------------------------------------------------------------------------*/
+
+#com_regi_notice {
+    background-color:#e9e9e9;
+    padding-top:5%;
+    padding-left:5%;
+}
+
+#com_regi_notice > p {
+    font-size:3.5vw;
+    color:#111;
+    font-weight:600;
+    text-align:left;
+}
+
+
+.store_regi_sel {
+    width:94%;
+    height:200%;
+    font-size:3vw;
+    color:#333;
+}
+
+.store_regi_sel2 {
+    width:88%;
+    height:200%;
+    font-size:3vw;
+    color:#333;
+}
+
+.store_text {
+    width:93.5%;
+    padding:3%;
+    margin-top:2%;
+    border:1px solid #aaaaaa;
+    font-size:3.5vw;
+    font-weight:400;
+    color:#333;
+}
+
+#store_com_time {
+    background-color:#e9e9e9;
+    padding-top:5%;
+    padding-left:5%;
+}
+
+.store_day_sel {
+    width:94.5%;
+    height:200%;
+    font-size:3vw;
+    color:#333;
+}
+
+.store_time_sel {
+    width:79%;
+    height:200%;
+    font-size:3vw;
+    color:#333;
+}
+
+#store_regi_ok {
+    width:100%;
+    margin-top:7%;
+    margin-bottom:5%;
+    text-align:center;
+}
+
+#good_company {
+    background-color:#e9e9e9;
+    padding-top:5%;
+    padding-left:5%;
+    margin-top:5%;
+}
+
+#as_company {
+    background-color:#e9e9e9;
+    padding-top:5%;
+    padding-left:5%;
+}
+
+/*±ä±ÞÃâµ¿ ------------------------------------------------------------------------------------------*/
+
+#emer_contents {
+    width:100%;
+    min-height:100%;
+    background-color:#e9e9e9;
+    overflow:hidden;
+    vertical-align:top;
+    padding-bottom:40px;
+    font-size:0;   
+}
+
+#insu_tel_info {
+    width:95%;
+    height:100%;
+    margin-top:1%;
+    background-color:#e9e9e9;
+}
+
+.pu_t2 {
+    font-size:3.5vw;
+    color:#bb231a;
+    font-weight:700;
+    line-height:110%;
+    padding-top:4%;
+    vertical-align:middle;
+    padding-bottom:3%;
+}
+
+#fc_call {
+    width:93.5%;
+    background-color:#fff;
+    border:solid 1px #0e989a;
+    margin-top:7%;
+}
+
+.fc_call_info {
+    width:90%;
+    padding:3%;
+    line-height:120%;
+}
+
+.fc_call_btn {
+    text-align:center;
+    padding:2%;
+}
+
+#emer_banner {
+    width:100%;
+    background-color:#428a9d;    
+    font-size:0;
+}
+
+#emer_banner > a {
+    font-size:0;  
+}
+
+#road_call {
+    width:93.5%;
+    background-color:#fff;
+    border:solid 1px #333;
+    margin-top:7%;
+}
+
+#road_call  > #road_tow {
+    width:90%;
+    padding:3%;
+    line-height:120%;
+}
+
+#road_call  > #road_tow > h2 {
+    font-size:3.5vw;
+    color:#e65050;
+    font-weight:700;
+    line-height:150%;
+}
+
+#road_call  > #road_tow > p {
+    font-size:2.5vw;
+    color:#333;
+    font-weight:600;
+    line-height:120%;
+}
+
+#road_call  > #road_tow_call {
+    width:90%;
+    padding:0 0 2% 3%;
+    line-height:120%;
+}
+
+#road_call  > #min_road_tow_call {
+    width:90%;
+    padding:0 3% 3% 3%;
+    line-height:120%;
+}
+
+
+
+/*¿ì¼ö°ø¾÷»ç/as¼¾ÅÍ -----------------------------------------------------------------------------------------------------------------*/
+
+#emer_list_contents {
+    width:100%;
+    min-height:100%;
+    padding-top:20px;
+    background-color:#e9e9e9;
+    overflow:hidden;
+    vertical-align:top;
+    padding-bottom:20px;
+    font-size:0;   
+}
+
+.emer_list_box {
+    width:85%;
+    margin-left:5%;
+    margin-right:5%;
+    margin-bottom:5%;
+    border:solid 1px #d5d5d5;
+    padding:2%;
+    background-color:#fff;
+}
+
+.insu_title {
+    font-size:3.3vw;
+    color:#333;
+    line-height:120%;
+    text-align:left;
+    font-weight:700;
+    padding-bottom:2%;
+}
+
+.emer_img {
+    background-color:#fff;
+    text-align:center;
+    border:solid 1px #d5d5d5;
+}
+
+.emer_job_name {
+    font-size:4vw;
+    color:#1ab2bb;
+    line-height:120%;
+    text-align:left;
+    font-weight:700;
+    padding-bottom:2%;
+}
+
+.emer_txt_add {
+    font-size:2.5vw;
+    color:#000;
+    line-height:120%;
+    text-align:left;
+    font-weight:400;
+    padding-bottom:2%;
+}
+
+.emer_call {
+    font-size:3.5vw;
+    color:#bb231a;
+    line-height:120%;
+    text-align:left;
+    font-weight:700;
+    padding-top:3%;
+    padding-bottom:3%;
+}
+
+.emer_txt_time {
+    font-size:2.5vw;
+    color:#000;
+    line-height:120%;
+    text-align:left;
+    font-weight:400;
+    padding-top:2%;
+}
+
+
+
+
+/*Ä«Å×°í¸®º° »ó´Ü ¹è³Ê-------------------------------------------------------------------------------------------------------*/
+
+#cate_banner {
+    font-size:0;
+    background-color:#e9e9e9;
+}
+
+
+
+/*½Ç½Ã°£ ÇöÈ² ¸®½ºÆ®-------------------------------------------------------------------------------------------------------*/
+
+#real_time_list {
+    background-color:#e9e9e9;
+    padding-top:5%;
+    padding-left:5%;
+}
+
+#real_time_list > #rt_box {
+    width:89.5%;
+    background-color:#fff;
+    border:solid 1px #d5d5d5;
+    padding:2%;
+}
+
+#rt_box > h1 {
+    font-size:3.2vw;
+    font-weight:700;
+    color:#111;
+    line-height:200%;
+}
+
+.rt_list_roll {
+    width:100%;
+    line-height:150%;
+    border:solid 1px #e9e9e9;
+    background-color:#f5f5f5;
+}
+
+.rt_li {    
+    font-size:3vw;
+    color:#444;
+    padding:2%;
+    text-align:left;
+}tt¯»Èj      WªÒðWªÑº<Ä3WªêV   '    :http://bogotago.co.kr/m/css/common.css necko:classified 1 request-method GET response-head HTTP/1.1 200 OK
+Content-Type: text/css
+Last-Modified: Tue, 09 Aug 2016 07:32:29 GMT
+Accept-Ranges: bytes
+Etag: "e1a2192f10f2d11:0"
+Server: Microsoft-IIS/7.5
+X-Powered-By: ASP.NET
+X-UA-Compatible: IE=Edge
+Date: Wed, 10 Aug 2016 06:30:35 GMT
+Content-Length: 55532
+ uncompressed-len 0   Øì

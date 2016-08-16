@@ -1,0 +1,44 @@
+
+(unity-control-center:25589): unity-control-center-WARNING **: Could not load /usr/share/themes/Adwaita/index.theme: 그런 파일이나 디렉터리가 없습니다
+
+(unity-control-center:25589): Gtk-CRITICAL **: gtk_builder_get_object: assertion 'GTK_IS_BUILDER (builder)' failed
+
+(unity-control-center:25589): Gtk-CRITICAL **: gtk_icon_view_get_selected_items: assertion 'GTK_IS_ICON_VIEW (icon_view)' failed
+WARN  2016-08-16 15:46:59 unity.shell.compiz unityshell.cpp:3228 Animation plugin not found. Can't set minimize speed.
+Vector smash protection is enabled.
+Failed to open VDPAU backend libvdpau_nvidia.so: 동적 오브젝트 파일을 열 수 없습니다: 그런 파일이나 디렉터리가 없습니다
+WARN  2016-08-16 15:49:09 unity.shell.compiz unityshell.cpp:3228 Animation plugin not found. Can't set minimize speed.
+WARN  2016-08-16 15:49:14 unity.shell.compiz unityshell.cpp:3228 Animation plugin not found. Can't set minimize speed.
+WARN  2016-08-16 15:53:07 unity.shell.compiz unityshell.cpp:3228 Animation plugin not found. Can't set minimize speed.
+WARN  2016-08-16 15:53:23 unity.a11y.expanderview unity-expander-view-accessible.cpp:185 has_focus = 1
+WARN  2016-08-16 15:53:24 unity.a11y.expanderview unity-expander-view-accessible.cpp:185 has_focus = 0
+ERROR 2016-08-16 15:53:25 unityfree <unknown>:0 g_sequence_get: assertion '!is_end (iter)' failed
+ERROR 2016-08-16 15:53:25 unity null <unknown>:0 Unable to get value. NULL row data in DeeSequenceModel@0x64e1e60 at position 4. The row has probably been removed
+ERROR 2016-08-16 15:53:25 unity null <unknown>:0 Unable to get string. Column 5 in DeeSequenceModel@0x64e1e60 holds a NULL value in row 4
+WARN  2016-08-16 15:53:58 unity <unknown>:0 Unable to fetch children: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: 경로 /org/ayatana/bamf/application/545253652의 객체에 'org.ayatana.bamf.view' 인터페이스가 없습니다
+
+WARN  2016-08-16 15:53:58 unity <unknown>:0 Failed to fetch path: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: 경로 /org/ayatana/bamf/application/545253652의 객체에 'org.ayatana.bamf.application' 인터페이스가 없습니다
+WARN  2016-08-16 15:53:58 unity <unknown>:0 Failed to fetch path: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: 경로 /org/ayatana/bamf/application/545253652의 객체에 'org.ayatana.bamf.application' 인터페이스가 없습니다
+WARN  2016-08-16 15:53:58 unity <unknown>:0 Failed to fetch path: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: 경로 /org/ayatana/bamf/application/545253652의 객체에 'org.ayatana.bamf.application' 인터페이스가 없습니다
+WARN  2016-08-16 15:53:58 unity <unknown>:0 Failed to fetch path: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: 경로 /org/ayatana/bamf/application/545253652의 객체에 'org.ayatana.bamf.application' 인터페이스가 없습니다
+WARN  2016-08-16 15:53:58 unity <unknown>:0 Failed to fetch path: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: 경로 /org/ayatana/bamf/application/545253652의 객체에 'org.ayatana.bamf.application' 인터페이스가 없습니다
+WARN  2016-08-16 15:53:58 unity <unknown>:0 Failed to fetch path: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: 경로 /org/ayatana/bamf/application/545253652의 객체에 'org.ayatana.bamf.application' 인터페이스가 없습니다
+WARN  2016-08-16 15:53:58 unity <unknown>:0 Failed to fetch path: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: 경로 /org/ayatana/bamf/application/545253652의 객체에 'org.ayatana.bamf.application' 인터페이스가 없습니다
+WARN  2016-08-16 15:53:58 unity <unknown>:0 Failed to fetch path: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: 경로 /org/ayatana/bamf/application/545253652의 객체에 'org.ayatana.bamf.application' 인터페이스가 없습니다
+WARN  2016-08-16 15:56:05 unity.a11y.expanderview unity-expander-view-accessible.cpp:185 has_focus = 1
+WARN  2016-08-16 15:56:08 unity.a11y.expanderview unity-expander-view-accessible.cpp:185 has_focus = 0
+WARN  2016-08-16 15:56:08 unity.a11y.expanderview unity-expander-view-accessible.cpp:185 has_focus = 1
+WARN  2016-08-16 15:56:08 unity.a11y.expanderview unity-expander-view-accessible.cpp:185 has_focus = 0
+WARN  2016-08-16 15:56:09 unity.a11y.expanderview unity-expander-view-accessible.cpp:185 has_focus = 1
+WARN  2016-08-16 15:56:12 unity.a11y.expanderview unity-expander-view-accessible.cpp:185 has_focus = 0
+WARN  2016-08-16 15:56:12 unity.a11y.expanderview unity-expander-view-accessible.cpp:185 has_focus = 1
+WARN  2016-08-16 15:56:14 unity.a11y.expanderview unity-expander-view-accessible.cpp:185 has_focus = 0
+WARN  2016-08-16 15:56:14 unity.a11y.expanderview unity-expander-view-accessible.cpp:185 has_focus = 1
+WARN  2016-08-16 15:56:15 unity.a11y.expanderview unity-expander-view-accessible.cpp:185 has_focus = 0
+ERROR 2016-08-16 15:56:50 unityfree <unknown>:0 g_sequence_get: assertion '!is_end (iter)' failed
+ERROR 2016-08-16 15:56:50 unity null <unknown>:0 Unable to get value. NULL row data in DeeSequenceModel@0x8cbea70 at position 16. The row has probably been removed
+ERROR 2016-08-16 15:56:50 unity null <unknown>:0 Unable to get string. Column 5 in DeeSequenceModel@0x8cbea70 holds a NULL value in row 16
+WARN  2016-08-16 15:57:03 unity.a11y.expanderview unity-expander-view-accessible.cpp:185 has_focus = 1
+WARN  2016-08-16 15:57:05 unity.a11y.expanderview unity-expander-view-accessible.cpp:185 has_focus = 0
+
+(firefox:28776): LIBDBUSMENU-GTK-CRITICAL **: dbusmenu_menuitem_property_set_shortcut: assertion 'gtk_accelerator_valid(key, modifier)' failed
